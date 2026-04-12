@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,7 +13,7 @@
       --text: #d9d2ca;
       --muted: #9d958b;
       --soft: #bfb7ae;
-      --max: 1600px;
+      --max: 1540px;
       --radius: 24px;
     }
 
@@ -94,60 +94,63 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1fr 420px;
-      gap: 28px;
-      align-items: center;
+      grid-template-columns: 1.36fr 0.64fr;
+      gap: 22px;
+      align-items: end;
       width: 100%;
-    }
-
-    .hero-copy-block {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
     }
 
     .eyebrow {
       color: var(--muted);
-      font-size: 0.82rem;
+      font-size: 0.84rem;
       text-transform: uppercase;
       letter-spacing: 0.14em;
       margin-bottom: 14px;
-      text-align: center;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(2.8rem, 7vw, 5.8rem);
-      line-height: 0.94;
-      letter-spacing: 0.12em;
+      font-size: clamp(4.4rem, 11vw, 10rem);
+      line-height: 0.9;
+      letter-spacing: 0.16em;
       font-weight: 700;
       color: var(--text);
       text-transform: uppercase;
       white-space: nowrap;
-      text-align: center;
     }
 
     .hero-copy {
-      margin: 16px auto 0;
+      margin-top: 18px;
       color: var(--muted);
-      max-width: 24ch;
-      font-size: 1rem;
-      text-align: center;
+      max-width: 30ch;
+      font-size: 1.04rem;
+    }
+
+    .stamp-row {
+      margin-top: 18px;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .stamp {
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
     }
 
     .hero-panel {
-      min-height: 250px;
+      min-height: 280px;
       padding: 24px;
       border-radius: var(--radius);
       border: 1px solid rgba(255,255,255,0.06);
       background:
-        radial-gradient(circle at 24% 24%, rgba(255,255,255,0.04), transparent 22%),
-        linear-gradient(180deg, rgba(20,20,20,0.72), rgba(12,12,12,0.88));
+        radial-gradient(circle at 24% 24%, rgba(255,255,255,0.05), transparent 22%),
+        linear-gradient(180deg, rgba(20,20,20,0.76), rgba(12,12,12,0.9));
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: 0 22px 60px rgba(0,0,0,0.18);
+      box-shadow: 0 22px 60px rgba(0,0,0,0.2);
     }
 
     .hero-panel .label {
@@ -171,30 +174,8 @@
       max-width: 28ch;
     }
 
-    .quote {
-      margin-top: 18px;
-      padding-top: 18px;
-      border-top: 1px solid rgba(255,255,255,0.07);
-      color: #e4ded7;
-      font-size: clamp(1.15rem, 2vw, 1.45rem);
-      line-height: 1.15;
-    }
-
-    .stamp-row {
-      margin-top: 18px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .stamp {
-      color: var(--muted);
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-    }
-
     .drop {
-      padding: 56px 0 46px;
+      padding: 28px 0 46px;
     }
 
     .drop-head {
@@ -267,14 +248,12 @@
       object-fit: cover;
       object-position: center;
       opacity: 0.9;
-      mix-blend-mode: normal;
     }
 
     .piece-image.contain {
       object-fit: contain;
-      padding: 8px;
-      background: rgba(0,0,0,0.02);
-      transform: scale(0.9);
+      padding: 22px;
+      background: rgba(0,0,0,0.05);
     }
 
     .piece-info {
@@ -282,13 +261,14 @@
       inset: auto 0 0 0;
       z-index: 2;
       padding: 20px;
-      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.38) 62%, rgba(0,0,0,0.82) 100%);
+      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.64) 72%, rgba(0,0,0,0.88) 100%);
       pointer-events: none;
+      transition: opacity 0.18s ease;
     }
 
     .piece-line {
       color: var(--muted);
-      font-size: 0.76rem;
+      font-size: 0.78rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       margin-bottom: 8px;
@@ -296,108 +276,96 @@
 
     .piece-info h3 {
       margin: 0 0 8px;
-      color: #ebe5de;
-      font-size: 1.4rem;
+      font-size: 1.42rem;
       line-height: 1.02;
+      color: #e6dfd8;
     }
 
     .piece-info p {
       margin: 0 0 12px;
-      color: #b6aea5;
-      max-width: 34ch;
+      color: #b0a89f;
+      max-width: 30ch;
     }
 
     .piece-price {
-      color: #ebe5de;
+      color: #e6dfd8;
       font-weight: 700;
-      font-size: 0.98rem;
+    }
+
+    .piece-meta {
+      position: absolute;
+      inset: auto 18px 18px 18px;
+      z-index: 4;
+      display: grid;
+      gap: 6px;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.18s ease, transform 0.18s ease;
+      pointer-events: none;
+    }
+
+    .piece:hover .piece-meta,
+    .piece:focus-visible .piece-meta {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .piece:hover .piece-info,
+    .piece:focus-visible .piece-info {
+      opacity: 0.08;
+    }
+
+    .meta-chip {
+      width: fit-content;
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(8,8,8,0.84);
+      color: #ddd6cf;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
     }
 
     .fog-silent {
       background:
-        radial-gradient(circle at 32% 26%, rgba(255,255,255,0.09), transparent 22%),
-        radial-gradient(circle at 58% 72%, rgba(255,255,255,0.07), transparent 28%),
-        radial-gradient(circle at 18% 84%, rgba(255,255,255,0.05), transparent 18%),
+        radial-gradient(circle at 35% 28%, rgba(255,255,255,0.12), transparent 22%),
+        radial-gradient(circle at 62% 70%, rgba(255,255,255,0.08), transparent 28%),
+        radial-gradient(circle at 18% 84%, rgba(255,255,255,0.06), transparent 18%),
         #0f0f0f;
     }
 
     .fog-silent-light {
       background:
-        radial-gradient(circle at 50% 18%, rgba(255,255,255,0.1), transparent 20%),
+        radial-gradient(circle at 50% 18%, rgba(255,255,255,0.12), transparent 20%),
         radial-gradient(circle at 28% 74%, rgba(255,255,255,0.07), transparent 24%),
         #101010;
     }
 
     .rough-signal {
       background:
-        linear-gradient(145deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 100%),
-        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01)),
-        #101010;
+        linear-gradient(145deg, rgba(255,255,255,0.06) 0 1px, transparent 1px 100%),
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01)),
+        #111;
       background-size: 220px 220px, auto, auto;
     }
 
     .rough-signal-heavy {
       background:
-        radial-gradient(circle at 82% 18%, rgba(255,255,255,0.06), transparent 10%),
+        radial-gradient(circle at 82% 18%, rgba(255,255,255,0.07), transparent 10%),
         linear-gradient(35deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 100%),
-        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01)),
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01)),
         #101010;
       background-size: auto, 150px 150px, auto, auto;
     }
 
     .rough-signal-soft {
       background:
-        radial-gradient(circle at 14% 18%, rgba(255,255,255,0.07), transparent 9%),
-        radial-gradient(circle at 84% 84%, rgba(255,255,255,0.05), transparent 10%),
-        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01)),
+        radial-gradient(circle at 14% 18%, rgba(255,255,255,0.08), transparent 9%),
+        radial-gradient(circle at 84% 84%, rgba(255,255,255,0.06), transparent 10%),
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01)),
         #111;
-    }
-
-    .merz-piece {
-      display: grid;
-      grid-template-columns: 1.06fr 0.94fr;
-      align-items: stretch;
-    }
-
-    .merz-piece .piece-info {
-      position: relative;
-      inset: auto;
-      background: none;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding-right: 8px;
-      padding-left: 18px;
-    }
-
-    .merz-piece .piece-visual {
-      position: relative;
-      overflow: hidden;
-      min-height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      padding-right: 2px;
-    }
-
-    .merz-piece .piece-image {
-      position: relative;
-      inset: auto;
-      height: 100%;
-      width: 100%;
-    }
-
-    .merz-front .piece-image.contain {
-      transform: scale(0.98);
-      object-position: 84% center;
-      padding: 0 0 0 28px;
-    }
-
-    .merz-back .piece-image.contain {
-      transform: scale(0.88);
-      object-position: 88% center;
-      padding: 0 0 0 42px;
-      opacity: 0.9;
     }
 
     .contact {
@@ -519,23 +487,8 @@
         grid-column: span 2;
       }
 
-      h1,
-      .eyebrow,
-      .hero-copy {
-        text-align: left;
-      }
-
-      .hero-copy-block {
-        align-items: flex-start;
-      }
-
       .stamp-row {
         justify-content: flex-start;
-      }
-
-      .hero-copy {
-        margin-left: 0;
-        margin-right: 0;
       }
     }
 
@@ -553,6 +506,7 @@
       h1 {
         font-size: clamp(3.1rem, 16vw, 5.4rem);
         letter-spacing: 0.12em;
+        white-space: normal;
       }
 
       .brand {
@@ -565,30 +519,6 @@
 
       .piece-wide {
         grid-column: span 1;
-      }
-
-      .merz-piece {
-        grid-template-columns: 1fr;
-      }
-
-      .merz-piece .piece-info {
-        position: absolute;
-        inset: auto 0 0 0;
-        background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.38) 62%, rgba(0,0,0,0.82) 100%);
-        padding-right: 20px;
-        padding-left: 20px;
-      }
-
-      .merz-piece .piece-visual {
-        padding-right: 0;
-        justify-content: center;
-      }
-
-      .merz-front .piece-image.contain,
-      .merz-back .piece-image.contain {
-        transform: scale(1.02);
-        object-position: center;
-        padding: 8px;
       }
 
       .contact-pop {
@@ -605,7 +535,7 @@
   <header class="topbar">
     <div class="wrap topbar-inner">
       <a class="brand" href="#top">H A N G M E N</a>
-      <nav class="nav" aria-label="Hauptnavigation">
+      <nav class="nav" aria-label="Main navigation">
         <a href="#drop01">Drop 01</a>
         <a href="#contact" id="contactTrigger">Contact</a>
       </nav>
@@ -615,7 +545,7 @@
   <main id="top">
     <section class="hero">
       <div class="wrap hero-grid">
-        <div class="hero-copy-block">
+        <div>
           <div class="eyebrow">Limited pieces / no restock</div>
           <h1>H A N G M E N</h1>
           <p class="hero-copy">Statement shirts. Quiet pressure. Small runs.</p>
@@ -630,7 +560,6 @@
             <h2 class="title">Three pieces. One line.</h2>
             <div class="sub">Missed Appointment. You Never Walk Alone. Liebe Leute, alles wird gut.</div>
           </div>
-          <div class="quote">“Liebe Leute, alles wird gut.”</div>
         </aside>
       </div>
     </section>
@@ -643,56 +572,85 @@
         </div>
 
         <div class="gallery">
-          <a class="piece piece-large rough-signal-heavy" href="ayatollah_missed_appointment.png" data-lightbox="Missed Appointment" aria-label="Missed Appointment vergrößern">
+          <a class="piece piece-large rough-signal-heavy" href="ayatollah_missed_appointment.png" data-lightbox="Missed Appointment" aria-label="Open Missed Appointment">
             <div class="piece-bg">Missed Appointment</div>
-            <img class="piece-image contain" src="ayatollah_missed_appointment.png" alt="Missed Appointment T-Shirt Motiv" />
+            <img class="piece-image contain" src="ayatollah_missed_appointment.png" alt="Missed Appointment T-shirt design" />
             <div class="piece-info">
               <div class="piece-line">Hard Signal</div>
               <h3>MISSED APPOINTMENT</h3>
               <p>Crane. Fog. Quiet structure underneath.</p>
               <div class="piece-price">€59</div>
             </div>
+            <div class="piece-meta">
+              <div class="meta-chip">Heavy Cotton</div>
+              <div class="meta-chip">Clean Print</div>
+              <div class="meta-chip">Limited Drop</div>
+              <div class="meta-chip">Made to Last</div>
+            </div>
           </a>
 
-          <a class="piece merz-piece merz-front fog-silent-light" href="merz_front.png" data-lightbox="Merz Front" aria-label="Merz Front vergrößern">
+          <a class="piece fog-silent-light" href="merz_front.png" data-lightbox="Merz Front" aria-label="Open Merz Front">
+            <div class="piece-bg">Merz / Front</div>
+            <img class="piece-image contain" src="merz_front.png" alt="Merz front design with halo" />
             <div class="piece-info">
               <div class="piece-line">Silent Pressure</div>
               <h3>Liebe Leute, alles wird gut.</h3>
               <p>Front piece. Halo softer. Quiet monochrome drift.</p>
               <div class="piece-price">€59 Front only</div>
             </div>
-            <div class="piece-visual">
-              <img class="piece-image contain" src="merz_front.png" alt="Merz Frontmotiv mit Halo und Text" />
+            <div class="piece-meta">
+              <div class="meta-chip">Heavy Cotton</div>
+              <div class="meta-chip">Clean Print</div>
+              <div class="meta-chip">Limited Drop</div>
+              <div class="meta-chip">Made to Last</div>
             </div>
           </a>
 
-          <a class="piece merz-piece merz-back fog-silent" href="merz_back.png" data-lightbox="Merz Back" aria-label="Merz Back vergrößern">
+          <a class="piece fog-silent" href="merz_back.png" data-lightbox="Merz Back" aria-label="Open Merz Back">
+            <div class="piece-bg">Merz / Back</div>
+            <img class="piece-image contain" src="merz_back.png" alt="Merz back design with crossed fingers" />
             <div class="piece-info">
               <div class="piece-line">Silent Pressure</div>
               <h3>Merz — Back</h3>
               <p>Crossed fingers. Haze. Second look only.</p>
               <div class="piece-price">€59 Back only</div>
             </div>
-            <div class="piece-visual">
-              <img class="piece-image contain" src="merz_back.png" alt="Merz Rückenmotiv mit gekreuzten Fingern" />
+            <div class="piece-meta">
+              <div class="meta-chip">Heavy Cotton</div>
+              <div class="meta-chip">Clean Print</div>
+              <div class="meta-chip">Limited Drop</div>
+              <div class="meta-chip">Made to Last</div>
             </div>
           </a>
 
-          <a class="piece piece-wide rough-signal-soft" href="maduro_you_never_walk_alone.png" data-lightbox="You Never Walk Alone" aria-label="You Never Walk Alone vergrößern">
+          <a class="piece piece-wide rough-signal-soft" href="maduro_you_never_walk_alone.png" data-lightbox="You Never Walk Alone" aria-label="Open You Never Walk Alone">
             <div class="piece-bg">Maduro</div>
-            <img class="piece-image contain" src="maduro_you_never_walk_alone.png" alt="Maduro Motiv mit You Never Walk Alone" />
+            <img class="piece-image contain" src="maduro_you_never_walk_alone.png" alt="Maduro design with You Never Walk Alone" />
             <div class="piece-info">
               <div class="piece-line">Hard Signal</div>
               <h3>YOU NEVER WALK ALONE</h3>
               <p>Soft monochrome. Industrial fade. Light pulled back.</p>
               <div class="piece-price">€59</div>
             </div>
+            <div class="piece-meta">
+              <div class="meta-chip">Heavy Cotton</div>
+              <div class="meta-chip">Clean Print</div>
+              <div class="meta-chip">Limited Drop</div>
+              <div class="meta-chip">Made to Last</div>
+            </div>
           </a>
         </div>
       </div>
     </section>
 
-    
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <div class="panel">
+          <h3>Contact</h3>
+          <p><a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a></p>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
@@ -700,12 +658,12 @@
   </footer>
 
   <div class="lightbox" id="lightbox" aria-hidden="true">
-    <button class="lightbox-close" id="lightboxClose" aria-label="Schließen">×</button>
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
     <img id="lightboxImage" src="" alt="" />
   </div>
 
   <div class="contact-pop" id="contactPop" aria-hidden="true">
-    <button class="close-pop" id="contactPopClose" aria-label="Schließen">×</button>
+    <button class="close-pop" id="contactPopClose" aria-label="Close">×</button>
     <strong>Contact</strong>
     <a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a>
   </div>
