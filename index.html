@@ -75,7 +75,11 @@
     }
 
     .nav a:hover,
-    .nav a:focus-visible {
+    .nav a:focus-visible,
+    .email-link:hover,
+    .email-link:focus-visible,
+    .stamp:hover,
+    .stamp:focus-visible {
       color: var(--text);
       outline: none;
     }
@@ -176,6 +180,19 @@
       line-height: 1.15;
     }
 
+    .stamp-row {
+      margin-top: 18px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .stamp {
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
     .drop {
       padding: 56px 0 46px;
     }
@@ -215,6 +232,7 @@
       transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
       min-height: 260px;
       display: block;
+      cursor: zoom-in;
     }
 
     .piece:hover,
@@ -265,6 +283,7 @@
       z-index: 2;
       padding: 20px;
       background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.38) 62%, rgba(0,0,0,0.82) 100%);
+      pointer-events: none;
     }
 
     .piece-line {
@@ -336,7 +355,7 @@
 
     .merz-piece {
       display: grid;
-      grid-template-columns: 1.18fr 0.82fr;
+      grid-template-columns: 1.06fr 0.94fr;
       align-items: stretch;
     }
 
@@ -347,7 +366,8 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding-right: 14px;
+      padding-right: 8px;
+      padding-left: 18px;
     }
 
     .merz-piece .piece-visual {
@@ -357,7 +377,7 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      padding-right: 6px;
+      padding-right: 2px;
     }
 
     .merz-piece .piece-image {
@@ -368,15 +388,15 @@
     }
 
     .merz-front .piece-image.contain {
-      transform: scale(0.9);
-      object-position: 74% center;
-      padding: 0 0 0 10px;
+      transform: scale(0.98);
+      object-position: 84% center;
+      padding: 0 0 0 28px;
     }
 
     .merz-back .piece-image.contain {
-      transform: scale(0.82);
-      object-position: 78% center;
-      padding: 0 0 0 16px;
+      transform: scale(0.88);
+      object-position: 88% center;
+      padding: 0 0 0 42px;
       opacity: 0.9;
     }
 
@@ -401,10 +421,89 @@
       color: var(--muted);
     }
 
+    .email-link {
+      color: var(--soft);
+    }
+
     .footer {
       padding: 0 0 28px;
       color: var(--muted);
       font-size: 0.88rem;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+      background: rgba(0,0,0,0.88);
+      z-index: 120;
+      cursor: zoom-out;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: min(92vw, 1300px);
+      max-height: 88vh;
+      width: auto;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+      background: #111;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 18px;
+      right: 22px;
+      border: 0;
+      background: transparent;
+      color: #f0ebe4;
+      font-size: 2rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .contact-pop {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 140;
+      min-width: 280px;
+      max-width: 360px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(18,18,18,0.96);
+      box-shadow: 0 18px 44px rgba(0,0,0,0.28);
+      color: var(--text);
+      display: none;
+    }
+
+    .contact-pop.show {
+      display: block;
+    }
+
+    .contact-pop strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+    }
+
+    .contact-pop .close-pop {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font-size: 1.25rem;
+      cursor: pointer;
     }
 
     @media (max-width: 1160px) {
@@ -428,6 +527,10 @@
 
       .hero-copy-block {
         align-items: flex-start;
+      }
+
+      .stamp-row {
+        justify-content: flex-start;
       }
 
       .hero-copy {
@@ -473,6 +576,7 @@
         inset: auto 0 0 0;
         background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.38) 62%, rgba(0,0,0,0.82) 100%);
         padding-right: 20px;
+        padding-left: 20px;
       }
 
       .merz-piece .piece-visual {
@@ -486,6 +590,14 @@
         object-position: center;
         padding: 8px;
       }
+
+      .contact-pop {
+        left: 14px;
+        right: 14px;
+        bottom: 14px;
+        max-width: none;
+        min-width: 0;
+      }
     }
   </style>
 </head>
@@ -495,7 +607,7 @@
       <a class="brand" href="#top">H A N G M E N</a>
       <nav class="nav" aria-label="Hauptnavigation">
         <a href="#drop01">Drop 01</a>
-        <a href="#contact">Contact</a>
+        <a href="#contact" id="contactTrigger">Contact</a>
       </nav>
     </div>
   </header>
@@ -507,6 +619,9 @@
           <div class="eyebrow">Limited pieces / no restock</div>
           <h1>H A N G M E N</h1>
           <p class="hero-copy">Statement shirts. Quiet pressure. Small runs.</p>
+          <div class="stamp-row">
+            <div class="stamp">Collection made February–April 2026</div>
+          </div>
         </div>
 
         <aside class="hero-panel">
@@ -528,7 +643,7 @@
         </div>
 
         <div class="gallery">
-          <a class="piece piece-large rough-signal-heavy" href="#contact" aria-label="Missed Appointment öffnen">
+          <a class="piece piece-large rough-signal-heavy" href="ayatollah_missed_appointment.png" data-lightbox="Missed Appointment" aria-label="Missed Appointment vergrößern">
             <div class="piece-bg">Missed Appointment</div>
             <img class="piece-image contain" src="ayatollah_missed_appointment.png" alt="Missed Appointment T-Shirt Motiv" />
             <div class="piece-info">
@@ -539,7 +654,7 @@
             </div>
           </a>
 
-          <a class="piece merz-piece merz-front fog-silent-light" href="#contact" aria-label="Merz Front öffnen">
+          <a class="piece merz-piece merz-front fog-silent-light" href="merz_front.png" data-lightbox="Merz Front" aria-label="Merz Front vergrößern">
             <div class="piece-info">
               <div class="piece-line">Silent Pressure</div>
               <h3>Liebe Leute, alles wird gut.</h3>
@@ -551,7 +666,7 @@
             </div>
           </a>
 
-          <a class="piece merz-piece merz-back fog-silent" href="#contact" aria-label="Merz Back öffnen">
+          <a class="piece merz-piece merz-back fog-silent" href="merz_back.png" data-lightbox="Merz Back" aria-label="Merz Back vergrößern">
             <div class="piece-info">
               <div class="piece-line">Silent Pressure</div>
               <h3>Merz — Back</h3>
@@ -563,7 +678,7 @@
             </div>
           </a>
 
-          <a class="piece piece-wide rough-signal-soft" href="#contact" aria-label="You Never Walk Alone öffnen">
+          <a class="piece piece-wide rough-signal-soft" href="maduro_you_never_walk_alone.png" data-lightbox="You Never Walk Alone" aria-label="You Never Walk Alone vergrößern">
             <div class="piece-bg">Maduro</div>
             <img class="piece-image contain" src="maduro_you_never_walk_alone.png" alt="Maduro Motiv mit You Never Walk Alone" />
             <div class="piece-info">
@@ -581,7 +696,7 @@
       <div class="wrap">
         <div class="panel">
           <h3>Contact</h3>
-          <p>Checkout and payment go here next. Current handover point: <a href="mailto:contact@hangmen.shop">contact@hangmen.shop</a></p>
+          <p><a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a></p>
         </div>
       </div>
     </section>
@@ -590,5 +705,69 @@
   <footer class="footer">
     <div class="wrap">© HANGMEN</div>
   </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Schließen">×</button>
+    <img id="lightboxImage" src="" alt="" />
+  </div>
+
+  <div class="contact-pop" id="contactPop" aria-hidden="true">
+    <button class="close-pop" id="contactPopClose" aria-label="Schließen">×</button>
+    <strong>Contact</strong>
+    <a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a>
+  </div>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const pieces = document.querySelectorAll('[data-lightbox]');
+
+    pieces.forEach((piece) => {
+      piece.addEventListener('click', (event) => {
+        event.preventDefault();
+        lightboxImage.src = piece.getAttribute('href');
+        lightboxImage.alt = piece.getAttribute('data-lightbox');
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      lightboxImage.src = '';
+      lightboxImage.alt = '';
+    }
+
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox || event.target === lightboxClose) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeLightbox();
+        hideContactPop();
+      }
+    });
+
+    const contactTrigger = document.getElementById('contactTrigger');
+    const contactPop = document.getElementById('contactPop');
+    const contactPopClose = document.getElementById('contactPopClose');
+
+    function showContactPop(event) {
+      if (event) event.preventDefault();
+      contactPop.classList.add('show');
+      contactPop.setAttribute('aria-hidden', 'false');
+    }
+
+    function hideContactPop() {
+      contactPop.classList.remove('show');
+      contactPop.setAttribute('aria-hidden', 'true');
+    }
+
+    contactTrigger.addEventListener('click', showContactPop);
+    contactPopClose.addEventListener('click', hideContactPop);
+  </script>
 </body>
 </html>
