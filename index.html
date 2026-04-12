@@ -96,6 +96,13 @@
       width: 100%;
     }
 
+    .hero-copy-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
     .eyebrow {
       color: var(--muted);
       font-size: 0.82rem;
@@ -327,6 +334,52 @@
         #111;
     }
 
+    .merz-piece {
+      display: grid;
+      grid-template-columns: 1.18fr 0.82fr;
+      align-items: stretch;
+    }
+
+    .merz-piece .piece-info {
+      position: relative;
+      inset: auto;
+      background: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-right: 14px;
+    }
+
+    .merz-piece .piece-visual {
+      position: relative;
+      overflow: hidden;
+      min-height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 6px;
+    }
+
+    .merz-piece .piece-image {
+      position: relative;
+      inset: auto;
+      height: 100%;
+      width: 100%;
+    }
+
+    .merz-front .piece-image.contain {
+      transform: scale(0.9);
+      object-position: 74% center;
+      padding: 0 0 0 10px;
+    }
+
+    .merz-back .piece-image.contain {
+      transform: scale(0.82);
+      object-position: 78% center;
+      padding: 0 0 0 16px;
+      opacity: 0.9;
+    }
+
     .contact {
       padding: 10px 0 42px;
     }
@@ -373,18 +426,13 @@
         text-align: left;
       }
 
+      .hero-copy-block {
+        align-items: flex-start;
+      }
+
       .hero-copy {
         margin-left: 0;
         margin-right: 0;
-      }
-    }
-
-      .gallery {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .piece-wide {
-        grid-column: span 2;
       }
     }
 
@@ -415,6 +463,29 @@
       .piece-wide {
         grid-column: span 1;
       }
+
+      .merz-piece {
+        grid-template-columns: 1fr;
+      }
+
+      .merz-piece .piece-info {
+        position: absolute;
+        inset: auto 0 0 0;
+        background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.38) 62%, rgba(0,0,0,0.82) 100%);
+        padding-right: 20px;
+      }
+
+      .merz-piece .piece-visual {
+        padding-right: 0;
+        justify-content: center;
+      }
+
+      .merz-front .piece-image.contain,
+      .merz-back .piece-image.contain {
+        transform: scale(1.02);
+        object-position: center;
+        padding: 8px;
+      }
     }
   </style>
 </head>
@@ -432,7 +503,7 @@
   <main id="top">
     <section class="hero">
       <div class="wrap hero-grid">
-        <div>
+        <div class="hero-copy-block">
           <div class="eyebrow">Limited pieces / no restock</div>
           <h1>H A N G M E N</h1>
           <p class="hero-copy">Statement shirts. Quiet pressure. Small runs.</p>
@@ -442,7 +513,7 @@
           <div>
             <div class="label">Drop 01</div>
             <h2 class="title">Three pieces. One line.</h2>
-            <div class="sub">Missed Appointment. You Never Walk Alone. Merz as separate front and back pieces for now.</div>
+            <div class="sub">Missed Appointment. You Never Walk Alone. Liebe Leute, alles wird gut.</div>
           </div>
           <div class="quote">“Liebe Leute, alles wird gut.”</div>
         </aside>
@@ -468,25 +539,27 @@
             </div>
           </a>
 
-          <a class="piece fog-silent-light" href="#contact" aria-label="Merz Front öffnen">
-            <div class="piece-bg">Merz / Front</div>
-            <img class="piece-image contain" src="merz_front.png" alt="Merz Frontmotiv mit Halo und Text" />
+          <a class="piece merz-piece merz-front fog-silent-light" href="#contact" aria-label="Merz Front öffnen">
             <div class="piece-info">
               <div class="piece-line">Silent Pressure</div>
               <h3>Liebe Leute, alles wird gut.</h3>
               <p>Front piece. Halo softer. Quiet monochrome drift.</p>
               <div class="piece-price">€59 Front only</div>
             </div>
+            <div class="piece-visual">
+              <img class="piece-image contain" src="merz_front.png" alt="Merz Frontmotiv mit Halo und Text" />
+            </div>
           </a>
 
-          <a class="piece fog-silent" href="#contact" aria-label="Merz Back öffnen">
-            <div class="piece-bg">Merz / Back</div>
-            <img class="piece-image contain" src="merz_back.png" alt="Merz Rückenmotiv mit gekreuzten Fingern" />
+          <a class="piece merz-piece merz-back fog-silent" href="#contact" aria-label="Merz Back öffnen">
             <div class="piece-info">
               <div class="piece-line">Silent Pressure</div>
               <h3>Merz — Back</h3>
               <p>Crossed fingers. Haze. Second look only.</p>
               <div class="piece-price">€59 Back only</div>
+            </div>
+            <div class="piece-visual">
+              <img class="piece-image contain" src="merz_back.png" alt="Merz Rückenmotiv mit gekreuzten Fingern" />
             </div>
           </a>
 
