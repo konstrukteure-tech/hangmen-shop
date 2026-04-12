@@ -77,9 +77,7 @@
     .nav a:hover,
     .nav a:focus-visible,
     .email-link:hover,
-    .email-link:focus-visible,
-    .stamp:hover,
-    .stamp:focus-visible {
+    .email-link:focus-visible {
       color: var(--text);
       outline: none;
     }
@@ -94,15 +92,15 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.36fr 0.64fr;
-      gap: 22px;
-      align-items: end;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 26px;
+      align-items: center;
       width: 100%;
     }
 
     .eyebrow {
       color: var(--muted);
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       text-transform: uppercase;
       letter-spacing: 0.14em;
       margin-bottom: 14px;
@@ -110,9 +108,9 @@
 
     h1 {
       margin: 0;
-      font-size: clamp(4.4rem, 11vw, 10rem);
-      line-height: 0.9;
-      letter-spacing: 0.16em;
+      font-size: clamp(2.9rem, 7vw, 6rem);
+      line-height: 0.94;
+      letter-spacing: 0.12em;
       font-weight: 700;
       color: var(--text);
       text-transform: uppercase;
@@ -120,19 +118,14 @@
     }
 
     .hero-copy {
-      margin-top: 18px;
+      margin-top: 16px;
       color: var(--muted);
-      max-width: 30ch;
-      font-size: 1.04rem;
-    }
-
-    .stamp-row {
-      margin-top: 18px;
-      display: flex;
-      justify-content: flex-start;
+      max-width: 24ch;
+      font-size: 1rem;
     }
 
     .stamp {
+      margin-top: 18px;
       color: var(--muted);
       font-size: 0.8rem;
       text-transform: uppercase;
@@ -140,17 +133,17 @@
     }
 
     .hero-panel {
-      min-height: 280px;
+      min-height: 248px;
       padding: 24px;
       border-radius: var(--radius);
       border: 1px solid rgba(255,255,255,0.06);
       background:
-        radial-gradient(circle at 24% 24%, rgba(255,255,255,0.05), transparent 22%),
-        linear-gradient(180deg, rgba(20,20,20,0.76), rgba(12,12,12,0.9));
+        radial-gradient(circle at 24% 24%, rgba(255,255,255,0.04), transparent 22%),
+        linear-gradient(180deg, rgba(20,20,20,0.72), rgba(12,12,12,0.88));
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: 0 22px 60px rgba(0,0,0,0.2);
+      box-shadow: 0 22px 60px rgba(0,0,0,0.18);
     }
 
     .hero-panel .label {
@@ -163,7 +156,7 @@
 
     .hero-panel .title {
       margin: 0 0 8px;
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-size: clamp(1.8rem, 3vw, 2.45rem);
       line-height: 0.96;
       color: #ece6df;
       font-weight: 700;
@@ -252,8 +245,9 @@
 
     .piece-image.contain {
       object-fit: contain;
-      padding: 22px;
-      background: rgba(0,0,0,0.05);
+      padding: 8px;
+      background: rgba(0,0,0,0.02);
+      transform: scale(1.08);
     }
 
     .piece-info {
@@ -261,14 +255,14 @@
       inset: auto 0 0 0;
       z-index: 2;
       padding: 20px;
-      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.64) 72%, rgba(0,0,0,0.88) 100%);
+      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.38) 62%, rgba(0,0,0,0.82) 100%);
       pointer-events: none;
       transition: opacity 0.18s ease;
     }
 
     .piece-line {
       color: var(--muted);
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       margin-bottom: 8px;
@@ -276,25 +270,27 @@
 
     .piece-info h3 {
       margin: 0 0 8px;
-      font-size: 1.42rem;
+      color: #ebe5de;
+      font-size: 1.4rem;
       line-height: 1.02;
-      color: #e6dfd8;
     }
 
     .piece-info p {
       margin: 0 0 12px;
-      color: #b0a89f;
-      max-width: 30ch;
+      color: #b6aea5;
+      max-width: 34ch;
     }
 
     .piece-price {
-      color: #e6dfd8;
+      color: #ebe5de;
       font-weight: 700;
+      font-size: 0.98rem;
     }
 
     .piece-meta {
       position: absolute;
-      inset: auto 18px 18px 18px;
+      left: 18px;
+      bottom: 18px;
       z-index: 4;
       display: grid;
       gap: 6px;
@@ -330,41 +326,33 @@
 
     .fog-silent {
       background:
-        radial-gradient(circle at 35% 28%, rgba(255,255,255,0.12), transparent 22%),
-        radial-gradient(circle at 62% 70%, rgba(255,255,255,0.08), transparent 28%),
-        radial-gradient(circle at 18% 84%, rgba(255,255,255,0.06), transparent 18%),
+        radial-gradient(circle at 32% 26%, rgba(255,255,255,0.09), transparent 22%),
+        radial-gradient(circle at 58% 72%, rgba(255,255,255,0.07), transparent 28%),
+        radial-gradient(circle at 18% 84%, rgba(255,255,255,0.05), transparent 18%),
         #0f0f0f;
     }
 
     .fog-silent-light {
       background:
-        radial-gradient(circle at 50% 18%, rgba(255,255,255,0.12), transparent 20%),
+        radial-gradient(circle at 50% 18%, rgba(255,255,255,0.1), transparent 20%),
         radial-gradient(circle at 28% 74%, rgba(255,255,255,0.07), transparent 24%),
         #101010;
     }
 
-    .rough-signal {
-      background:
-        linear-gradient(145deg, rgba(255,255,255,0.06) 0 1px, transparent 1px 100%),
-        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01)),
-        #111;
-      background-size: 220px 220px, auto, auto;
-    }
-
     .rough-signal-heavy {
       background:
-        radial-gradient(circle at 82% 18%, rgba(255,255,255,0.07), transparent 10%),
+        radial-gradient(circle at 82% 18%, rgba(255,255,255,0.06), transparent 10%),
         linear-gradient(35deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 100%),
-        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01)),
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01)),
         #101010;
       background-size: auto, 150px 150px, auto, auto;
     }
 
     .rough-signal-soft {
       background:
-        radial-gradient(circle at 14% 18%, rgba(255,255,255,0.08), transparent 9%),
-        radial-gradient(circle at 84% 84%, rgba(255,255,255,0.06), transparent 10%),
-        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01)),
+        radial-gradient(circle at 14% 18%, rgba(255,255,255,0.07), transparent 9%),
+        radial-gradient(circle at 84% 84%, rgba(255,255,255,0.05), transparent 10%),
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01)),
         #111;
     }
 
@@ -486,10 +474,6 @@
       .piece-wide {
         grid-column: span 2;
       }
-
-      .stamp-row {
-        justify-content: flex-start;
-      }
     }
 
     @media (max-width: 760px) {
@@ -549,15 +533,13 @@
           <div class="eyebrow">Limited pieces / no restock</div>
           <h1>H A N G M E N</h1>
           <p class="hero-copy">Statement shirts. Quiet pressure. Small runs.</p>
-          <div class="stamp-row">
-            <div class="stamp">Collection made February–April 2026</div>
-          </div>
+          <div class="stamp">Collection made March–April 2026</div>
         </div>
 
         <aside class="hero-panel">
           <div>
             <div class="label">Drop 01</div>
-            <h2 class="title">Three pieces. One line.</h2>
+            <h2 class="title">Three pieces.<br>One line.</h2>
             <div class="sub">Missed Appointment. You Never Walk Alone. Liebe Leute, alles wird gut.</div>
           </div>
         </aside>
@@ -625,7 +607,7 @@
 
           <a class="piece piece-wide rough-signal-soft" href="maduro_you_never_walk_alone.png" data-lightbox="You Never Walk Alone" aria-label="Open You Never Walk Alone">
             <div class="piece-bg">Maduro</div>
-            <img class="piece-image contain" src="maduro_you_never_walk_alone.png" alt="Maduro design with You Never Walk Alone" />
+            <img class="piece-image contain" src="maduro_you_never_walk_alone.png" alt="Maduro design with You Never Walk Alone" style="transform:scale(0.92);" />
             <div class="piece-info">
               <div class="piece-line">Hard Signal</div>
               <h3>YOU NEVER WALK ALONE</h3>
