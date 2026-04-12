@@ -212,6 +212,61 @@
       gap: 18px;
     }
 
+    .section-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .line-head {
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      padding: 20px;
+      min-height: 160px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .line-head h3 {
+      margin: 10px 0 8px;
+      font-size: 1.35rem;
+      line-height: 1.08;
+    }
+
+    .line-head p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 42ch;
+    }
+
+    .line-kicker {
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .line-a {
+      background:
+        radial-gradient(circle at 22% 30%, rgba(255,255,255,0.10), transparent 32%),
+        radial-gradient(circle at 75% 68%, rgba(255,255,255,0.06), transparent 28%),
+        linear-gradient(180deg, #121212 0%, #0d0d0d 100%);
+    }
+
+    .line-b {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01)),
+        linear-gradient(135deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 100%),
+        linear-gradient(35deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 100%),
+        #111111;
+      background-size: auto, 220px 220px, 160px 160px, auto;
+    }
+
+    .section-break {
+      height: 18px;
+    }
+
     .card {
       background: var(--card);
       border: 1px solid var(--line);
@@ -225,12 +280,61 @@
         linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)),
         #171717;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #6d6d6d;
-      font-size: 0.9rem;
+      align-items: end;
+      justify-content: flex-start;
+      padding: 18px;
+      color: rgba(255,255,255,0.70);
+      font-size: 0.84rem;
       text-transform: uppercase;
       letter-spacing: 0.12em;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .media-fog {
+      background:
+        radial-gradient(circle at 35% 30%, rgba(255,255,255,0.10), transparent 25%),
+        radial-gradient(circle at 60% 72%, rgba(255,255,255,0.08), transparent 30%),
+        radial-gradient(circle at 20% 80%, rgba(255,255,255,0.05), transparent 22%),
+        #111111;
+    }
+
+    .media-fog-light {
+      background:
+        radial-gradient(circle at 50% 25%, rgba(255,255,255,0.12), transparent 24%),
+        radial-gradient(circle at 30% 68%, rgba(255,255,255,0.07), transparent 28%),
+        linear-gradient(180deg, #151515 0%, #111111 100%);
+    }
+
+    .media-clean {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01)),
+        #121212;
+    }
+
+    .media-rough {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01)),
+        linear-gradient(145deg, rgba(255,255,255,0.06) 0 1px, transparent 1px 100%),
+        #111111;
+      background-size: auto, 210px 210px, auto;
+    }
+
+    .media-rough-heavy {
+      background:
+        radial-gradient(circle at 78% 18%, rgba(255,255,255,0.07), transparent 12%),
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01)),
+        linear-gradient(35deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 100%),
+        #101010;
+      background-size: auto, auto, 150px 150px, auto;
+    }
+
+    .media-rough-noise {
+      background:
+        radial-gradient(circle at 12% 16%, rgba(255,255,255,0.08), transparent 10%),
+        radial-gradient(circle at 84% 84%, rgba(255,255,255,0.06), transparent 11%),
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01)),
+        #111111;
     }
 
     .card-body {
@@ -341,9 +445,11 @@
     @media (max-width: 980px) {
       .hero-grid,
       .about,
-      .grid {
+      .grid,
+      .section-split {
         grid-template-columns: 1fr 1fr;
       }
+    }
     }
 
     @media (max-width: 760px) {
@@ -356,13 +462,20 @@
 
       .hero-grid,
       .about,
-      .grid {
+      .grid,
+      .section-split {
         grid-template-columns: 1fr;
       }
 
       .hero {
         padding-top: 56px;
       }
+
+      .nav {
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+    }
 
       .nav {
         gap: 14px;
@@ -423,16 +536,29 @@
       <div class="wrap">
         <div class="section-head">
           <h2 class="section-title">Drop 01</h2>
-          <div class="section-note">Replace the placeholders below with your final mockups.</div>
+          <div class="section-note">Two visual lines. One store.</div>
         </div>
 
-        <div class="grid">
-          <article class="card">
-            <div class="card-media">Image / Back Edition</div>
+        <div class="section-split">
+          <div class="line-head line-a">
+            <div class="line-kicker">A / Silent Pressure</div>
+            <h3>Fog, restraint, delayed impact.</h3>
+            <p>For the quieter pieces. Political, sarcastic, readable on a second look.</p>
+          </div>
+          <div class="line-head line-b">
+            <div class="line-kicker">B / Hard Signal</div>
+            <h3>Texture, abrasion, direct pressure.</h3>
+            <p>For the harder line. More frontal, rougher, less diplomatic.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-a">
+          <article class="card card-a">
+            <div class="card-media media-fog">Liebe Leute / Back Edition</div>
             <div class="card-body">
-              <div class="card-kicker">Hangmen / Back</div>
+              <div class="card-kicker">Silent Pressure</div>
               <h3 class="card-title">Liebe Leute — Back Edition</h3>
-              <p class="card-copy">Soft fog. Back view. Hands crossed. Quiet but obvious.</p>
+              <p class="card-copy">Soft fog. Back view. Hands crossed. Quiet, but not harmless.</p>
               <div class="card-row">
                 <span class="price">€59</span>
                 <span class="tag">Limited</span>
@@ -440,12 +566,12 @@
             </div>
           </article>
 
-          <article class="card">
-            <div class="card-media">Image / Front Halo</div>
+          <article class="card card-a">
+            <div class="card-media media-fog-light">Halo Front</div>
             <div class="card-body">
-              <div class="card-kicker">Hangmen / Front</div>
+              <div class="card-kicker">Silent Pressure</div>
               <h3 class="card-title">Liebe Leute — Halo Front</h3>
-              <p class="card-copy">Front portrait. Halo toned down. Same line. Stronger confrontation.</p>
+              <p class="card-copy">Front portrait. Halo toned down. Same sentence, stronger confrontation.</p>
               <div class="card-row">
                 <span class="price">€59</span>
                 <span class="tag">Limited</span>
@@ -453,25 +579,29 @@
             </div>
           </article>
 
-          <article class="card">
-            <div class="card-media">Image / Clean</div>
+          <article class="card card-a">
+            <div class="card-media media-clean">Clean Edition</div>
             <div class="card-body">
-              <div class="card-kicker">Hangmen / Clean</div>
+              <div class="card-kicker">Silent Pressure</div>
               <h3 class="card-title">Clean Edition</h3>
-              <p class="card-copy">Reduced version. Less text. More tension. For people who know.</p>
+              <p class="card-copy">Reduced version. Less copy. More tension. Better for people who already know.</p>
               <div class="card-row">
                 <span class="price">€55</span>
                 <span class="tag">Low stock</span>
               </div>
             </div>
           </article>
+        </div>
 
-          <article class="card">
-            <div class="card-media">Image / Appointment</div>
+        <div class="section-break"></div>
+
+        <div class="grid grid-b">
+          <article class="card card-b">
+            <div class="card-media media-rough">Appointment</div>
             <div class="card-body">
-              <div class="card-kicker">Hangmen / Appointment</div>
+              <div class="card-kicker">Hard Signal</div>
               <h3 class="card-title">Appointment</h3>
-              <p class="card-copy">Existing concept from your current line. Move it in unchanged if it still bites.</p>
+              <p class="card-copy">Sharper tone. Less fog, more friction. Built for direct reaction.</p>
               <div class="card-row">
                 <span class="price">€49</span>
                 <span class="tag">Drop 01</span>
@@ -479,12 +609,12 @@
             </div>
           </article>
 
-          <article class="card">
-            <div class="card-media">Image / Maduro</div>
+          <article class="card card-b">
+            <div class="card-media media-rough-heavy">Maduro</div>
             <div class="card-body">
-              <div class="card-kicker">Hangmen / Maduro</div>
+              <div class="card-kicker">Hard Signal</div>
               <h3 class="card-title">Maduro</h3>
-              <p class="card-copy">Keep the pressure line alive. Same store, same drop, sharper framing.</p>
+              <p class="card-copy">The pressure line. More abrasive, more obvious, still controlled.</p>
               <div class="card-row">
                 <span class="price">€49</span>
                 <span class="tag">Drop 01</span>
@@ -492,12 +622,12 @@
             </div>
           </article>
 
-          <article class="card">
-            <div class="card-media">Image / Mist</div>
+          <article class="card card-b">
+            <div class="card-media media-rough-noise">Mist</div>
             <div class="card-body">
-              <div class="card-kicker">Hangmen / Mist</div>
+              <div class="card-kicker">Hard Signal</div>
               <h3 class="card-title">Mist</h3>
-              <p class="card-copy">Use only if it holds up next to the rest. No weak slot fillers.</p>
+              <p class="card-copy">Only keep it if it bites. No decorative filler, no polite slot occupation.</p>
               <div class="card-row">
                 <span class="price">€49</span>
                 <span class="tag">Optional</span>
