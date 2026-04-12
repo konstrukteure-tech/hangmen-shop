@@ -8,12 +8,13 @@
   <style>
     :root {
       --bg: #080808;
-      --panel: #111111;
+      --panel: rgba(18,18,18,0.78);
       --line: rgba(255,255,255,0.08);
-      --text: #ddd6cf;
-      --muted: #9f978e;
-      --max: 1540px;
-      --radius: 22px;
+      --text: #d9d2ca;
+      --muted: #9d958b;
+      --soft: #bfb7ae;
+      --max: 1600px;
+      --radius: 24px;
     }
 
     * { box-sizing: border-box; }
@@ -21,7 +22,11 @@
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
+      background:
+        radial-gradient(circle at 18% 14%, rgba(255,255,255,0.045), transparent 24%),
+        radial-gradient(circle at 82% 30%, rgba(255,255,255,0.03), transparent 28%),
+        radial-gradient(circle at 55% 78%, rgba(255,255,255,0.025), transparent 26%),
+        #080808;
       color: var(--text);
       line-height: 1.4;
       -webkit-font-smoothing: antialiased;
@@ -29,107 +34,121 @@
     }
 
     a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
 
     .wrap {
-      width: min(calc(100% - 48px), var(--max));
+      width: min(calc(100% - 52px), var(--max));
       margin: 0 auto;
     }
 
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 20;
-      background: rgba(8,8,8,0.88);
-      backdrop-filter: blur(10px);
+      z-index: 30;
+      background: rgba(8,8,8,0.84);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
     .topbar-inner {
-      min-height: 72px;
+      min-height: 74px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 24px;
     }
 
     .brand {
-      font-size: 0.98rem;
+      font-size: 0.95rem;
       font-weight: 700;
       letter-spacing: 0.42em;
-      color: #d7d2cb;
+      color: var(--text);
       text-transform: uppercase;
+      white-space: nowrap;
     }
 
     .nav {
       display: flex;
       gap: 24px;
-      color: #8f8880;
-      font-size: 0.95rem;
+      color: var(--muted);
+      font-size: 0.94rem;
     }
 
-    .nav a:hover { color: var(--text); }
+    .nav a:hover,
+    .nav a:focus-visible {
+      color: var(--text);
+      outline: none;
+    }
 
     .hero {
-      padding: 72px 0 28px;
+      min-height: calc(100vh - 74px);
+      display: flex;
+      align-items: center;
+      padding: 48px 0 46px;
       border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.45fr 0.55fr;
-      gap: 18px;
+      grid-template-columns: 1.36fr 0.64fr;
+      gap: 22px;
       align-items: end;
+      width: 100%;
     }
 
     .eyebrow {
       color: var(--muted);
-      font-size: 0.85rem;
-      letter-spacing: 0.14em;
+      font-size: 0.84rem;
       text-transform: uppercase;
-      margin-bottom: 16px;
+      letter-spacing: 0.14em;
+      margin-bottom: 14px;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(4rem, 11vw, 9rem);
-      line-height: 0.92;
+      font-size: clamp(4.4rem, 11vw, 10rem);
+      line-height: 0.9;
       letter-spacing: 0.16em;
       font-weight: 700;
-      color: #d7d2cb;
+      color: var(--text);
       text-transform: uppercase;
+      white-space: nowrap;
     }
 
     .hero-copy {
-      margin: 18px 0 0;
-      max-width: 34ch;
+      margin-top: 18px;
       color: var(--muted);
+      max-width: 30ch;
       font-size: 1.04rem;
     }
 
     .hero-panel {
-      min-height: 220px;
-      border: 1px solid rgba(255,255,255,0.06);
+      min-height: 280px;
+      padding: 24px;
       border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(25,25,25,0.72), rgba(12,12,12,0.88));
-      padding: 22px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background:
+        radial-gradient(circle at 24% 24%, rgba(255,255,255,0.05), transparent 22%),
+        linear-gradient(180deg, rgba(20,20,20,0.76), rgba(12,12,12,0.9));
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      box-shadow: 0 22px 60px rgba(0,0,0,0.2);
     }
 
     .hero-panel .label {
       color: var(--muted);
+      font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.14em;
-      font-size: 0.78rem;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .hero-panel .title {
-      font-size: 2rem;
-      line-height: 1;
-      color: #ebe5de;
-      margin: 0 0 10px;
+      margin: 0 0 8px;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      line-height: 0.96;
+      color: #ece6df;
       font-weight: 700;
     }
 
@@ -142,16 +161,16 @@
       margin-top: 18px;
       padding-top: 18px;
       border-top: 1px solid rgba(255,255,255,0.07);
-      color: #e1dbd4;
-      font-size: 1.35rem;
+      color: #e4ded7;
+      font-size: clamp(1.15rem, 2vw, 1.45rem);
       line-height: 1.15;
     }
 
-    .pieces {
-      padding: 24px 0 34px;
+    .drop {
+      padding: 28px 0 46px;
     }
 
-    .pieces-head {
+    .drop-head {
       display: flex;
       justify-content: space-between;
       align-items: end;
@@ -162,6 +181,7 @@
     .section-title {
       margin: 0;
       font-size: 2rem;
+      line-height: 1;
       letter-spacing: -0.03em;
     }
 
@@ -169,11 +189,11 @@
       color: var(--muted);
     }
 
-    .masonry {
+    .gallery {
       display: grid;
-      grid-template-columns: 1.2fr 0.9fr 0.9fr;
+      grid-template-columns: 1.22fr 0.92fr 0.92fr;
       gap: 18px;
-      grid-auto-rows: 240px;
+      grid-auto-rows: 260px;
     }
 
     .piece {
@@ -181,23 +201,24 @@
       overflow: hidden;
       border-radius: var(--radius);
       border: 1px solid rgba(255,255,255,0.07);
-      min-height: 240px;
       background: #111;
-      display: flex;
-      align-items: flex-end;
       transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+      min-height: 260px;
+      display: block;
     }
 
-    .piece:hover {
+    .piece:hover,
+    .piece:focus-visible {
       transform: translateY(-2px);
-      border-color: rgba(215,210,203,0.18);
-      box-shadow: 0 18px 42px rgba(0,0,0,0.22);
+      border-color: rgba(216,210,202,0.18);
+      box-shadow: 0 18px 46px rgba(0,0,0,0.24);
+      outline: none;
     }
 
     .piece-large { grid-row: span 2; }
     .piece-wide { grid-column: span 2; }
 
-    .piece-media {
+    .piece-bg {
       position: absolute;
       inset: 0;
       display: flex;
@@ -205,21 +226,39 @@
       justify-content: center;
       color: rgba(255,255,255,0.14);
       text-transform: uppercase;
-      letter-spacing: 0.18em;
-      font-size: 0.95rem;
+      letter-spacing: 0.16em;
+      font-size: 0.9rem;
+      padding: 18px;
+    }
+
+    .piece-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0.9;
+      mix-blend-mode: normal;
+    }
+
+    .piece-image.contain {
+      object-fit: contain;
+      padding: 22px;
+      background: rgba(0,0,0,0.05);
     }
 
     .piece-info {
-      position: relative;
-      z-index: 1;
-      width: 100%;
+      position: absolute;
+      inset: auto 0 0 0;
+      z-index: 2;
       padding: 20px;
-      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.64) 72%, rgba(0,0,0,0.88) 100%);
+      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.64) 70%, rgba(0,0,0,0.9) 100%);
     }
 
     .piece-line {
       color: var(--muted);
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       margin-bottom: 8px;
@@ -227,75 +266,72 @@
 
     .piece-info h3 {
       margin: 0 0 8px;
-      font-size: 1.42rem;
+      color: #ebe5de;
+      font-size: 1.4rem;
       line-height: 1.02;
-      color: #e6dfd8;
     }
 
     .piece-info p {
       margin: 0 0 12px;
-      color: #b0a89f;
-      max-width: 30ch;
+      color: #b6aea5;
+      max-width: 34ch;
     }
 
     .piece-price {
-      color: #e6dfd8;
+      color: #ebe5de;
       font-weight: 700;
+      font-size: 0.98rem;
     }
 
-    .fog-block {
+    .fog-silent {
       background:
-        radial-gradient(circle at 35% 26%, rgba(255,255,255,0.12), transparent 22%),
-        radial-gradient(circle at 60% 72%, rgba(255,255,255,0.09), transparent 28%),
-        radial-gradient(circle at 16% 84%, rgba(255,255,255,0.06), transparent 18%),
+        radial-gradient(circle at 32% 26%, rgba(255,255,255,0.09), transparent 22%),
+        radial-gradient(circle at 58% 72%, rgba(255,255,255,0.07), transparent 28%),
+        radial-gradient(circle at 18% 84%, rgba(255,255,255,0.05), transparent 18%),
         #0f0f0f;
     }
 
-    .fog-light-block {
+    .fog-silent-light {
       background:
-        radial-gradient(circle at 50% 20%, rgba(255,255,255,0.11), transparent 20%),
+        radial-gradient(circle at 50% 18%, rgba(255,255,255,0.1), transparent 20%),
         radial-gradient(circle at 28% 74%, rgba(255,255,255,0.07), transparent 24%),
         #101010;
     }
 
-    .clean-block {
-      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01)), #111;
-    }
-
-    .rough-block {
+    .rough-signal {
       background:
-        linear-gradient(145deg, rgba(255,255,255,0.06) 0 1px, transparent 1px 100%),
-        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01)),
-        #111;
+        linear-gradient(145deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 100%),
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01)),
+        #101010;
       background-size: 220px 220px, auto, auto;
     }
 
-    .rough-heavy-block {
+    .rough-signal-heavy {
       background:
-        radial-gradient(circle at 82% 18%, rgba(255,255,255,0.07), transparent 10%),
+        radial-gradient(circle at 82% 18%, rgba(255,255,255,0.06), transparent 10%),
         linear-gradient(35deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 100%),
-        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01)),
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01)),
         #101010;
       background-size: auto, 150px 150px, auto, auto;
     }
 
-    .rough-noise-block {
+    .rough-signal-soft {
       background:
-        radial-gradient(circle at 14% 18%, rgba(255,255,255,0.08), transparent 9%),
-        radial-gradient(circle at 84% 84%, rgba(255,255,255,0.06), transparent 10%),
-        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01)),
+        radial-gradient(circle at 14% 18%, rgba(255,255,255,0.07), transparent 9%),
+        radial-gradient(circle at 84% 84%, rgba(255,255,255,0.05), transparent 10%),
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01)),
         #111;
     }
 
     .contact {
-      padding: 8px 0 42px;
+      padding: 10px 0 42px;
     }
 
     .panel {
-      border: 1px solid rgba(255,255,255,0.06);
       border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(16,16,16,0.88);
       padding: 18px 20px;
-      background: #101010;
     }
 
     .panel h3 {
@@ -311,15 +347,15 @@
     .footer {
       padding: 0 0 28px;
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.88rem;
     }
 
-    @media (max-width: 1080px) {
+    @media (max-width: 1160px) {
       .hero-grid {
         grid-template-columns: 1fr;
       }
 
-      .masonry {
+      .gallery {
         grid-template-columns: 1fr 1fr;
       }
 
@@ -334,21 +370,26 @@
       }
 
       .topbar-inner,
-      .pieces-head {
+      .drop-head {
         flex-direction: column;
         align-items: flex-start;
       }
 
-      .masonry {
+      h1 {
+        font-size: clamp(3.1rem, 16vw, 5.4rem);
+        letter-spacing: 0.12em;
+      }
+
+      .brand {
+        letter-spacing: 0.28em;
+      }
+
+      .gallery {
         grid-template-columns: 1fr;
       }
 
       .piece-wide {
         grid-column: span 1;
-      }
-
-      h1 {
-        font-size: clamp(3rem, 18vw, 5rem);
       }
     }
   </style>
@@ -358,7 +399,7 @@
     <div class="wrap topbar-inner">
       <a class="brand" href="#top">H A N G M E N</a>
       <nav class="nav" aria-label="Hauptnavigation">
-        <a href="#pieces">Pieces</a>
+        <a href="#drop01">Drop 01</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -376,81 +417,65 @@
         <aside class="hero-panel">
           <div>
             <div class="label">Drop 01</div>
-            <div class="title">Selected pieces.</div>
-            <div class="sub">Silent Pressure and Hard Signal.</div>
+            <h2 class="title">Three pieces. One line.</h2>
+            <div class="sub">Missed Appointment. You Never Walk Alone. Liebe Leute, alles wird gut.</div>
           </div>
-          <div class="quote">“Liebe Leute, alles wird gut…”</div>
+          <div class="quote">“Liebe Leute, alles wird gut.”</div>
         </aside>
       </div>
     </section>
 
-    <section class="pieces" id="pieces">
+    <section class="drop" id="drop01">
       <div class="wrap">
-        <div class="pieces-head">
+        <div class="drop-head">
           <h2 class="section-title">Drop 01</h2>
-          <div class="section-note">Six pieces. Two lines.</div>
+          <div class="section-note">Selected pieces</div>
         </div>
 
-        <div class="masonry">
-          <article class="piece piece-large fog-block">
-            <div class="piece-media">Back Edition</div>
-            <div class="piece-info">
-              <div class="piece-line">Silent Pressure</div>
-              <h3>Liebe Leute — Back</h3>
-              <p>Soft fog. Back view. Quiet pressure.</p>
-              <span class="piece-price">€59</span>
-            </div>
-          </article>
-
-          <article class="piece fog-light-block">
-            <div class="piece-media">Halo Front</div>
-            <div class="piece-info">
-              <div class="piece-line">Silent Pressure</div>
-              <h3>Halo Front</h3>
-              <p>Frontal. Reduced. Direct.</p>
-              <span class="piece-price">€59</span>
-            </div>
-          </article>
-
-          <article class="piece rough-block">
-            <div class="piece-media">Appointment</div>
+        <div class="gallery">
+          <a class="piece piece-large rough-signal-heavy" href="#contact" aria-label="Missed Appointment öffnen">
+            <div class="piece-bg">Missed Appointment</div>
+            <img class="piece-image contain" src="ayatollah_missed_appointment.png" alt="Missed Appointment T-Shirt Motiv" />
             <div class="piece-info">
               <div class="piece-line">Hard Signal</div>
-              <h3>Appointment</h3>
-              <p>Sharper tone. Less fog. More friction.</p>
-              <span class="piece-price">€49</span>
+              <h3>MISSED APPOINTMENT</h3>
+              <p>Crane. Fog. Quiet structure underneath.</p>
+              <div class="piece-price">€59</div>
             </div>
-          </article>
+          </a>
 
-          <article class="piece piece-wide rough-heavy-block">
-            <div class="piece-media">Maduro</div>
-            <div class="piece-info">
-              <div class="piece-line">Hard Signal</div>
-              <h3>Maduro</h3>
-              <p>Abrasive. Controlled. Obvious enough.</p>
-              <span class="piece-price">€49</span>
-            </div>
-          </article>
-
-          <article class="piece clean-block">
-            <div class="piece-media">Clean Edition</div>
+          <a class="piece fog-silent-light" href="#contact" aria-label="Merz Front öffnen">
+            <div class="piece-bg">Merz / Front</div>
+            <img class="piece-image contain" src="merz_front.png" alt="Merz Frontmotiv mit Halo und Text" />
             <div class="piece-info">
               <div class="piece-line">Silent Pressure</div>
-              <h3>Clean</h3>
-              <p>Less copy. More tension.</p>
-              <span class="piece-price">€55</span>
+              <h3>Liebe Leute, alles wird gut.</h3>
+              <p>Front piece. Quiet halo. Monochrome drift.</p>
+              <div class="piece-price">€59</div>
             </div>
-          </article>
+          </a>
 
-          <article class="piece rough-noise-block">
-            <div class="piece-media">Mist</div>
+          <a class="piece fog-silent" href="#contact" aria-label="Merz Back öffnen">
+            <div class="piece-bg">Merz / Back</div>
+            <img class="piece-image contain" src="merz_back.png" alt="Merz Rückenmotiv mit gekreuzten Fingern" />
+            <div class="piece-info">
+              <div class="piece-line">Silent Pressure</div>
+              <h3>Merz — Back</h3>
+              <p>Crossed fingers. Haze. Second look only.</p>
+              <div class="piece-price">Back view</div>
+            </div>
+          </a>
+
+          <a class="piece piece-wide rough-signal-soft" href="#contact" aria-label="You Never Walk Alone öffnen">
+            <div class="piece-bg">Maduro</div>
+            <img class="piece-image contain" src="maduro_you_never_walk_alone.png" alt="Maduro Motiv mit You Never Walk Alone" />
             <div class="piece-info">
               <div class="piece-line">Hard Signal</div>
-              <h3>Mist</h3>
-              <p>Only if it bites.</p>
-              <span class="piece-price">€49</span>
+              <h3>YOU NEVER WALK ALONE</h3>
+              <p>Soft monochrome. Industrial fade. Light pulled back.</p>
+              <div class="piece-price">€59</div>
             </div>
-          </article>
+          </a>
         </div>
       </div>
     </section>
@@ -459,7 +484,7 @@
       <div class="wrap">
         <div class="panel">
           <h3>Contact</h3>
-          <p><a href="mailto:contact@hangmen.shop">contact@hangmen.shop</a></p>
+          <p>Checkout and payment go here next. Current handover point: <a href="mailto:contact@hangmen.shop">contact@hangmen.shop</a></p>
         </div>
       </div>
     </section>
