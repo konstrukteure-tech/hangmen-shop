@@ -8,8 +8,6 @@
   <style>
     :root {
       --bg: #080808;
-      --panel: rgba(18,18,18,0.78);
-      --line: rgba(255,255,255,0.08);
       --text: #d9d2ca;
       --muted: #9d958b;
       --soft: #bfb7ae;
@@ -19,6 +17,7 @@
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -92,10 +91,17 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 26px;
+      grid-template-columns: 1fr 420px;
+      gap: 28px;
       align-items: center;
       width: 100%;
+    }
+
+    .hero-copy-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     .eyebrow {
@@ -104,24 +110,27 @@
       text-transform: uppercase;
       letter-spacing: 0.14em;
       margin-bottom: 14px;
+      text-align: center;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(2.9rem, 7vw, 6rem);
+      font-size: clamp(2.8rem, 7vw, 5.8rem);
       line-height: 0.94;
       letter-spacing: 0.12em;
       font-weight: 700;
       color: var(--text);
       text-transform: uppercase;
       white-space: nowrap;
+      text-align: center;
     }
 
     .hero-copy {
-      margin-top: 16px;
+      margin: 16px auto 0;
       color: var(--muted);
       max-width: 24ch;
       font-size: 1rem;
+      text-align: center;
     }
 
     .stamp {
@@ -130,6 +139,7 @@
       font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 0.14em;
+      text-align: center;
     }
 
     .hero-panel {
@@ -356,6 +366,53 @@
         #111;
     }
 
+    .merz-piece {
+      display: grid;
+      grid-template-columns: 1.18fr 0.82fr;
+      align-items: stretch;
+    }
+
+    .merz-piece .piece-info {
+      position: relative;
+      inset: auto;
+      background: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-right: 14px;
+      padding-left: 18px;
+    }
+
+    .merz-piece .piece-visual {
+      position: relative;
+      overflow: hidden;
+      min-height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 6px;
+    }
+
+    .merz-piece .piece-image {
+      position: relative;
+      inset: auto;
+      height: 100%;
+      width: 100%;
+    }
+
+    .merz-front .piece-image.contain {
+      transform: scale(0.9);
+      object-position: 74% center;
+      padding: 0 0 0 10px;
+    }
+
+    .merz-back .piece-image.contain {
+      transform: scale(0.82);
+      object-position: 78% center;
+      padding: 0 0 0 16px;
+      opacity: 0.9;
+    }
+
     .contact {
       padding: 10px 0 42px;
     }
@@ -474,6 +531,23 @@
       .piece-wide {
         grid-column: span 2;
       }
+
+      h1,
+      .eyebrow,
+      .hero-copy,
+      .stamp {
+        text-align: left;
+      }
+
+      .hero-copy-block {
+        align-items: flex-start;
+      }
+
+      .hero-copy,
+      .stamp {
+        margin-left: 0;
+        margin-right: 0;
+      }
     }
 
     @media (max-width: 760px) {
@@ -505,6 +579,30 @@
         grid-column: span 1;
       }
 
+      .merz-piece {
+        grid-template-columns: 1fr;
+      }
+
+      .merz-piece .piece-info {
+        position: absolute;
+        inset: auto 0 0 0;
+        background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.38) 62%, rgba(0,0,0,0.82) 100%);
+        padding-right: 20px;
+        padding-left: 20px;
+      }
+
+      .merz-piece .piece-visual {
+        padding-right: 0;
+        justify-content: center;
+      }
+
+      .merz-front .piece-image.contain,
+      .merz-back .piece-image.contain {
+        transform: scale(1.02);
+        object-position: center;
+        padding: 8px;
+      }
+
       .contact-pop {
         left: 14px;
         right: 14px;
@@ -529,7 +627,7 @@
   <main id="top">
     <section class="hero">
       <div class="wrap hero-grid">
-        <div>
+        <div class="hero-copy-block">
           <div class="eyebrow">Limited pieces / no restock</div>
           <h1>H A N G M E N</h1>
           <p class="hero-copy">Statement shirts. Quiet pressure. Small runs.</p>
@@ -571,14 +669,15 @@
             </div>
           </a>
 
-          <a class="piece fog-silent-light" href="merz_front.png" data-lightbox="Merz Front" aria-label="Open Merz Front">
-            <div class="piece-bg">Merz / Front</div>
-            <img class="piece-image contain" src="merz_front.png" alt="Merz front design with halo" />
+          <a class="piece merz-piece merz-front fog-silent-light" href="merz_front.png" data-lightbox="Merz Front" aria-label="Open Merz Front">
             <div class="piece-info">
               <div class="piece-line">Silent Pressure</div>
               <h3>Liebe Leute, alles wird gut.</h3>
               <p>Front piece. Halo softer. Quiet monochrome drift.</p>
               <div class="piece-price">€59 Front only</div>
+            </div>
+            <div class="piece-visual">
+              <img class="piece-image contain" src="merz_front.png" alt="Merz front design with halo" />
             </div>
             <div class="piece-meta">
               <div class="meta-chip">Heavy Cotton</div>
@@ -588,14 +687,15 @@
             </div>
           </a>
 
-          <a class="piece fog-silent" href="merz_back.png" data-lightbox="Merz Back" aria-label="Open Merz Back">
-            <div class="piece-bg">Merz / Back</div>
-            <img class="piece-image contain" src="merz_back.png" alt="Merz back design with crossed fingers" />
+          <a class="piece merz-piece merz-back fog-silent" href="merz_back.png" data-lightbox="Merz Back" aria-label="Open Merz Back">
             <div class="piece-info">
               <div class="piece-line">Silent Pressure</div>
               <h3>Merz — Back</h3>
               <p>Crossed fingers. Haze. Second look only.</p>
               <div class="piece-price">€59 Back only</div>
+            </div>
+            <div class="piece-visual">
+              <img class="piece-image contain" src="merz_back.png" alt="Merz back design with crossed fingers" />
             </div>
             <div class="piece-meta">
               <div class="meta-chip">Heavy Cotton</div>
