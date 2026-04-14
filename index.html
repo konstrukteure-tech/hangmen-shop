@@ -396,17 +396,17 @@
       padding-right: 14px;
       padding-left: 18px;
     }
-<a class="piece merz-piece alice-piece fog-silent-light" href="Alice.png" data-lightbox="Alice Front" aria-label="Open Alice Front">
-  <div class="piece-info">
-    <div class="piece-line">Silent Pressure</div>
-    <h3>A(ngst)FD</h3>
-    <p>
-      Front piece. Soft contrast.<br>
-      Observation layer.<br>
-      Quiet tension.
-    </p>
-    <div class="piece-price">€89 Front only</div>
-  </div>
+.alice-piece .piece-info {
+  inset: auto 0 auto 0;
+  top: 0;
+  bottom: auto;
+  background: linear-gradient(90deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.48) 38%, rgba(0,0,0,0.08) 62%, rgba(0,0,0,0) 100%);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 58%;
+}
 
   <div class="piece-visual">
     <img class="piece-image contain" src="Alice.png" alt="Alice front design" />
