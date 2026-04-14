@@ -725,6 +725,14 @@
     max-width: 96vw;
     max-height: 84vh;
   }
+     .footer a {
+  color: var(--muted);
+  margin: 0 6px;
+}
+
+.footer a:hover {
+  color: var(--text);
+}
 }
   </style>
 </head>
@@ -859,9 +867,15 @@
 </section>
   </main>
 
-  <footer class="footer">
-    <div class="wrap">© HANGMEN</div>
-  </footer>
+ <footer class="footer">
+  <div class="wrap">
+    © HANGMEN<br>
+    <a href="#">Imprint</a> ·
+    <a href="#">Privacy</a> ·
+    <a href="#">Terms</a> ·
+    <a href="#">Withdrawal</a>
+  </div>
+</footer>
 
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
