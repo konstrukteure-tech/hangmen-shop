@@ -916,13 +916,13 @@
 
 <footer class="footer">
   <div class="wrap footer-line">
-    <span>© HANGMEN</span>
-    <span class="footer-links">
-     <a href="javascript:void(0)" id="imprintLink">Imprint</a>
-<a href="javascript:void(0)" id="privacyLink">Privacy</a>
-<a href="javascript:void(0)" id="termsLink">Terms</a>
-<a href="javascript:void(0)" id="withdrawalLink">Withdrawal</a>
-    </span>
+<span>© HANGMEN</span>
+<span class="footer-links">
+  <a href="#" id="imprintLink">Imprint</a> |
+  <a href="#" id="privacyLink">Privacy</a> |
+  <a href="#" id="termsLink">Terms</a> |
+  <a href="#" id="withdrawalLink">Withdrawal</a>
+</span>
   </div>
 </footer>
 
@@ -1083,59 +1083,166 @@
 </div>
 
 <script>
-  
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImage = document.getElementById('lightboxImage');
-    const lightboxClose = document.getElementById('lightboxClose');
-    const pieces = document.querySelectorAll('[data-lightbox]');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImage = document.getElementById('lightboxImage');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const pieces = document.querySelectorAll('[data-lightbox]');
 
-    pieces.forEach((piece) => {
-      piece.addEventListener('click', (event) => {
-        event.preventDefault();
-        lightboxImage.src = piece.getAttribute('href');
-        lightboxImage.alt = piece.getAttribute('data-lightbox');
-        lightbox.classList.add('open');
-        lightbox.setAttribute('aria-hidden', 'false');
-      });
+  const contactTrigger = document.getElementById('contactTrigger');
+  const contactPop = document.getElementById('contactPop');
+  const contactPopClose = document.getElementById('contactPopClose');
+
+  const imprintLink = document.getElementById('imprintLink');
+  const privacyLink = document.getElementById('privacyLink');
+  const termsLink = document.getElementById('termsLink');
+  const withdrawalLink = document.getElementById('withdrawalLink');
+
+  const imprintModal = document.getElementById('imprintModal');
+  const privacyModal = document.getElementById('privacyModal');
+  const termsModal = document.getElementById('termsModal');
+  const withdrawalModal = document.getElementById('withdrawalModal');
+
+  const imprintClose = document.getElementById('imprintClose');
+  const privacyClose = document.getElementById('privacyClose');
+  const termsClose = document.getElementById('termsClose');
+  const withdrawalClose = document.getElementById('withdrawalClose');
+
+  pieces.forEach((piece) => {
+    piece.addEventListener('click', (event) => {
+      event.preventDefault();
+      lightboxImage.src = piece.getAttribute('href');
+      lightboxImage.alt = piece.getAttribute('data-lightbox');
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
     });
+  });
 
-    function closeLightbox() {
-      lightbox.classList.remove('open');
-      lightbox.setAttribute('aria-hidden', 'true');
-      lightboxImage.src = '';
-      lightboxImage.alt = '';
-    }
-
-    lightbox.addEventListener('click', (event) => {
-      if (event.target === lightbox || event.target === lightboxClose) closeLightbox();
-    });
-
-    document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') {
-    closeLightbox();
-    hideContactPop();
-   
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    lightboxImage.src = '';
+    lightboxImage.alt = '';
   }
-});
 
-    const contactTrigger = document.getElementById('contactTrigger');
-    const contactPop = document.getElementById('contactPop');
-    const contactPopClose = document.getElementById('contactPopClose');
-
-    function showContactPop(event) {
-      if (event) event.preventDefault();
-      contactPop.classList.add('show');
-      contactPop.setAttribute('aria-hidden', 'false');
+  lightbox.addEventListener('click', (event) => {
+    if (event.target === lightbox || event.target === lightboxClose) {
+      closeLightbox();
     }
+  });
 
-    function hideContactPop() {
-      contactPop.classList.remove('show');
-      contactPop.setAttribute('aria-hidden', 'true');
-    }
+  function showContactPop(event) {
+    if (event) event.preventDefault();
+    contactPop.classList.add('show');
+    contactPop.setAttribute('aria-hidden', 'false');
+  }
 
+  function hideContactPop() {
+    contactPop.classList.remove('show');
+    contactPop.setAttribute('aria-hidden', 'true');
+  }
+
+  function openModal(modal) {
+    if (!modal) return;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeModal(modal) {
+    if (!modal) return;
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+  }
+
+  function closeAllLegalModals() {
+    closeModal(imprintModal);
+    closeModal(privacyModal);
+    closeModal(termsModal);
+    closeModal(withdrawalModal);
+  }
+
+  if (contactTrigger) {
     contactTrigger.addEventListener('click', showContactPop);
-    contactPopClose.addEventListener('click', hideContactPop);
+  }
 
-  </script>
+  if (contactPopClose) {
+    contactPopClose.addEventListener('click', hideContactPop);
+  }
+
+  if (imprintLink) {
+    imprintLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      openModal(imprintModal);
+    });
+  }
+
+  if (privacyLink) {
+    privacyLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      openModal(privacyModal);
+    });
+  }
+
+  if (termsLink) {
+    termsLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      openModal(termsModal);
+    });
+  }
+
+  if (withdrawalLink) {
+    withdrawalLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      openModal(withdrawalModal);
+    });
+  }
+
+  if (imprintClose) {
+    imprintClose.addEventListener('click', () => closeModal(imprintModal));
+  }
+
+  if (privacyClose) {
+    privacyClose.addEventListener('click', () => closeModal(privacyModal));
+  }
+
+  if (termsClose) {
+    termsClose.addEventListener('click', () => closeModal(termsModal));
+  }
+
+  if (withdrawalClose) {
+    withdrawalClose.addEventListener('click', () => closeModal(withdrawalModal));
+  }
+
+  if (imprintModal) {
+    imprintModal.addEventListener('click', (event) => {
+      if (event.target === imprintModal) closeModal(imprintModal);
+    });
+  }
+
+  if (privacyModal) {
+    privacyModal.addEventListener('click', (event) => {
+      if (event.target === privacyModal) closeModal(privacyModal);
+    });
+  }
+
+  if (termsModal) {
+    termsModal.addEventListener('click', (event) => {
+      if (event.target === termsModal) closeModal(termsModal);
+    });
+  }
+
+  if (withdrawalModal) {
+    withdrawalModal.addEventListener('click', (event) => {
+      if (event.target === withdrawalModal) closeModal(withdrawalModal);
+    });
+  }
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeLightbox();
+      hideContactPop();
+      closeAllLegalModals();
+    }
+  });
+</script>
 </body>
 </html>
