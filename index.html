@@ -470,10 +470,15 @@
       cursor: zoom-out;
     }
 
-    .lightbox.open {
-      display: flex;
-    }
+   .lightbox.open {
+  display: flex;
+}
 
+#privacyModal:target,
+#termsModal:target,
+#withdrawalModal:target {
+  display: flex;
+}
     .lightbox img {
       max-width: min(92vw, 1300px);
       max-height: 88vh;
@@ -887,7 +892,7 @@
     <span>© HANGMEN</span>
     <span class="footer-links">
       <a href="#" id="imprintLink">Imprint</a> |
-      <a href="#">Privacy</a> |
+      <a href="#privacyModal">Privacy</a> |
       <a href="#">Terms</a> |
       <a href="#">Withdrawal</a>
     </span>
@@ -899,37 +904,44 @@
     <img id="lightboxImage" src="" alt="" />
   </div>
 
-  <div class="contact-pop" id="contactPop" aria-hidden="true">
-    <button class="close-pop" id="contactPopClose" aria-label="Close">×</button>
-    <strong>Contact</strong>
-    <a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a>
-  </div>
-<div class="lightbox" id="imprintModal" aria-hidden="true">
+<div class="contact-pop" id="contactPop">
+...
+</div>
+
+<!-- HIER EINFÜGEN -->
+<div class="lightbox" id="privacyModal">
   <div class="panel" style="max-width:760px; width:100%; position:relative; background:rgba(16,16,16,0.98);">
-    <button id="imprintClose" aria-label="Close" style="position:absolute; top:12px; right:12px; background:transparent; border:0; color:#e6dfd8; font-size:28px; cursor:pointer;">×</button>
+    <a href="#" style="position:absolute; top:12px; right:12px; color:#e6dfd8; font-size:28px; text-decoration:none;">×</a>
 
     <div style="padding-right:28px;">
-      <h3 style="margin-top:0;">Imprint</h3>
-      <p class="small-note" style="margin-top:0;">
-  HANGMEN<br>
-  
-</p>
+      <h3 style="margin-top:0;">Privacy Policy</h3>
 
       <p class="small-note">
-        Email: <a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a>
+        This website is operated by Thorsten Tenzer, Töpferweg 81, 23558 Lübeck, Germany.
       </p>
 
       <p class="small-note">
-  Responsible for content according to § 18 MStV:<br>
-  Thorsten Tenzer<br>
-  Töpferweg 81<br>
-  23558 Lübeck<br>
-  Germany
-</p>
+        We do not collect personal data when you browse this website.
+      </p>
+
+      <p class="small-note">
+        Hosting is provided via GitHub Pages.
+      </p>
+
+      <p class="small-note">
+        No tracking, no cookies, no analytics.
+      </p>
+
+      <p class="small-note">
+        Contact:
+        <br>
+        <a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a>
+      </p>
     </div>
   </div>
 </div>
-  <script>
+
+<script>
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightboxImage');
     const lightboxClose = document.getElementById('lightboxClose');
