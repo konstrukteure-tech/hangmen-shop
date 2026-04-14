@@ -51,7 +51,9 @@
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(255,255,255,0.05);
     }
-
+.crane-piece .piece-info {
+  inset: auto 0 60px 0;
+}
     .topbar-inner {
       min-height: 74px;
       display: flex;
@@ -758,6 +760,7 @@
   </style>
 </head>
 <body>
+    <div id="close"></div>
   <header class="topbar">
     <div class="wrap topbar-inner">
       <a class="brand" href="#top">H A N G M E N</a>
@@ -796,7 +799,7 @@
         </div>
 
         <div class="gallery">
-          <a class="piece piece-large rough-signal-heavy" href="ayatollah_missed_appointment.png" data-lightbox="Missed Appointment" aria-label="Open Missed Appointment">
+          <a class="<a class="piece piece-large rough-signal-heavy crane-piece"" href="ayatollah_missed_appointment.png" data-lightbox="Missed Appointment" aria-label="Open Missed Appointment">
             <div class="piece-bg">Missed Appointment</div>
             <img class="piece-image contain" src="ayatollah_missed_appointment.png" alt="Missed Appointment T-shirt design" />
             <div class="piece-info">
@@ -822,7 +825,7 @@
   servation layer.<br>
   Quiet tension.
 </p>
-    <div class="piece-price">€59 Front only</div>
+    <div class="piece-price">€89 Front only</div>
   </div>
   <div class="piece-visual">
     <img class="piece-image contain" src="Alice.png" alt="Alice front design" />
@@ -910,7 +913,9 @@
 </div>
 <div class="lightbox" id="imprintModal">
   <div class="panel" style="max-width:760px; width:100%; position:relative; background:rgba(16,16,16,0.98);">
-   <a href="#" aria-label="Close" style="position:absolute; top:12px; right:12px; color:#e6dfd8; font-size:28px; text-decoration:none;">×</a>
+<a href="#close" aria-label="Close" style="position:absolute; top:12px; right:12px; color:#e6dfd8; font-size:28px; text-decoration:none;">×</a>
+
+  <a href="#close" aria-label="Close" style="position:absolute; top:12px; right:12px; color:#e6dfd8; font-size:28px; text-decoration:none;">×</a>
 
     <div style="padding-right:28px;">
      <h3 style="margin-top:0;">Imprint</h3>
@@ -948,7 +953,7 @@ This imprint also applies to all online presences of this project.
 <!-- HIER EINFÜGEN -->
 <div class="lightbox" id="privacyModal">
   <div class="panel" style="max-width:760px; width:100%; position:relative; background:rgba(16,16,16,0.98);">
-  <a href="#" aria-label="Close" style="position:absolute; top:12px; right:12px; color:#e6dfd8; font-size:28px; text-decoration:none;">×</a>
+  <a href="#close" aria-label="Close" style="position:absolute; top:12px; right:12px; color:#e6dfd8; font-size:28px; text-decoration:none;">×</a>
 
     <div style="padding-right:28px;">
      <h3 style="margin-top:0;">Privacy Policy</h3>
@@ -987,7 +992,7 @@ For privacy-related inquiries, please contact:<br>
 <div class="lightbox" id="termsModal">
   <div class="panel" style="max-width:760px; width:100%; position:relative; background:rgba(16,16,16,0.98);">
     
-    <a href="#!" onclick="return false;" style="position:absolute; top:12px; right:12px; color:#e6dfd8; font-size:28px; text-decoration:none;">×</a>
+   <a href="#close" aria-label="Close" style="position:absolute; top:12px; right:12px; color:#e6dfd8; font-size:28px; text-decoration:none;">×</a>
 
     <div style="padding-right:28px;">
       <h3 style="margin-top:0;">Terms & Conditions</h3>
@@ -1022,7 +1027,7 @@ For privacy-related inquiries, please contact:<br>
   <div class="lightbox" id="withdrawalModal">
   <div class="panel" style="max-width:760px; width:100%; position:relative; background:rgba(16,16,16,0.98);">
     
-    <a href="#!" onclick="return false;" style="position:absolute; top:12px; right:12px; color:#e6dfd8; font-size:28px; text-decoration:none;">×</a>
+    <a href="#close" aria-label="Close" style="position:absolute; top:12px; right:12px; color:#e6dfd8; font-size:28px; text-decoration:none;">×</a>
 
     <div style="padding-right:28px;">
       <h3 style="margin-top:0;">Right of Withdrawal</h3>
