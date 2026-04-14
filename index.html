@@ -733,6 +733,21 @@
 .footer a:hover {
   color: var(--text);
 }
+    .footer-line {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--muted);
+  margin-left: 12px;
+}
+
+.footer-links a:hover {
+  color: var(--text);
+} 
 }
   </style>
 </head>
@@ -868,12 +883,14 @@
   </main>
 
  <footer class="footer">
-  <div class="wrap">
-    © HANGMEN<br>
-    <a href="#">Imprint</a> ·
-    <a href="#">Privacy</a> ·
-    <a href="#">Terms</a> ·
-    <a href="#">Withdrawal</a>
+  <div class="wrap footer-line">
+    <span>© HANGMEN</span>
+    <span class="footer-links">
+      <a href="#">Imprint</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Withdrawal</a>
+    </span>
   </div>
 </footer>
 
