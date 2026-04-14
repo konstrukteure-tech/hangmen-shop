@@ -821,6 +821,7 @@
         </div>
 
         <div class="gallery">
+         
          <a class="piece piece-large rough-signal-heavy crane-piece" href="ayatollah_missed_appointment.png" data-lightbox="Missed Appointment" aria-label="Open Missed Appointment">
             <div class="piece-bg">Missed Appointment</div>
             <img class="piece-image contain" src="ayatollah_missed_appointment.png" alt="Missed Appointment T-shirt design" />
@@ -1082,133 +1083,7 @@
 </div>
 
 <script>
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImage = document.getElementById('lightboxImage');
-  const lightboxClose = document.getElementById('lightboxClose');
-  const pieces = document.querySelectorAll('[data-lightbox]');
-
-  const contactTrigger = document.getElementById('contactTrigger');
-  const contactPop = document.getElementById('contactPop');
-  const contactPopClose = document.getElementById('contactPopClose');
-
-  const imprintLink = document.getElementById('imprintLink');
-  const privacyLink = document.getElementById('privacyLink');
-  const termsLink = document.getElementById('termsLink');
-  const withdrawalLink = document.getElementById('withdrawalLink');
-
-  const imprintModal = document.getElementById('imprintModal');
-  const privacyModal = document.getElementById('privacyModal');
-  const termsModal = document.getElementById('termsModal');
-  const withdrawalModal = document.getElementById('withdrawalModal');
-
-  const imprintClose = document.getElementById('imprintClose');
-  const privacyClose = document.getElementById('privacyClose');
-  const termsClose = document.getElementById('termsClose');
-  const withdrawalClose = document.getElementById('withdrawalClose');
-
-  pieces.forEach((piece) => {
-    piece.addEventListener('click', (event) => {
-      event.preventDefault();
-      lightboxImage.src = piece.getAttribute('href');
-      lightboxImage.alt = piece.getAttribute('data-lightbox');
-      lightbox.classList.add('open');
-      lightbox.setAttribute('aria-hidden', 'false');
-    });
-  });
-
-  function closeLightbox() {
-    lightbox.classList.remove('open');
-    lightbox.setAttribute('aria-hidden', 'true');
-    lightboxImage.src = '';
-    lightboxImage.alt = '';
-  }
-
-  lightbox.addEventListener('click', (event) => {
-    if (event.target === lightbox || event.target === lightboxClose) {
-      closeLightbox();
-    }
-  });
-
-  function showContactPop(event) {
-    if (event) event.preventDefault();
-    contactPop.classList.add('show');
-    contactPop.setAttribute('aria-hidden', 'false');
-  }
-
-  function hideContactPop() {
-    contactPop.classList.remove('show');
-    contactPop.setAttribute('aria-hidden', 'true');
-  }
-
-  function openModal(modal) {
-    modal.classList.add('open');
-    modal.setAttribute('aria-hidden', 'false');
-  }
-
-  function closeModal(modal) {
-    modal.classList.remove('open');
-    modal.setAttribute('aria-hidden', 'true');
-  }
-
-  function closeAllLegalModals() {
-    closeModal(imprintModal);
-    closeModal(privacyModal);
-    closeModal(termsModal);
-    closeModal(withdrawalModal);
-  }
-
-  contactTrigger.addEventListener('click', showContactPop);
-  contactPopClose.addEventListener('click', hideContactPop);
-
-  imprintLink.addEventListener('click', (event) => {
-    event.preventDefault();
-    openModal(imprintModal);
-  });
-
-  privacyLink.addEventListener('click', (event) => {
-    event.preventDefault();
-    openModal(privacyModal);
-  });
-
-  termsLink.addEventListener('click', (event) => {
-    event.preventDefault();
-    openModal(termsModal);
-  });
-
-  withdrawalLink.addEventListener('click', (event) => {
-    event.preventDefault();
-    openModal(withdrawalModal);
-  });
-
-  imprintClose.addEventListener('click', () => closeModal(imprintModal));
-  privacyClose.addEventListener('click', () => closeModal(privacyModal));
-  termsClose.addEventListener('click', () => closeModal(termsModal));
-  withdrawalClose.addEventListener('click', () => closeModal(withdrawalModal));
-
-  imprintModal.addEventListener('click', (event) => {
-    if (event.target === imprintModal) closeModal(imprintModal);
-  });
-
-  privacyModal.addEventListener('click', (event) => {
-    if (event.target === privacyModal) closeModal(privacyModal);
-  });
-
-  termsModal.addEventListener('click', (event) => {
-    if (event.target === termsModal) closeModal(termsModal);
-  });
-
-  withdrawalModal.addEventListener('click', (event) => {
-    if (event.target === withdrawalModal) closeModal(withdrawalModal);
-  });
-
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-      closeLightbox();
-      hideContactPop();
-      closeAllLegalModals();
-    }
-  });
-</script>
+  
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightboxImage');
     const lightboxClose = document.getElementById('lightboxClose');
