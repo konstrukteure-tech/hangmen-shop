@@ -474,6 +474,7 @@
   display: flex;
 }
 
+#imprintModal:target,
 #privacyModal:target,
 #termsModal:target,
 #withdrawalModal:target {
@@ -781,7 +782,7 @@
           <div>
             <div class="label">Drop 01</div>
             <h2 class="title">Three pieces.<br>One line.</h2>
-            <div class="sub">Missed Appointment. You Never Walk Alone. Liebe Leute, alles wird gut. AFD-Alice</div>
+            <div class="sub">Missed Appointment. You Never Walk Alone. Liebe Leute, alles wird gut. Pssst,.....</div>
           </div>
         </aside>
       </div>
@@ -890,12 +891,12 @@
  <footer class="footer">
   <div class="wrap footer-line">
     <span>© HANGMEN</span>
-    <span class="footer-links">
-      <a href="#" id="imprintLink">Imprint</a> |
-      <a href="#privacyModal">Privacy</a> |
-      <a href="#">Terms</a> |
-      <a href="#">Withdrawal</a>
-    </span>
+<span class="footer-links">
+  <a href="#imprintModal">Imprint</a> |
+  <a href="#privacyModal">Privacy</a> |
+  <a href="#termsModal">Terms</a> |
+  <a href="#withdrawalModal">Withdrawal</a>
+</span>
   </div>
 </footer>
 
@@ -907,7 +908,27 @@
 <div class="contact-pop" id="contactPop">
 ...
 </div>
+<div class="lightbox" id="imprintModal">
+  <div class="panel" style="max-width:760px; width:100%; position:relative; background:rgba(16,16,16,0.98);">
+    <a href="#" style="position:absolute; top:12px; right:12px; color:#e6dfd8; font-size:28px; text-decoration:none;">×</a>
 
+    <div style="padding-right:28px;">
+      <h3 style="margin-top:0;">Imprint</h3>
+
+      <p class="small-note">
+        Thorsten Tenzer<br>
+        Töpferweg 81<br>
+        23558 Lübeck<br>
+        Germany
+      </p>
+
+      <p class="small-note">
+        Email:
+        <a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a>
+      </p>
+    </div>
+  </div>
+</div>
 <!-- HIER EINFÜGEN -->
 <div class="lightbox" id="privacyModal">
   <div class="panel" style="max-width:760px; width:100%; position:relative; background:rgba(16,16,16,0.98);">
