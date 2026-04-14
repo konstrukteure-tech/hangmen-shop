@@ -568,9 +568,7 @@
         margin-left: 0;
         margin-right: 0;
       }
-      .crane-piece .piece-info {
-  padding-bottom: 42px;
-}
+
     }
 
    @media (max-width: 760px) {
@@ -893,129 +891,133 @@
 </section>
   </main>
 
- <footer class="footer">
+<footer class="footer">
   <div class="wrap footer-line">
     <span>© HANGMEN</span>
-<span class="footer-links">
-  <a href="#imprintModal">Imprint</a> |
-  <a href="#privacyModal">Privacy</a> |
-  <a href="#termsModal">Terms</a> |
-  <a href="#withdrawalModal">Withdrawal</a>
-</span>
+    <span class="footer-links">
+      <a href="#" id="imprintLink">Imprint</a> |
+      <a href="#" id="privacyLink">Privacy</a> |
+      <a href="#" id="termsLink">Terms</a> |
+      <a href="#" id="withdrawalLink">Withdrawal</a>
+    </span>
   </div>
 </footer>
 
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
-    <img id="lightboxImage" src="" alt="" />
-  </div>
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+  <img id="lightboxImage" src="" alt="" />
+</div>
 
 <div class="contact-pop" id="contactPop" aria-hidden="true">
   <button class="close-pop" id="contactPopClose" aria-label="Close">×</button>
   <strong>Contact</strong>
   <a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a>
 </div>
-<div class="lightbox" id="imprintModal">
+
+<div class="lightbox" id="imprintModal" aria-hidden="true">
   <div class="panel" style="max-width:760px; width:100%; position:relative; background:rgba(16,16,16,0.98);">
-<a href="#close" aria-label="Close" style="position:absolute; top:12px; right:12px; color:#e6dfd8; font-size:28px; text-decoration:none;">×</a>
-
-
-
+    <button id="imprintClose" aria-label="Close" style="position:absolute; top:12px; right:12px; background:transparent; border:0; color:#e6dfd8; font-size:28px; cursor:pointer;">×</button>
     <div style="padding-right:28px;">
-     <h3 style="margin-top:0;">Imprint</h3>
+      <h3 style="margin-top:0;">Imprint</h3>
 
-<p class="small-note">
-HANGMEN<br>
-Owner: Thorsten Tenzer<br>
+      <p class="small-note">
+        HANGMEN<br>
+        Owner: Thorsten Tenzer<br>
+        Töpferweg 81<br>
+        23558 Lübeck<br>
+        Germany
+      </p>
 
-</p>
+      <p class="small-note">
+        Email:<br>
+        <a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a>
+      </p>
 
-<p class="small-note">
-Email:<br>
-<a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a>
-</p>
+      <p class="small-note">
+        Responsible for content according to § 18 MStV:<br>
+        Thorsten Tenzer<br>
+        Töpferweg 81<br>
+        23558 Lübeck<br>
+        Germany
+      </p>
 
-<p class="small-note">
-Responsible for content according to § 18 MStV:<br>
-Thorsten Tenzer<br>
-Töpferweg 81<br>
-23558 Lübeck<br>
-Germany
-</p>
-
-<p class="small-note">
-This imprint also applies to all online presences of this project.
-</p>
-
-
+      <p class="small-note">
+        This imprint also applies to all online presences of this project.
+      </p>
     </div>
   </div>
 </div>
-<!-- HIER EINFÜGEN -->
-<div class="lightbox" id="privacyModal">
+
+<div class="lightbox" id="privacyModal" aria-hidden="true">
   <div class="panel" style="max-width:760px; width:100%; position:relative; background:rgba(16,16,16,0.98);">
-  <a href="#close" aria-label="Close" style="position:absolute; top:12px; right:12px; color:#e6dfd8; font-size:28px; text-decoration:none;">×</a>
-
+    <button id="privacyClose" aria-label="Close" style="position:absolute; top:12px; right:12px; background:transparent; border:0; color:#e6dfd8; font-size:28px; cursor:pointer;">×</button>
     <div style="padding-right:28px;">
-     <h3 style="margin-top:0;">Privacy Policy</h3>
+      <h3 style="margin-top:0;">Privacy Policy</h3>
 
-<p class="small-note">
-This website is operated by Thorsten Tenzer, Töpferweg 81, 23558 Lübeck, Germany.
-</p>
+      <p class="small-note">
+        This website is operated by Thorsten Tenzer, Töpferweg 81, 23558 Lübeck, Germany.
+      </p>
 
-<p class="small-note">
-We do not actively collect personal data when you browse this website.
-</p>
+      <p class="small-note">
+        We do not actively collect personal data when you browse this website.
+      </p>
 
-<p class="small-note">
-When you contact us via email, your data (such as name and email address) will be processed for the purpose of handling your request.
-</p>
+      <p class="small-note">
+        When you contact us via email, your data, such as your name, email address, and message content, may be processed for the purpose of handling your request.
+      </p>
 
-<p class="small-note">
-This website is hosted via GitHub Pages. The hosting provider may automatically collect technical data such as IP address, browser type, and access time (server log files). This data is used for technical stability and security purposes.
-</p>
+      <p class="small-note">
+        This website is hosted via GitHub Pages. Technical access data, such as IP address, browser information, and access time, may be processed by the hosting provider for technical and security purposes.
+      </p>
 
-<p class="small-note">
-We do not use tracking tools, cookies, or analytics services.
-</p>
+      <p class="small-note">
+        We do not use tracking tools, cookies, or analytics services.
+      </p>
 
-<p class="small-note">
-You have the right to request information about your stored data, its origin and purpose, and the right to correction or deletion.
-</p>
+      <p class="small-note">
+        You have the right to request information about your stored personal data, as well as correction or deletion where applicable.
+      </p>
 
-<p class="small-note">
-For privacy-related inquiries, please contact:<br>
-<a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a>
-</p>
+      <p class="small-note">
+        For privacy-related inquiries, please contact:<br>
+        <a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a>
+      </p>
     </div>
   </div>
 </div>
-<div class="lightbox" id="termsModal">
+
+<div class="lightbox" id="termsModal" aria-hidden="true">
   <div class="panel" style="max-width:760px; width:100%; position:relative; background:rgba(16,16,16,0.98);">
-    
-   <a href="#close" aria-label="Close" style="position:absolute; top:12px; right:12px; color:#e6dfd8; font-size:28px; text-decoration:none;">×</a>
-
+    <button id="termsClose" aria-label="Close" style="position:absolute; top:12px; right:12px; background:transparent; border:0; color:#e6dfd8; font-size:28px; cursor:pointer;">×</button>
     <div style="padding-right:28px;">
-      <h3 style="margin-top:0;">Terms & Conditions</h3>
+      <h3 style="margin-top:0;">Terms &amp; Conditions</h3>
 
       <p class="small-note">
-        All products are offered as limited edition pieces.
+        The following terms apply to all orders placed via this website.
       </p>
 
       <p class="small-note">
-        Each design is limited to 30 units. Once sold out, the design is permanently closed. No restock.
+        All products are offered as limited edition pieces. Each design is limited to 30 units. Once sold out, the design is permanently closed. No restock.
       </p>
 
       <p class="small-note">
-        Production is carried out on a print-on-demand basis. Each item is produced individually after ordering.
+        Production is carried out on a print-on-demand basis. This means that each item is produced individually after an order has been placed.
       </p>
 
       <p class="small-note">
-        Delivery times may vary due to this production process.
+        Due to this production process, delivery times may vary and can be longer than standard retail delivery times.
       </p>
 
       <p class="small-note">
-        Slight variations in color, print and material may occur and do not constitute a defect.
+        Minor variations in color, print placement, and material may occur due to the production process. Such deviations do not constitute a defect.
+      </p>
+
+      <p class="small-note">
+        The presentation of products on this website does not constitute a legally binding offer but an invitation to place an order.
+      </p>
+
+      <p class="small-note">
+        Prices are stated in Euro (€). Additional costs such as shipping may apply and will be indicated during the ordering process.
       </p>
 
       <p class="small-note">
@@ -1025,11 +1027,9 @@ For privacy-related inquiries, please contact:<br>
   </div>
 </div>
 
-  <div class="lightbox" id="withdrawalModal">
+<div class="lightbox" id="withdrawalModal" aria-hidden="true">
   <div class="panel" style="max-width:760px; width:100%; position:relative; background:rgba(16,16,16,0.98);">
-    
-    <a href="#close" aria-label="Close" style="position:absolute; top:12px; right:12px; color:#e6dfd8; font-size:28px; text-decoration:none;">×</a>
-
+    <button id="withdrawalClose" aria-label="Close" style="position:absolute; top:12px; right:12px; background:transparent; border:0; color:#e6dfd8; font-size:28px; cursor:pointer;">×</button>
     <div style="padding-right:28px;">
       <h3 style="margin-top:0;">Right of Withdrawal</h3>
 
@@ -1038,22 +1038,157 @@ For privacy-related inquiries, please contact:<br>
       </p>
 
       <p class="small-note">
-        The withdrawal period begins on the day you receive the goods.
+        The withdrawal period is 14 days from the day on which you or a third party named by you takes possession of the goods.
       </p>
 
       <p class="small-note">
-        To exercise your right, contact us:
-        <br>
+        To exercise your right of withdrawal, you must inform us by email:<br>
         <a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a>
       </p>
 
       <p class="small-note">
-        As products are made on demand, returns may be excluded unless the product is defective.
+        To meet the withdrawal deadline, it is sufficient for you to send your communication before the withdrawal period has expired.
+      </p>
+
+      <p class="small-note">
+        Please note: Since all products are produced individually on demand, a return may be excluded in cases where the product has been clearly customized or made specifically for the customer, unless there is a defect.
+      </p>
+
+      <p class="small-note">
+        In case of defective or damaged products, you are entitled to replacement or refund in accordance with statutory provisions.
       </p>
     </div>
   </div>
 </div>
+
 <script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImage = document.getElementById('lightboxImage');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const pieces = document.querySelectorAll('[data-lightbox]');
+
+  const contactTrigger = document.getElementById('contactTrigger');
+  const contactPop = document.getElementById('contactPop');
+  const contactPopClose = document.getElementById('contactPopClose');
+
+  const imprintLink = document.getElementById('imprintLink');
+  const privacyLink = document.getElementById('privacyLink');
+  const termsLink = document.getElementById('termsLink');
+  const withdrawalLink = document.getElementById('withdrawalLink');
+
+  const imprintModal = document.getElementById('imprintModal');
+  const privacyModal = document.getElementById('privacyModal');
+  const termsModal = document.getElementById('termsModal');
+  const withdrawalModal = document.getElementById('withdrawalModal');
+
+  const imprintClose = document.getElementById('imprintClose');
+  const privacyClose = document.getElementById('privacyClose');
+  const termsClose = document.getElementById('termsClose');
+  const withdrawalClose = document.getElementById('withdrawalClose');
+
+  pieces.forEach((piece) => {
+    piece.addEventListener('click', (event) => {
+      event.preventDefault();
+      lightboxImage.src = piece.getAttribute('href');
+      lightboxImage.alt = piece.getAttribute('data-lightbox');
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    lightboxImage.src = '';
+    lightboxImage.alt = '';
+  }
+
+  lightbox.addEventListener('click', (event) => {
+    if (event.target === lightbox || event.target === lightboxClose) {
+      closeLightbox();
+    }
+  });
+
+  function showContactPop(event) {
+    if (event) event.preventDefault();
+    contactPop.classList.add('show');
+    contactPop.setAttribute('aria-hidden', 'false');
+  }
+
+  function hideContactPop() {
+    contactPop.classList.remove('show');
+    contactPop.setAttribute('aria-hidden', 'true');
+  }
+
+  function openModal(modal) {
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeModal(modal) {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+  }
+
+  function closeAllLegalModals() {
+    closeModal(imprintModal);
+    closeModal(privacyModal);
+    closeModal(termsModal);
+    closeModal(withdrawalModal);
+  }
+
+  contactTrigger.addEventListener('click', showContactPop);
+  contactPopClose.addEventListener('click', hideContactPop);
+
+  imprintLink.addEventListener('click', (event) => {
+    event.preventDefault();
+    openModal(imprintModal);
+  });
+
+  privacyLink.addEventListener('click', (event) => {
+    event.preventDefault();
+    openModal(privacyModal);
+  });
+
+  termsLink.addEventListener('click', (event) => {
+    event.preventDefault();
+    openModal(termsModal);
+  });
+
+  withdrawalLink.addEventListener('click', (event) => {
+    event.preventDefault();
+    openModal(withdrawalModal);
+  });
+
+  imprintClose.addEventListener('click', () => closeModal(imprintModal));
+  privacyClose.addEventListener('click', () => closeModal(privacyModal));
+  termsClose.addEventListener('click', () => closeModal(termsModal));
+  withdrawalClose.addEventListener('click', () => closeModal(withdrawalModal));
+
+  imprintModal.addEventListener('click', (event) => {
+    if (event.target === imprintModal) closeModal(imprintModal);
+  });
+
+  privacyModal.addEventListener('click', (event) => {
+    if (event.target === privacyModal) closeModal(privacyModal);
+  });
+
+  termsModal.addEventListener('click', (event) => {
+    if (event.target === termsModal) closeModal(termsModal);
+  });
+
+  withdrawalModal.addEventListener('click', (event) => {
+    if (event.target === withdrawalModal) closeModal(withdrawalModal);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeLightbox();
+      hideContactPop();
+      closeAllLegalModals();
+    }
+  });
+</script>
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightboxImage');
     const lightboxClose = document.getElementById('lightboxClose');
