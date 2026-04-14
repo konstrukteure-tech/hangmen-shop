@@ -886,7 +886,7 @@
   <div class="wrap footer-line">
     <span>© HANGMEN</span>
     <span class="footer-links">
-      <a href="#">Imprint</a> |
+      <a href="#" id="imprintLink">Imprint</a> |
       <a href="#">Privacy</a> |
       <a href="#">Terms</a> |
       <a href="#">Withdrawal</a>
@@ -904,7 +904,34 @@
     <strong>Contact</strong>
     <a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a>
   </div>
+<div class="lightbox" id="imprintModal" aria-hidden="true">
+  <div class="panel" style="max-width:760px; width:100%; position:relative; background:rgba(16,16,16,0.98);">
+    <button id="imprintClose" aria-label="Close" style="position:absolute; top:12px; right:12px; background:transparent; border:0; color:#e6dfd8; font-size:28px; cursor:pointer;">×</button>
 
+    <div style="padding-right:28px;">
+      <h3 style="margin-top:0;">Imprint</h3>
+      <p class="small-note" style="margin-top:0;">
+  HANGMEN<br>
+  Thorsten Tenzer<br>
+  Töpferweg 81<br>
+  23558 Lübeck<br>
+  Germany
+</p>
+
+      <p class="small-note">
+        Email: <a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a>
+      </p>
+
+      <p class="small-note">
+  Responsible for content according to § 18 MStV:<br>
+  Thorsten Tenzer<br>
+  Töpferweg 81<br>
+  23558 Lübeck<br>
+  Germany
+</p>
+    </div>
+  </div>
+</div>
   <script>
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightboxImage');
@@ -933,16 +960,19 @@
     });
 
     document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') {
-        closeLightbox();
-        hideContactPop();
-      }
-    });
+  if (event.key === 'Escape') {
+    closeLightbox();
+    hideContactPop();
+    hideImprint();
+  }
+});
 
     const contactTrigger = document.getElementById('contactTrigger');
     const contactPop = document.getElementById('contactPop');
     const contactPopClose = document.getElementById('contactPopClose');
-
+const imprintLink = document.getElementById('imprintLink');
+const imprintModal = document.getElementById('imprintModal');
+const imprintClose = document.getElementById('imprintClose');
     function showContactPop(event) {
       if (event) event.preventDefault();
       contactPop.classList.add('show');
@@ -953,9 +983,24 @@
       contactPop.classList.remove('show');
       contactPop.setAttribute('aria-hidden', 'true');
     }
+function showImprint(event) {
+  if (event) event.preventDefault();
+  imprintModal.classList.add('open');
+  imprintModal.setAttribute('aria-hidden', 'false');
+}
 
+function hideImprint() {
+  imprintModal.classList.remove('open');
+  imprintModal.setAttribute('aria-hidden', 'true');
+}
     contactTrigger.addEventListener('click', showContactPop);
     contactPopClose.addEventListener('click', hideContactPop);
+    imprintLink.addEventListener('click', showImprint);
+imprintClose.addEventListener('click', hideImprint);
+
+imprintModal.addEventListener('click', (event) => {
+  if (event.target === imprintModal) hideImprint();
+});
   </script>
 </body>
 </html>
