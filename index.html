@@ -448,14 +448,14 @@
     }
 
 .contact {
-  padding: 6px 0 8px;
+  padding: 6px 0 10px;
 }
 
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 14px;
-  align-items: start;
+  align-items: stretch;
 }
 
 .panel,
@@ -465,6 +465,17 @@
   background: rgba(16,16,16,0.88);
   padding: 12px 14px;
   min-height: 0;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.purchase-panel {
+  display: grid;
+  gap: 8px;
 }
 
 .panel h3,
@@ -489,14 +500,33 @@
   margin-top: 6px;
 }
 
-.buy-compact-row {
+.contact-legal {
+  margin-top: 10px;
+  font-size: 0.82rem;
+  line-height: 1.2;
+  color: var(--muted);
+}
+
+.contact-legal a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.contact-legal a:hover,
+.contact-legal a:focus-visible {
+  color: var(--text);
+  outline: none;
+}
+
+.buy-top-row {
   display: grid;
-  grid-template-columns: 1.08fr 0.92fr;
+  grid-template-columns: 1.12fr 0.88fr;
   gap: 10px;
   align-items: start;
 }
 
-.buy-select-col {
+.buy-field {
   display: grid;
   gap: 4px;
 }
@@ -513,7 +543,7 @@
   height: 32px;
   border-radius: 10px;
   border: 1px solid rgba(255,255,255,0.08);
-  background: rgba(255,255,255,0.04);
+  background: rgba(255,255,255,0.05);
   color: var(--text);
   padding: 0 10px;
   font-size: 0.88rem;
@@ -542,10 +572,6 @@
   background: transparent;
 }
 
-.checks-inline {
-  align-content: start;
-}
-
 .checkline {
   display: flex;
   gap: 7px;
@@ -562,7 +588,68 @@
 }
 
 .checkline a {
+  color: var(--muted);
   text-decoration: underline;
+}
+
+.checkline a:hover,
+.checkline a:focus-visible {
+  color: var(--text);
+  outline: none;
+}
+
+.buy-action-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  align-items: stretch;
+}
+
+.action-box {
+  display: grid;
+  gap: 4px;
+}
+
+.action-btn,
+.action-select {
+  width: 100%;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.07);
+  color: var(--text);
+  padding: 0 10px;
+  font-size: 0.8rem;
+  outline: none;
+}
+
+.action-select {
+  appearance: none;
+}
+
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.action-btn:hover,
+.action-btn:focus-visible,
+.action-select:focus {
+  border-color: rgba(217,210,202,0.24);
+  outline: none;
+}
+
+.paypalMount {
+  width: 100%;
+  min-height: 30px;
+}
+
+.paypalMount .paypal-buttons,
+.paypalMount iframe {
+  max-height: 30px !important;
 }
 
 .warn {
@@ -574,7 +661,6 @@
   border-radius: 10px;
   display: none;
   text-transform: lowercase;
-  margin-top: 6px;
   line-height: 1.15;
 }
 
@@ -582,74 +668,20 @@
   display: block;
 }
 
-.paypalSlot {
-  height: 30px;
-  width: 100%;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 8px 18px rgba(0,0,0,.22);
-  background: var(--paypal-yellow);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  border: 1px solid rgba(0,0,0,.10);
-  margin-top: 6px;
-}
-
-.paypalSlot.isDisabled {
-  opacity: .55;
-  filter: grayscale(1);
-}
-
-#paypal-button-container {
-  width: 100%;
-  min-height: 30px;
-  display: block;
-}
-
-.paypalFallback {
-  height: 30px;
-  width: 100%;
-  border: 0;
-  border-radius: 10px;
-  background: var(--paypal-yellow);
-  color: var(--paypal-text);
-  font-weight: 950;
-  text-transform: lowercase;
-  cursor: not-allowed;
+.footer {
   display: none;
 }
 
-.buy-mini-note {
-  margin-top: 4px;
-  font-size: 10px;
-  color: var(--muted);
-  text-transform: lowercase;
-  line-height: 1.1;
-}
+@media (max-width: 760px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
 
-.footer {
-  padding: 0 0 14px;
-  color: var(--muted);
-  font-size: 0.82rem;
+  .buy-top-row,
+  .buy-action-row {
+    grid-template-columns: 1fr;
+  }
 }
-
-.footer-line {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.footer-links {
-  word-spacing: 4px;
-}
-
-    .footer-links a {
-      color: var(--muted);
-      margin-left: 0;
-    }
 
     .lightbox {
       position: fixed;
@@ -1040,22 +1072,32 @@
       </div>
     </section>
 
-   <section class="contact" id="contact">
+ <section class="contact" id="contact">
   <div class="wrap">
     <div class="contact-grid">
       <div class="panel">
-        <h3>Contact</h3>
-        <p><a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a></p>
-        <p class="small-note">
-          Each design is limited to 30 pieces. Once sold out, the piece is closed. No restock.
-        </p>
+        <div>
+          <h3>Contact</h3>
+          <p><a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a></p>
+          <p class="small-note">
+            Each design is limited to 30 pieces. Once sold out, the piece is closed. No restock.
+          </p>
+        </div>
+
+        <div class="contact-legal">
+          <span>© HANGMEN</span>
+          <a href="#" id="imprintLink">Imprint</a>
+          <a href="#" id="privacyLink">Privacy</a>
+          <a href="#" id="termsLink">Terms</a>
+          <a href="#" id="withdrawalLink">Withdrawal</a>
+        </div>
       </div>
 
       <div class="purchase-panel">
         <h3>Buy</h3>
 
-        <div class="buy-compact-row">
-          <div class="buy-select-col">
+        <div class="buy-top-row">
+          <div class="buy-field">
             <label class="buy-label" for="productSelect">Select piece</label>
             <select class="buy-select" id="productSelect" aria-label="Select product">
               <option value="89.00" data-name="A(ngst)FD Front">A(ngst)FD Front — €89</option>
@@ -1066,7 +1108,7 @@
             <p class="payNote" id="payNote">current item: a(ngst)fd front — €89</p>
           </div>
 
-          <div class="checks checks-inline">
+          <div class="checks">
             <label class="checkline">
               <input type="checkbox" id="termsCheck">
               <span>I accept the <a href="#" id="termsInlineLink">terms</a>.</span>
@@ -1084,34 +1126,49 @@
           </div>
         </div>
 
+        <div class="buy-action-row">
+          <div class="action-box">
+            <label class="buy-label" for="productSelectMirror">Item choice</label>
+            <select class="action-select" id="productSelectMirror" aria-label="Item choice">
+              <option value="A(ngst)FD Front">A(ngst)FD Front</option>
+              <option value="Missed Appointment">Missed Appointment</option>
+              <option value="Merz — Back">Merz — Back</option>
+              <option value="You Never Walk Alone">You Never Walk Alone</option>
+            </select>
+          </div>
+
+          <div class="action-box">
+            <label class="buy-label" for="shippingSelect">Shipping</label>
+            <select class="action-select" id="shippingSelect" aria-label="Shipping">
+              <option value="0.00" data-name="Germany flat">Germany flat</option>
+              <option value="12.00" data-name="Europe flat">Europe flat</option>
+              <option value="25.00" data-name="Worldwide flat">Worldwide flat</option>
+            </select>
+          </div>
+
+          <div class="action-box">
+            <label class="buy-label" for="withdrawalAction">Withdrawal</label>
+            <a href="#" class="action-btn" id="withdrawalAction">Open policy</a>
+          </div>
+        </div>
+
         <div class="warn" id="paypalWarn">
           please accept the legal notices before starting checkout.
         </div>
 
-        <div class="paypalSlot" id="paypalSlot">
-          <div id="paypal-button-container"></div>
-          <button class="paypalFallback" type="button" aria-hidden="true" tabindex="-1">paypal</button>
-        </div>
+        <div class="buy-action-row">
+          <div class="action-box">
+            <label class="buy-label" for="paypal-button-container">PayPal</label>
+            <div class="paypalMount" id="paypal-button-container"></div>
+          </div>
 
-        <div class="buy-mini-note">
-          secure checkout via paypal.
+          <div class="action-box"></div>
+          <div class="action-box"></div>
         </div>
       </div>
     </div>
   </div>
 </section>
-  <footer class="footer">
-    <div class="wrap footer-line">
-      <span>© HANGMEN</span>
-      <span class="footer-links">
-        <a href="#" id="imprintLink">Imprint</a> |
-        <a href="#" id="privacyLink">Privacy</a> |
-        <a href="#" id="termsLink">Terms</a> |
-        <a href="#" id="withdrawalLink">Withdrawal</a>
-      </span>
-    </div>
-  </footer>
-
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
     <img id="lightboxImage" src="" alt="" />
@@ -1284,6 +1341,11 @@
 
     const termsCheck = document.getElementById('termsCheck');
     const privacyCheck = document.getElementById('privacyCheck');
+const productSelect = document.getElementById('productSelect');
+const productSelectMirror = document.getElementById('productSelectMirror');
+const shippingSelect = document.getElementById('shippingSelect');
+const withdrawalAction = document.getElementById('withdrawalAction');
+const payNote = document.getElementById('payNote');    
     const withdrawalCheck = document.getElementById('withdrawalCheck');
     const paypalWarn = document.getElementById('paypalWarn');
     const paypalSlot = document.getElementById('paypalSlot');
@@ -1480,7 +1542,74 @@
     });
 
     productSelect.addEventListener('change', updatePayNote);
+function getSelectedProduct() {
+  const option = productSelect.options[productSelect.selectedIndex];
+  return {
+    name: option.dataset.name,
+    value: option.value
+  };
+}
 
+function getSelectedShipping() {
+  const option = shippingSelect.options[shippingSelect.selectedIndex];
+  return {
+    name: option.dataset.name,
+    value: option.value
+  };
+}
+
+function syncProductSelectors(fromPrimary = true) {
+  if (!productSelect || !productSelectMirror) return;
+
+  if (fromPrimary) {
+    productSelectMirror.value = productSelect.options[productSelect.selectedIndex].dataset.name;
+  } else {
+    const targetName = productSelectMirror.value;
+    const options = Array.from(productSelect.options);
+    const match = options.find(opt => opt.dataset.name === targetName);
+    if (match) {
+      productSelect.value = match.value;
+      productSelect.selectedIndex = options.indexOf(match);
+    }
+  }
+}
+
+function updatePayNote() {
+  const product = getSelectedProduct();
+  const shipping = getSelectedShipping();
+  const total = (parseFloat(product.value) + parseFloat(shipping.value)).toFixed(2);
+
+  payNote.textContent =
+    `current item: ${product.name.toLowerCase()} — €${product.value} / shipping: ${shipping.name.toLowerCase()} / total: €${total}`;
+}
+
+if (productSelect) {
+  productSelect.addEventListener('change', () => {
+    syncProductSelectors(true);
+    updatePayNote();
+  });
+}
+
+if (productSelectMirror) {
+  productSelectMirror.addEventListener('change', () => {
+    syncProductSelectors(false);
+    updatePayNote();
+  });
+}
+
+if (shippingSelect) {
+  shippingSelect.addEventListener('change', updatePayNote);
+}
+
+if (withdrawalAction) {
+  withdrawalAction.addEventListener('click', (event) => {
+    event.preventDefault();
+    openModal(withdrawalModal);
+  });
+}
+
+syncProductSelectors(true);
+updatePayNote();
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') {
         closeLightbox();
@@ -1531,21 +1660,33 @@
         },
 
         createOrder: function(data, actions) {
-          const product = getSelectedProduct();
+  const product = getSelectedProduct();
+  const shipping = getSelectedShipping();
+  const total = (parseFloat(product.value) + parseFloat(shipping.value)).toFixed(2);
 
-          return actions.order.create({
-            application_context: {
-              shipping_preference: 'GET_FROM_FILE'
-            },
-            purchase_units: [{
-              description: product.description,
-              amount: {
-                currency_code: 'EUR',
-                value: product.value
-              }
-            }]
-          });
-        },
+  return actions.order.create({
+    application_context: {
+      shipping_preference: 'GET_FROM_FILE'
+    },
+    purchase_units: [{
+      description: `${product.name} / ${shipping.name}`,
+      amount: {
+        currency_code: 'EUR',
+        value: total,
+        breakdown: {
+          item_total: {
+            currency_code: 'EUR',
+            value: product.value
+          },
+          shipping: {
+            currency_code: 'EUR',
+            value: shipping.value
+          }
+        }
+      }
+    }]
+  });
+}, },
 
         onApprove: function(data, actions) {
           return actions.order.capture().then(function(details) {
