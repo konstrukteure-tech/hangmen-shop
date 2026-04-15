@@ -1022,8 +1022,8 @@
 
       <div class="bottom-panel-right">
         <button class="checkout-trigger" id="openSelectionOverlay" type="button">
-          Product Choice / Checkout
-        </button>
+  Product Choice / Checkout
+</button>
       </div>
     </div>
   </div>
@@ -1431,5 +1431,44 @@ document.addEventListener('keydown', (event) => {
     </div>
   </div>
 </div>
+  <script>
+  const overlay = document.getElementById('selectionOverlay');
+  const openOverlayBtn = document.getElementById('openSelectionOverlay');
+  const closeOverlayBtn = document.getElementById('overlayClose');
+
+  function openSelectionOverlay() {
+    if (!overlay) return;
+    overlay.classList.add('open');
+    overlay.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeSelectionOverlay() {
+    if (!overlay) return;
+    overlay.classList.remove('open');
+    overlay.setAttribute('aria-hidden', 'true');
+  }
+
+  if (openOverlayBtn) {
+    openOverlayBtn.addEventListener('click', openSelectionOverlay);
+  }
+
+  if (closeOverlayBtn) {
+    closeOverlayBtn.addEventListener('click', closeSelectionOverlay);
+  }
+
+  if (overlay) {
+    overlay.addEventListener('click', (event) => {
+      if (event.target === overlay) {
+        closeSelectionOverlay();
+      }
+    });
+  }
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeSelectionOverlay();
+    }
+  });
+</script>  
 </body>
 </html>
