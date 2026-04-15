@@ -11,19 +11,15 @@
       --text: #d9d2ca;
       --muted: #9d958b;
       --soft: #bfb7ae;
-      --line: rgba(255,255,255,0.08);
       --max: 1540px;
       --radius: 24px;
-      --paypal-yellow: #f7c948;
-      --paypal-text: #111111;
     }
 
     * { box-sizing: border-box; }
-
     html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 43px;
-    }
+  scroll-behavior: smooth;
+  scroll-padding-top: 43px;
+}
 
     body {
       margin: 0;
@@ -83,11 +79,7 @@
     .nav a:hover,
     .nav a:focus-visible,
     .email-link:hover,
-    .email-link:focus-visible,
-    .footer a:hover,
-    .footer a:focus-visible,
-    .checkline a:hover,
-    .checkline a:focus-visible {
+    .email-link:focus-visible {
       color: var(--text);
       outline: none;
     }
@@ -192,21 +184,21 @@
       padding: 34px 0 46px;
     }
 
-    .drop-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 16px;
-      margin-bottom: 18px;
-      padding-top: 8px;
-    }
+   .drop-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 18px;
+  padding-top: 8px;
+}
 
-    .section-title {
-      margin: 0;
-      font-size: 2rem;
-      line-height: 1.12;
-      letter-spacing: -0.03em;
-    }
+.section-title {
+  margin: 0;
+  font-size: 2rem;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+}
 
     .section-note {
       color: var(--muted);
@@ -265,22 +257,22 @@
       opacity: 0.9;
     }
 
-    .piece-image.contain {
-      object-fit: contain;
-      padding: 8px;
-      background: rgba(0,0,0,0.02);
-      transform: scale(1.08);
-    }
+   .piece-image.contain {
+  object-fit: contain;
+  padding: 8px;
+  background: rgba(0,0,0,0.02);
+  transform: scale(1.08);
+}
 
-    .alice-front .piece-image {
-      transform: scale(1.08) translateX(108px);
-    }
+.alice-front .piece-image {
+  transform: scale(1.08) translateX(108px);
+}
 
-    .small-note {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-top: 10px;
-    }
+.small-note {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 10px;
+}
 
     .piece-info {
       position: absolute;
@@ -404,7 +396,29 @@
       padding-right: 14px;
       padding-left: 18px;
     }
+.alice-piece .piece-info {
+  inset: auto 0 auto 0;
+  top: 0;
+  bottom: auto;
+  background: linear-gradient(90deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.48) 38%, rgba(0,0,0,0.08) 62%, rgba(0,0,0,0) 100%);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 58%;
+}
 
+  <div class="piece-visual">
+    <img class="piece-image contain" src="Alice.png" alt="Alice front design" />
+  </div>
+
+  <div class="piece-meta">
+    <div class="meta-chip">Heavy Cotton</div>
+    <div class="meta-chip">Clean Print</div>
+    <div class="meta-chip">Limited Drop</div>
+    <div class="meta-chip">Made to Last</div>
+  </div>
+</a>
     .merz-piece .piece-visual {
       position: relative;
       overflow: hidden;
@@ -435,490 +449,36 @@
       opacity: 0.9;
     }
 
-    .alice-piece .piece-info {
-      inset: auto 0 auto 0;
-      top: 0;
-      bottom: auto;
-      background: linear-gradient(90deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.48) 38%, rgba(0,0,0,0.08) 62%, rgba(0,0,0,0) 100%);
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      max-width: 58%;
+    .contact {
+      padding: 10px 0 42px;
     }
 
-.contact {
-  padding: 6px 0 10px;
-}
-/* product controls on cards */
-.product-controls {
-  position: absolute;
-  right: 18px;
-  top: 18px;
-  z-index: 5;
-  display: grid;
-  gap: 8px;
-  width: min(240px, calc(100% - 36px));
-  opacity: 0;
-  transform: translateY(-8px);
-  transition: opacity 0.18s ease, transform 0.18s ease;
-}
-
-.piece:hover .product-controls,
-.piece:focus-visible .product-controls,
-.piece:focus-within .product-controls {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.product-row {
-  display: grid;
-  grid-template-columns: 1fr 74px 1fr;
-  gap: 8px;
-}
-
-.control-field {
-  display: grid;
-  gap: 4px;
-}
-
-.control-label {
-  font-size: 0.62rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(217,210,202,0.78);
-  text-align: left;
-}
-
-.control-select,
-.control-button {
-  width: 100%;
-  height: 32px;
-  border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.10);
-  background: rgba(8,8,8,0.84);
-  color: var(--text);
-  padding: 0 10px;
-  font-size: 0.82rem;
-  outline: none;
-  backdrop-filter: blur(8px);
-}
-
-.control-select:focus,
-.control-button:focus-visible {
-  border-color: rgba(217,210,202,0.28);
-}
-
-.control-button {
-  cursor: pointer;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-/* lower onepager area */
-.contact {
-  padding: 8px 0 12px;
-}
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  align-items: stretch;
-}
-
-.panel,
-.cart-panel {
-  border-radius: var(--radius);
-  border: 1px solid rgba(255,255,255,0.06);
-  background: rgba(16,16,16,0.88);
-  padding: 12px 14px;
-  min-height: 0;
-}
-
-.panel {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.panel h3,
-.cart-panel h3 {
-  margin: 0 0 6px;
-  font-size: 1rem;
-}
-
-.panel p,
-.cart-panel p {
-  margin: 0;
-  color: var(--muted);
-}
-
-.email-link {
-  color: var(--soft);
-}
-
-.small-note {
-  font-size: 0.82rem;
-  line-height: 1.2;
-  margin-top: 6px;
-}
-
-.contact-legal {
-  margin-top: 10px;
-  font-size: 0.82rem;
-  line-height: 1.2;
-  color: var(--muted);
-}
-
-.contact-legal a {
-  color: var(--muted);
-  text-decoration: none;
-  margin-right: 10px;
-}
-
-.contact-legal a:hover,
-.contact-legal a:focus-visible {
-  color: var(--text);
-  outline: none;
-}
-
-.cart-panel {
-  display: grid;
-  gap: 8px;
-  align-content: space-between;
-}
-
-.cart-topline {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.cart-summary {
-  font-size: 0.82rem;
-  color: var(--muted);
-  line-height: 1.2;
-}
-
-.cart-actions {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.cart-chip,
-.cart-open-btn {
-  height: 30px;
-  border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.08);
-  background: rgba(255,255,255,0.06);
-  color: var(--text);
-  padding: 0 12px;
-  font-size: 0.78rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-}
-
-.cart-open-btn {
-  cursor: pointer;
-}
-
-.cart-chip strong {
-  font-weight: 700;
-}
-
-.footer {
-  display: none;
-}
-
-/* checkout overlay */
-.checkout-overlay {
-  position: fixed;
-  inset: 0;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  background: rgba(0,0,0,0.78);
-  z-index: 160;
-}
-
-.checkout-overlay.open {
-  display: flex;
-}
-
-.checkout-card {
-  width: min(960px, 100%);
-  max-height: 88vh;
-  overflow: auto;
-  border-radius: 24px;
-  border: 1px solid rgba(255,255,255,0.08);
-  background: rgba(16,16,16,0.98);
-  box-shadow: 0 24px 60px rgba(0,0,0,0.35);
-  padding: 18px 18px 16px;
-}
-
-.checkout-head {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 14px;
-  margin-bottom: 14px;
-}
-
-.checkout-title {
-  margin: 0;
-  font-size: 1.05rem;
-}
-
-.checkout-sub {
-  color: var(--muted);
-  font-size: 0.84rem;
-  margin-top: 4px;
-}
-
-.checkout-close {
-  border: 0;
-  background: transparent;
-  color: var(--text);
-  font-size: 1.8rem;
-  line-height: 1;
-  cursor: pointer;
-}
-
-.checkout-grid {
-  display: grid;
-  grid-template-columns: 1.12fr 0.88fr;
-  gap: 14px;
-}
-
-.checkout-box {
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 18px;
-  background: rgba(255,255,255,0.03);
-  padding: 12px;
-}
-
-.checkout-box h4 {
-  margin: 0 0 10px;
-  font-size: 0.86rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--muted);
-}
-
-.cart-items {
-  display: grid;
-  gap: 8px;
-}
-
-.cart-item {
-  display: grid;
-  grid-template-columns: 1fr auto auto auto;
-  gap: 8px;
-  align-items: center;
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 14px;
-  background: rgba(0,0,0,0.18);
-  padding: 8px 10px;
-}
-
-.cart-item-main {
-  display: grid;
-  gap: 2px;
-}
-
-.cart-item-name {
-  color: var(--text);
-  font-size: 0.86rem;
-}
-
-.cart-item-meta {
-  color: var(--muted);
-  font-size: 0.74rem;
-}
-
-.cart-item-price {
-  color: var(--text);
-  font-size: 0.8rem;
-  white-space: nowrap;
-}
-
-.cart-item-remove {
-  border: 0;
-  background: transparent;
-  color: var(--muted);
-  cursor: pointer;
-  font-size: 0.8rem;
-}
-
-.empty-cart {
-  color: var(--muted);
-  font-size: 0.82rem;
-}
-
-.checkout-field {
-  display: grid;
-  gap: 4px;
-  margin-bottom: 10px;
-}
-
-.checkout-label {
-  font-size: 0.68rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.checkout-select {
-  width: 100%;
-  height: 34px;
-  border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.08);
-  background: rgba(255,255,255,0.05);
-  color: var(--text);
-  padding: 0 10px;
-  font-size: 0.84rem;
-  outline: none;
-}
-
-.checkout-select:focus {
-  border-color: rgba(217,210,202,0.24);
-}
-
-.totals {
-  display: grid;
-  gap: 6px;
-  margin-top: 10px;
-}
-
-.total-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  font-size: 0.82rem;
-  color: var(--muted);
-}
-
-.total-row.total-final {
-  color: var(--text);
-  font-weight: 700;
-  padding-top: 6px;
-  border-top: 1px solid rgba(255,255,255,0.08);
-}
-
-.checkout-checks {
-  display: grid;
-  gap: 6px;
-  margin-top: 12px;
-}
-
-.checkout-checkline {
-  display: flex;
-  gap: 8px;
-  align-items: flex-start;
-  font-size: 0.75rem;
-  color: var(--muted);
-  line-height: 1.2;
-}
-
-.checkout-checkline input {
-  width: auto;
-  margin-top: 2px;
-  accent-color: #d9d2ca;
-}
-
-.checkout-checkline a {
-  color: var(--muted);
-  text-decoration: underline;
-}
-
-.checkout-checkline a:hover,
-.checkout-checkline a:focus-visible {
-  color: var(--text);
-  outline: none;
-}
-
-.checkout-warn {
-  display: none;
-  font-size: 0.74rem;
-  color: #ffb0b0;
-  background: rgba(214,40,40,.12);
-  border: 1px solid rgba(214,40,40,.28);
-  border-radius: 10px;
-  padding: 7px 9px;
-  margin-top: 10px;
-}
-
-.checkout-warn.show {
-  display: block;
-}
-
-.paypal-wrap {
-  margin-top: 12px;
-}
-
-#paypal-button-container {
-  min-height: 34px;
-}
-
-@media (max-width: 760px) {
-  .contact-grid,
-  .checkout-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .product-controls {
-    opacity: 1;
-    transform: none;
-    top: auto;
-    bottom: 18px;
-    right: 18px;
-    width: min(240px, calc(100% - 36px));
-  }
-
-  .product-row {
-    grid-template-columns: 1fr 66px 1fr;
-  }
-
-  .cart-topline {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .cart-actions {
-    width: 100%;
-    justify-content: flex-start;
-  }
-
-  .cart-item {
-    grid-template-columns: 1fr auto;
-  }
-
-  .checkout-overlay {
-    padding: 12px;
-  }
-
-  .checkout-card {
-    padding: 14px;
-  }
-}
-@media (max-width: 760px) {
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .buy-top-row,
-  .buy-action-row {
-    grid-template-columns: 1fr;
-  }
-}
+    .panel {
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(16,16,16,0.88);
+      padding: 18px 20px;
+    }
+
+    .panel h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+    }
+
+    .panel p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .email-link {
+      color: var(--soft);
+    }
+
+    .footer {
+      padding: 0 0 28px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
 
     .lightbox {
       position: fixed;
@@ -932,10 +492,16 @@
       cursor: zoom-out;
     }
 
-    .lightbox.open {
-      display: flex;
-    }
-
+   .lightbox.open {
+  display: flex;
+}
+    
+#imprintModal:target,
+#privacyModal:target,
+#termsModal:target,
+#withdrawalModal:target {
+  display: flex;
+}
     .lightbox img {
       max-width: min(92vw, 1300px);
       max-height: 88vh;
@@ -1024,180 +590,199 @@
         margin-left: 0;
         margin-right: 0;
       }
+
     }
 
-    @media (max-width: 760px) {
-      .wrap {
-        width: min(calc(100% - 24px), var(--max));
-      }
+   @media (max-width: 760px) {
+  .wrap {
+    width: min(calc(100% - 24px), var(--max));
+  }
 
-      .topbar-inner,
-      .drop-head {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+  .topbar-inner,
+  .drop-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-      .nav {
-        gap: 14px;
-        flex-wrap: wrap;
-      }
+  .nav {
+    gap: 14px;
+    flex-wrap: wrap;
+  }
 
-      .hero {
-        min-height: auto;
-        padding: 80px 0 28px;
-      }
+  .hero {
+    min-height: auto;
+    padding: 80px 0 28px;
+  }
 
-      .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
-        align-items: start;
-      }
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    align-items: start;
+  }
 
-      .hero-copy-block {
-        align-items: flex-start;
-      }
+  .hero-copy-block {
+    align-items: flex-start;
+  }
 
-      .eyebrow,
-      h1,
-      .hero-copy,
-      .stamp {
-        text-align: left;
-      }
+  .eyebrow,
+  h1,
+  .hero-copy,
+  .stamp {
+    text-align: left;
+  }
 
-      h1 {
-        font-size: clamp(2.6rem, 13vw, 4.2rem);
-        line-height: 0.96;
-        letter-spacing: 0.08em;
-        white-space: normal;
-      }
+  h1 {
+    font-size: clamp(2.6rem, 13vw, 4.2rem);
+    line-height: 0.96;
+    letter-spacing: 0.08em;
+    white-space: normal;
+  }
 
-      .hero-copy {
-        margin: 12px 0 0;
-        max-width: 22ch;
-        font-size: 0.96rem;
-      }
+  .hero-copy {
+    margin: 12px 0 0;
+    max-width: 22ch;
+    font-size: 0.96rem;
+  }
 
-      .stamp {
-        margin-top: 14px;
-        font-size: 0.74rem;
-        letter-spacing: 0.1em;
-      }
+  .stamp {
+    margin-top: 14px;
+    font-size: 0.74rem;
+    letter-spacing: 0.1em;
+  }
 
-      .hero-panel {
-        min-height: auto;
-        padding: 18px;
-      }
+  .hero-panel {
+    min-height: auto;
+    padding: 18px;
+  }
 
-      .hero-panel .title {
-        font-size: 1.75rem;
-        line-height: 1;
-      }
+  .hero-panel .title {
+    font-size: 1.75rem;
+    line-height: 1;
+  }
 
-      .hero-panel .sub {
-        max-width: none;
-        font-size: 0.95rem;
-      }
+  .hero-panel .sub {
+    max-width: none;
+    font-size: 0.95rem;
+  }
 
-      .drop {
-        padding: 22px 0 34px;
-      }
+  .drop {
+    padding: 22px 0 34px;
+  }
 
-      .gallery {
-        grid-template-columns: 1fr;
-        grid-auto-rows: auto;
-      }
+  .gallery {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
 
-      .piece,
-      .piece-large,
-      .piece-wide {
-        grid-column: span 1;
-        grid-row: span 1;
-        min-height: 420px;
-      }
+  .piece,
+  .piece-large,
+  .piece-wide {
+    grid-column: span 1;
+    grid-row: span 1;
+    min-height: 420px;
+  }
 
-      .piece-image.contain {
-        padding: 10px;
-        transform: scale(1.02);
-      }
+  .piece-image.contain {
+    padding: 10px;
+    transform: scale(1.02);
+  }
 
-      .merz-piece {
-        grid-template-columns: 1fr;
-      }
+  .merz-piece {
+    grid-template-columns: 1fr;
+  }
 
-      .merz-piece .piece-info {
-        position: absolute;
-        inset: auto 0 0 0;
-        background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.38) 62%, rgba(0,0,0,0.82) 100%);
-        padding: 18px;
-      }
+  .merz-piece .piece-info {
+    position: absolute;
+    inset: auto 0 0 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.38) 62%, rgba(0,0,0,0.82) 100%);
+    padding: 18px;
+  }
 
-      .merz-piece .piece-visual {
-        padding-right: 0;
-        justify-content: center;
-      }
+  .merz-piece .piece-visual {
+    padding-right: 0;
+    justify-content: center;
+  }
 
-      .merz-front .piece-image.contain,
-      .merz-back .piece-image.contain {
-        transform: scale(1.0);
-        object-position: center;
-        padding: 10px;
-      }
+  .merz-front .piece-image.contain,
+  .merz-back .piece-image.contain {
+    transform: scale(1.0);
+    object-position: center;
+    padding: 10px;
+  }
 
-      .alice-front .piece-image {
-        transform: scale(1.02) translateX(18px);
-      }
+  .alice-front .piece-image {
+    transform: scale(1.02) translateX(18px);
+  }
 
-      .piece-info h3 {
-        font-size: 1.2rem;
-      }
+  .piece-info h3 {
+    font-size: 1.2rem;
+  }
 
-      .piece-info p {
-        font-size: 0.92rem;
-        max-width: 24ch;
-      }
+  .piece-info p {
+    font-size: 0.92rem;
+    max-width: 24ch;
+  }
 
-      .piece-meta {
-        left: 14px;
-        bottom: 14px;
-        gap: 5px;
-      }
+  .piece-meta {
+    left: 14px;
+    bottom: 14px;
+    gap: 5px;
+  }
 
-      .meta-chip {
-        font-size: 0.68rem;
-        padding: 5px 8px;
-      }
+  .meta-chip {
+    font-size: 0.68rem;
+    padding: 5px 8px;
+  }
 
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
+  .panel {
+    padding: 16px 18px;
+  }
 
-      .panel,
-      .purchase-panel {
-        padding: 16px 18px;
-      }
+  .contact-pop {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    max-width: none;
+    min-width: 0;
+  }
 
-      .contact-pop {
-        left: 12px;
-        right: 12px;
-        bottom: 12px;
-        max-width: none;
-        min-width: 0;
-      }
+  .lightbox {
+    padding: 14px;
+  }
 
-      .lightbox {
-        padding: 14px;
-      }
+  .lightbox img {
+    max-width: 96vw;
+    max-height: 84vh;
+  }
+     .footer a {
+  color: var(--muted);
+  margin: 0 6px;
+}
 
-      .lightbox img {
-        max-width: 96vw;
-        max-height: 84vh;
-      }
-    }
+.footer a:hover {
+  color: var(--text);
+}
+   .footer-line {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.footer-links {
+  word-spacing: 8px;
+}
+
+.footer-links a {
+  color: var(--muted);
+  margin-left: 0;
+}
+
+}
   </style>
 </head>
 <body>
-  <div id="close"></div>
-
+    <div id="close"></div>
   <header class="topbar">
     <div class="wrap topbar-inner">
       <a class="brand" href="#top">H A N G M E N</a>
@@ -1222,7 +807,7 @@
           <div>
             <div class="label">Drop 01</div>
             <h2 class="title">Four pieces.<br>One line.</h2>
-            <div class="sub">Missed Appointment. A(ngst)FD. Merz — Back. You Never Walk Alone.</div>
+            <div class="sub">Missed Appointment. You Never Walk Alone. Liebe Leute, alles wird gut. Pssst,.....</div>
           </div>
         </aside>
       </div>
@@ -1236,7 +821,8 @@
         </div>
 
         <div class="gallery">
-          <a class="piece piece-large rough-signal-heavy crane-piece" href="ayatollah_missed_appointment.png" data-lightbox="Missed Appointment" aria-label="Open Missed Appointment">
+         
+         <a class="piece piece-large rough-signal-heavy crane-piece" href="ayatollah_missed_appointment.png" data-lightbox="Missed Appointment" aria-label="Open Missed Appointment">
             <div class="piece-bg">Missed Appointment</div>
             <img class="piece-image contain" src="ayatollah_missed_appointment.png" alt="Missed Appointment T-shirt design" />
             <div class="piece-info" style="bottom: 42px;">
@@ -1245,44 +831,6 @@
               <p>Crane. Fog. Quiet structure underneath.</p>
               <div class="piece-price">€59</div>
             </div>
-            <div class="product-controls">
-  <div class="product-row">
-    <div class="control-field">
-      <label class="control-label" for="size-missed">Size</label>
-      <select class="control-select js-size" id="size-missed">
-        <option value="S">S</option>
-        <option value="M" selected>M</option>
-        <option value="L">L</option>
-        <option value="XL">XL</option>
-        <option value="XXL">XXL</option>
-      </select>
-    </div>
-
-    <div class="control-field">
-      <label class="control-label" for="qty-missed">Qty</label>
-      <select class="control-select js-qty" id="qty-missed">
-        <option value="1" selected>1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-      </select>
-    </div>
-
-    <div class="control-field">
-      <label class="control-label" for="add-missed">Cart</label>
-      <button
-        class="control-button js-add-to-cart"
-        id="add-missed"
-        type="button"
-        data-product-name="Missed Appointment"
-        data-product-price="59.00"
-        data-size-target="size-missed"
-        data-qty-target="qty-missed"
-      >
-        Add
-      </button>
-    </div>
-  </div>
-</div>
             <div class="piece-meta">
               <div class="meta-chip">Heavy Cotton</div>
               <div class="meta-chip">Clean Print</div>
@@ -1291,61 +839,27 @@
             </div>
           </a>
 
-          <a class="piece alice-piece alice-front fog-silent-light" href="Alice.png" data-lightbox="Alice Front" aria-label="Open Alice Front">
-            <div class="piece-info" style="bottom: 42px;">
-              <div class="piece-line">Silent Pressure</div>
-              <h3>A(ngst)FD</h3>
-              <p>Front piece. Soft contrast. Observation layer. Quiet tension.</p>
-              <div class="piece-price">€89 Front only</div>
-            </div>
-            <div class="piece-visual">
-              <img class="piece-image contain" src="Alice.png" alt="Alice front design" />
-            </div>
-            <div class="product-controls">
-  <div class="product-row">
-    <div class="control-field">
-      <label class="control-label" for="size-angst">Size</label>
-      <select class="control-select js-size" id="size-angst">
-        <option value="S">S</option>
-        <option value="M" selected>M</option>
-        <option value="L">L</option>
-        <option value="XL">XL</option>
-        <option value="XXL">XXL</option>
-      </select>
-    </div>
-
-    <div class="control-field">
-      <label class="control-label" for="qty-angst">Qty</label>
-      <select class="control-select js-qty" id="qty-angst">
-        <option value="1" selected>1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-      </select>
-    </div>
-
-    <div class="control-field">
-      <label class="control-label" for="add-angst">Cart</label>
-      <button
-        class="control-button js-add-to-cart"
-        id="add-angst"
-        type="button"
-        data-product-name="A(ngst)FD Front"
-        data-product-price="89.00"
-        data-size-target="size-angst"
-        data-qty-target="qty-angst"
-      >
-        Add
-      </button>
-    </div>
+ <a class="piece alice-piece alice-front fog-silent-light" href="Alice.png" data-lightbox="Alice Front" aria-label="Open Alice Front">
+  <div cl<div class="piece-info" style="bottom: 42px;">
+    <div class="piece-line">Silent Pressure</div>
+    <h3>A(ngst)FD</h3>
+   <p>
+  Front piece. Soft contrast. Ob-<br>
+  servation layer.<br>
+  Quiet tension.
+</p>
+    <div class="piece-price">€89 Front only</div>
   </div>
-</div>
-            <div class="piece-meta">
-              <div class="meta-chip">Heavy Cotton</div>
-              <div class="meta-chip">Clean Print</div>
-              <div class="meta-chip">Limited Drop</div>
-              <div class="meta-chip">Made to Last</div>
-            </div>
-          </a>
+  <div class="piece-visual">
+    <img class="piece-image contain" src="Alice.png" alt="Alice front design" />
+  </div>
+  <div class="piece-meta">
+    <div class="meta-chip">Heavy Cotton</div>
+    <div class="meta-chip">Clean Print</div>
+    <div class="meta-chip">Limited Drop</div>
+    <div class="meta-chip">Made to Last</div>
+  </div>
+</a>
 
           <a class="piece merz-piece merz-back fog-silent" href="merz_back.png" data-lightbox="Merz Back" aria-label="Open Merz Back">
             <div class="piece-info">
@@ -1357,44 +871,6 @@
             <div class="piece-visual">
               <img class="piece-image contain" src="merz_back.png" alt="Merz back design with crossed fingers" />
             </div>
-          <div class="product-controls">
-  <div class="product-row">
-    <div class="control-field">
-      <label class="control-label" for="size-merz">Size</label>
-      <select class="control-select js-size" id="size-merz">
-        <option value="S">S</option>
-        <option value="M" selected>M</option>
-        <option value="L">L</option>
-        <option value="XL">XL</option>
-        <option value="XXL">XXL</option>
-      </select>
-    </div>
-
-    <div class="control-field">
-      <label class="control-label" for="qty-merz">Qty</label>
-      <select class="control-select js-qty" id="qty-merz">
-        <option value="1" selected>1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-      </select>
-    </div>
-
-    <div class="control-field">
-      <label class="control-label" for="add-merz">Cart</label>
-      <button
-        class="control-button js-add-to-cart"
-        id="add-merz"
-        type="button"
-        data-product-name="Merz — Back"
-        data-product-price="59.00"
-        data-size-target="size-merz"
-        data-qty-target="qty-merz"
-      >
-        Add
-      </button>
-    </div>
-  </div>
-</div>  
             <div class="piece-meta">
               <div class="meta-chip">Heavy Cotton</div>
               <div class="meta-chip">Clean Print</div>
@@ -1410,47 +886,8 @@
               <div class="piece-line">Hard Signal</div>
               <h3>YOU NEVER WALK ALONE</h3>
               <p>Soft monochrome. Industrial fade. Light pulled back.</p>
-              <div class
-              ="piece-price">€59</div>
+              <div class="piece-price">€59</div>
             </div>
-            <div class="product-controls">
-  <div class="product-row">
-    <div class="control-field">
-      <label class="control-label" for="size-ynwa">Size</label>
-      <select class="control-select js-size" id="size-ynwa">
-        <option value="S">S</option>
-        <option value="M" selected>M</option>
-        <option value="L">L</option>
-        <option value="XL">XL</option>
-        <option value="XXL">XXL</option>
-      </select>
-    </div>
-
-    <div class="control-field">
-      <label class="control-label" for="qty-ynwa">Qty</label>
-      <select class="control-select js-qty" id="qty-ynwa">
-        <option value="1" selected>1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-      </select>
-    </div>
-
-    <div class="control-field">
-      <label class="control-label" for="add-ynwa">Cart</label>
-      <button
-        class="control-button js-add-to-cart"
-        id="add-ynwa"
-        type="button"
-        data-product-name="You Never Walk Alone"
-        data-product-price="59.00"
-        data-size-target="size-ynwa"
-        data-qty-target="qty-ynwa"
-      >
-        Add
-      </button>
-    </div>
-  </div>
-</div>
             <div class="piece-meta">
               <div class="meta-chip">Heavy Cotton</div>
               <div class="meta-chip">Clean Print</div>
@@ -1464,263 +901,188 @@
 
 <section class="contact" id="contact">
   <div class="wrap">
-    <div class="contact-grid">
-      <div class="panel">
-        <div>
-          <h3>Contact</h3>
-          <p><a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a></p>
-          <p class="small-note">
-            Each design is limited to 30 pieces. Once sold out, the piece is closed. No restock.
-          </p>
-        </div>
+    <div class="panel">
+      <h3>Contact</h3>
+      <p><a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a></p>
 
-        <div class="contact-legal">
-          <span>© HANGMEN</span>
-          <a href="#" id="imprintLink">Imprint</a>
-          <a href="#" id="privacyLink">Privacy</a>
-          <a href="#" id="termsLink">Terms</a>
-          <a href="#" id="withdrawalLink">Withdrawal</a>
-        </div>
-      </div>
+      <p class="small-note">
+        Each design is limited to 30 pieces. Once sold out, the piece is closed. No restock.
+      </p>
 
-      <div class="cart-panel">
-        <h3>Cart</h3>
-
-        <div class="cart-topline">
-          <div class="cart-summary" id="cartSummary">
-            0 items — €0.00
-          </div>
-
-          <div class="cart-actions">
-            <div class="cart-chip" id="cartChip">
-              <strong>Cart</strong>&nbsp;<span id="cartCount">0</span>
-            </div>
-            <button class="cart-open-btn" id="openCheckout" type="button">Checkout</button>
-          </div>
-        </div>
-
-        <p class="small-note">
-          Size, quantity and shipping are finalized in checkout.
-        </p>
-      </div>
     </div>
   </div>
 </section>
+  </main>
 
-<div class="checkout-overlay" id="checkoutOverlay" aria-hidden="true">
-  <div class="checkout-card">
-    <div class="checkout-head">
-      <div>
-        <h3 class="checkout-title">Checkout</h3>
-        <div class="checkout-sub">Review items, choose shipping, then pay with PayPal.</div>
-      </div>
-      <button class="checkout-close" id="checkoutClose" type="button" aria-label="Close">×</button>
-    </div>
+<footer class="footer">
+  <div class="wrap footer-line">
+<span>© HANGMEN</span>
+<span class="footer-links">
+  <a href="#" id="imprintLink">Imprint</a> |
+  <a href="#" id="privacyLink">Privacy</a> |
+  <a href="#" id="termsLink">Terms</a> |
+  <a href="#" id="withdrawalLink">Withdrawal</a>
+</span>
+  </div>
+</footer>
 
-    <div class="checkout-grid">
-      <div class="checkout-box">
-        <h4>Items</h4>
-        <div class="cart-items" id="checkoutItems">
-          <div class="empty-cart">Your cart is empty.</div>
-        </div>
-      </div>
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+  <img id="lightboxImage" src="" alt="" />
+</div>
 
-      <div class="checkout-box">
-        <h4>Order</h4>
+<div class="contact-pop" id="contactPop" aria-hidden="true">
+  <button class="close-pop" id="contactPopClose" aria-label="Close">×</button>
+  <strong>Contact</strong>
+  <a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a>
+</div>
 
-        <div class="checkout-field">
-          <label class="checkout-label" for="shippingSelect">Shipping</label>
-          <select class="checkout-select" id="shippingSelect">
-            <option value="0.00" data-name="Germany flat">Germany flat — €0</option>
-            <option value="12.00" data-name="Europe flat">Europe flat — €12</option>
-            <option value="25.00" data-name="Worldwide flat">Worldwide flat — €25</option>
-          </select>
-        </div>
+<div class="lightbox" id="imprintModal" aria-hidden="true">
+  <div class="panel" style="max-width:760px; width:100%; position:relative; background:rgba(16,16,16,0.98);">
+    <button id="imprintClose" aria-label="Close" style="position:absolute; top:12px; right:12px; background:transparent; border:0; color:#e6dfd8; font-size:28px; cursor:pointer;">×</button>
+    <div style="padding-right:28px;">
+      <h3 style="margin-top:0;">Imprint</h3>
 
-        <div class="totals">
-          <div class="total-row">
-            <span>Items</span>
-            <span id="itemsSubtotal">€0.00</span>
-          </div>
-          <div class="total-row">
-            <span>Shipping</span>
-            <span id="shippingTotal">€0.00</span>
-          </div>
-          <div class="total-row total-final">
-            <span>Total</span>
-            <span id="grandTotal">€0.00</span>
-          </div>
-        </div>
+      <p class="small-note">
+        HANGMEN<br>
+        Owner: Thorsten Tenzer<br>
+        
+      </p>
 
-        <div class="checkout-checks">
-          <label class="checkout-checkline">
-            <input type="checkbox" id="termsCheck">
-            <span>I accept the <a href="#" id="termsInlineLink">terms</a>.</span>
-          </label>
+      <p class="small-note">
+        Email:<br>
+        <a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a>
+      </p>
 
-          <label class="checkout-checkline">
-            <input type="checkbox" id="privacyCheck">
-            <span>I have read the <a href="#" id="privacyInlineLink">privacy policy</a>.</span>
-          </label>
+      <p class="small-note">
+        Responsible for content according to § 18 MStV:<br>
+        Thorsten Tenzer<br>
+        Töpferweg 81<br>
+        23558 Lübeck<br>
+        Germany
+      </p>
 
-          <label class="checkout-checkline">
-            <input type="checkbox" id="withdrawalCheck">
-            <span>I have read the <a href="#" id="withdrawalInlineLink">withdrawal policy</a>.</span>
-          </label>
-        </div>
-
-        <div class="checkout-warn" id="paypalWarn">
-          please accept the legal notices before starting checkout.
-        </div>
-
-        <div class="paypal-wrap">
-          <div id="paypal-button-container"></div>
-        </div>
-      </div>
+      <p class="small-note">
+        This imprint also applies to all online presences of this project.
+      </p>
     </div>
   </div>
 </div>
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
-    <img id="lightboxImage" src="" alt="" />
-  </div>
 
-  <div class="contact-pop" id="contactPop" aria-hidden="true">
-    <button class="close-pop" id="contactPopClose" aria-label="Close">×</button>
-    <strong>Contact</strong>
-    <a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a>
-  </div>
+<div class="lightbox" id="privacyModal" aria-hidden="true">
+  <div class="panel" style="max-width:760px; width:100%; position:relative; background:rgba(16,16,16,0.98);">
+    <button id="privacyClose" aria-label="Close" style="position:absolute; top:12px; right:12px; background:transparent; border:0; color:#e6dfd8; font-size:28px; cursor:pointer;">×</button>
+    <div style="padding-right:28px;">
+      <h3 style="margin-top:0;">Privacy Policy</h3>
 
-  <div class="lightbox" id="imprintModal" aria-hidden="true">
-    <div class="panel" style="max-width:760px; width:100%; position:relative; background:rgba(16,16,16,0.98);">
-      <button id="imprintClose" aria-label="Close" style="position:absolute; top:12px; right:12px; background:transparent; border:0; color:#e6dfd8; font-size:28px; cursor:pointer;">×</button>
-      <div style="padding-right:28px;">
-        <h3 style="margin-top:0;">Imprint</h3>
-        <p class="small-note">
-          HANGMEN<br>
-          Owner: Thorsten Tenzer
-        </p>
-        <p class="small-note">
-          Email:<br>
-          <a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a>
-        </p>
-        <p class="small-note">
-          Responsible for content according to § 18 MStV:<br>
-          Thorsten Tenzer<br>
-          Töpferweg 81<br>
-          23558 Lübeck<br>
-          Germany
-        </p>
-        <p class="small-note">
-          This imprint also applies to all online presences of this project.
-        </p>
-      </div>
+      <p class="small-note">
+        This website is operated by Thorsten Tenzer, Töpferweg 81, 23558 Lübeck, Germany.
+      </p>
+
+      <p class="small-note">
+        We do not actively collect personal data when you browse this website.
+      </p>
+
+      <p class="small-note">
+        When you contact us via email, your data, such as your name, email address, and message content, may be processed for the purpose of handling your request.
+      </p>
+
+      <p class="small-note">
+        This website is hosted via GitHub Pages. Technical access data, such as IP address, browser information, and access time, may be processed by the hosting provider for technical and security purposes.
+      </p>
+
+      <p class="small-note">
+        We do not use tracking tools, cookies, or analytics services.
+      </p>
+
+      <p class="small-note">
+        You have the right to request information about your stored personal data, as well as correction or deletion where applicable.
+      </p>
+
+      <p class="small-note">
+        For privacy-related inquiries, please contact:<br>
+        <a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a>
+      </p>
     </div>
   </div>
+</div>
 
-  <div class="lightbox" id="privacyModal" aria-hidden="true">
-    <div class="panel" style="max-width:760px; width:100%; position:relative; background:rgba(16,16,16,0.98);">
-      <button id="privacyClose" aria-label="Close" style="position:absolute; top:12px; right:12px; background:transparent; border:0; color:#e6dfd8; font-size:28px; cursor:pointer;">×</button>
-      <div style="padding-right:28px;">
-        <h3 style="margin-top:0;">Privacy Policy</h3>
-        <p class="small-note">
-          This website is operated by Thorsten Tenzer, Töpferweg 81, 23558 Lübeck, Germany.
-        </p>
-        <p class="small-note">
-          We do not actively collect personal data when you browse this website.
-        </p>
-        <p class="small-note">
-          When you contact us via email, your data, such as your name, email address, and message content, may be processed for the purpose of handling your request.
-        </p>
-        <p class="small-note">
-          This website is hosted via GitHub Pages. Technical access data, such as IP address, browser information, and access time, may be processed by the hosting provider for technical and security purposes.
-        </p>
-        <p class="small-note">
-          We do not use tracking tools, cookies, or analytics services.
-        </p>
-        <p class="small-note">
-          Payment processing is handled by PayPal. During checkout, personal and payment-related data may be processed by PayPal according to PayPal's own privacy terms.
-        </p>
-        <p class="small-note">
-          You have the right to request information about your stored personal data, as well as correction or deletion where applicable.
-        </p>
-        <p class="small-note">
-          For privacy-related inquiries, please contact:<br>
-          <a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a>
-        </p>
-      </div>
+<div class="lightbox" id="termsModal" aria-hidden="true">
+  <div class="panel" style="max-width:760px; width:100%; position:relative; background:rgba(16,16,16,0.98);">
+    <button id="termsClose" aria-label="Close" style="position:absolute; top:12px; right:12px; background:transparent; border:0; color:#e6dfd8; font-size:28px; cursor:pointer;">×</button>
+    <div style="padding-right:28px;">
+      <h3 style="margin-top:0;">Terms &amp; Conditions</h3>
+
+      <p class="small-note">
+        The following terms apply to all orders placed via this website.
+      </p>
+
+      <p class="small-note">
+        All products are offered as limited edition pieces. Each design is limited to 30 units. Once sold out, the design is permanently closed. No restock.
+      </p>
+
+      <p class="small-note">
+        Production is carried out on a print-on-demand basis. This means that each item is produced individually after an order has been placed.
+      </p>
+
+      <p class="small-note">
+        Due to this production process, delivery times may vary and can be longer than standard retail delivery times.
+      </p>
+
+      <p class="small-note">
+        Minor variations in color, print placement, and material may occur due to the production process. Such deviations do not constitute a defect.
+      </p>
+
+      <p class="small-note">
+        The presentation of products on this website does not constitute a legally binding offer but an invitation to place an order.
+      </p>
+
+      <p class="small-note">
+        Prices are stated in Euro (€). Additional costs such as shipping may apply and will be indicated during the ordering process.
+      </p>
+
+      <p class="small-note">
+        German law applies. Place of jurisdiction is Lübeck, Germany.
+      </p>
     </div>
   </div>
+</div>
 
-  <div class="lightbox" id="termsModal" aria-hidden="true">
-    <div class="panel" style="max-width:760px; width:100%; position:relative; background:rgba(16,16,16,0.98);">
-      <button id="termsClose" aria-label="Close" style="position:absolute; top:12px; right:12px; background:transparent; border:0; color:#e6dfd8; font-size:28px; cursor:pointer;">×</button>
-      <div style="padding-right:28px;">
-        <h3 style="margin-top:0;">Terms &amp; Conditions</h3>
-        <p class="small-note">
-          The following terms apply to all orders placed via this website.
-        </p>
-        <p class="small-note">
-          All products are offered as limited edition pieces. Each design is limited to 30 units. Once sold out, the design is permanently closed. No restock.
-        </p>
-        <p class="small-note">
-          Production is carried out on a print-on-demand basis. This means that each item is produced individually after an order has been placed.
-        </p>
-        <p class="small-note">
-          Due to this production process, delivery times may vary and can be longer than standard retail delivery times.
-        </p>
-        <p class="small-note">
-          Minor variations in color, print placement, and material may occur due to the production process. Such deviations do not constitute a defect.
-        </p>
-        <p class="small-note">
-          The presentation of products on this website does not constitute a legally binding offer but an invitation to place an order.
-        </p>
-        <p class="small-note">
-          Prices are stated in Euro (€). Additional costs such as shipping may apply and will be indicated during the checkout process where applicable.
-        </p>
-        <p class="small-note">
-          Payment is processed via PayPal.
-        </p>
-        <p class="small-note">
-          German law applies. Place of jurisdiction is Lübeck, Germany, to the extent legally permissible.
-        </p>
-      </div>
+<div class="lightbox" id="withdrawalModal" aria-hidden="true">
+  <div class="panel" style="max-width:760px; width:100%; position:relative; background:rgba(16,16,16,0.98);">
+    <button id="withdrawalClose" aria-label="Close" style="position:absolute; top:12px; right:12px; background:transparent; border:0; color:#e6dfd8; font-size:28px; cursor:pointer;">×</button>
+    <div style="padding-right:28px;">
+      <h3 style="margin-top:0;">Right of Withdrawal</h3>
+
+      <p class="small-note">
+        You have the right to withdraw from this contract within 14 days without giving any reason.
+      </p>
+
+      <p class="small-note">
+        The withdrawal period is 14 days from the day on which you or a third party named by you takes possession of the goods.
+      </p>
+
+      <p class="small-note">
+        To exercise your right of withdrawal, you must inform us by email:<br>
+        <a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a>
+      </p>
+
+      <p class="small-note">
+        To meet the withdrawal deadline, it is sufficient for you to send your communication before the withdrawal period has expired.
+      </p>
+
+      <p class="small-note">
+        Please note: Since all products are produced individually on demand, a return may be excluded in cases where the product has been clearly customized or made specifically for the customer, unless there is a defect.
+      </p>
+
+      <p class="small-note">
+        In case of defective or damaged products, you are entitled to replacement or refund in accordance with statutory provisions.
+      </p>
     </div>
   </div>
+</div>
 
-  <div class="lightbox" id="withdrawalModal" aria-hidden="true">
-    <div class="panel" style="max-width:760px; width:100%; position:relative; background:rgba(16,16,16,0.98);">
-      <button id="withdrawalClose" aria-label="Close" style="position:absolute; top:12px; right:12px; background:transparent; border:0; color:#e6dfd8; font-size:28px; cursor:pointer;">×</button>
-      <div style="padding-right:28px;">
-        <h3 style="margin-top:0;">Right of Withdrawal</h3>
-        <p class="small-note">
-          You have the right to withdraw from this contract within 14 days without giving any reason.
-        </p>
-        <p class="small-note">
-          The withdrawal period is 14 days from the day on which you or a third party named by you takes possession of the goods.
-        </p>
-        <p class="small-note">
-          To exercise your right of withdrawal, you must inform us by email:<br>
-          <a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a>
-        </p>
-        <p class="small-note">
-          To meet the withdrawal deadline, it is sufficient for you to send your communication before the withdrawal period has expired.
-        </p>
-        <p class="small-note">
-          Please note: Since all products are produced individually on demand, a return may be excluded in cases where the product has been clearly customized or made specifically for the customer, unless there is a defect.
-        </p>
-        <p class="small-note">
-          In case of defective or damaged products, you are entitled to replacement or refund in accordance with statutory provisions.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <script src="https://www.paypal.com/sdk/js?client-id=AXD8cHhLEslSBAlvGm7eXnMKb60kCcNfyDBsmqQ4Le5GrWxMdh0YgT_UrYM8gxUHkSY20Gs2tfZ6nWHF&currency=EUR"></script>
-
- <script>
-  const cart = [];
-
+<script>
   const lightbox = document.getElementById('lightbox');
   const lightboxImage = document.getElementById('lightboxImage');
   const lightboxClose = document.getElementById('lightboxClose');
@@ -1745,34 +1107,15 @@
   const termsClose = document.getElementById('termsClose');
   const withdrawalClose = document.getElementById('withdrawalClose');
 
-  const termsCheck = document.getElementById('termsCheck');
-  const privacyCheck = document.getElementById('privacyCheck');
-  const withdrawalCheck = document.getElementById('withdrawalCheck');
-  const paypalWarn = document.getElementById('paypalWarn');
-
-  const termsInlineLink = document.getElementById('termsInlineLink');
-  const privacyInlineLink = document.getElementById('privacyInlineLink');
-  const withdrawalInlineLink = document.getElementById('withdrawalInlineLink');
-
-  const addToCartButtons = document.querySelectorAll('.js-add-to-cart');
-  const cartSummary = document.getElementById('cartSummary');
-  const cartCount = document.getElementById('cartCount');
-  const openCheckout = document.getElementById('openCheckout');
-  const checkoutOverlay = document.getElementById('checkoutOverlay');
-  const checkoutClose = document.getElementById('checkoutClose');
-  const checkoutItems = document.getElementById('checkoutItems');
-  const shippingSelect = document.getElementById('shippingSelect');
-  const itemsSubtotal = document.getElementById('itemsSubtotal');
-  const shippingTotal = document.getElementById('shippingTotal');
-  const grandTotal = document.getElementById('grandTotal');
-
-  function euro(value) {
-    return `€${Number(value).toFixed(2)}`;
-  }
-
-  function legalChecksAccepted() {
-    return termsCheck.checked && privacyCheck.checked && withdrawalCheck.checked;
-  }
+  pieces.forEach((piece) => {
+    piece.addEventListener('click', (event) => {
+      event.preventDefault();
+      lightboxImage.src = piece.getAttribute('href');
+      lightboxImage.alt = piece.getAttribute('data-lightbox');
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+    });
+  });
 
   function closeLightbox() {
     lightbox.classList.remove('open');
@@ -1780,6 +1123,12 @@
     lightboxImage.src = '';
     lightboxImage.alt = '';
   }
+
+  lightbox.addEventListener('click', (event) => {
+    if (event.target === lightbox || event.target === lightboxClose) {
+      closeLightbox();
+    }
+  });
 
   function showContactPop(event) {
     if (event) event.preventDefault();
@@ -1810,113 +1159,6 @@
     closeModal(termsModal);
     closeModal(withdrawalModal);
   }
-
-  function openCheckoutOverlay() {
-    checkoutOverlay.classList.add('open');
-    checkoutOverlay.setAttribute('aria-hidden', 'false');
-  }
-
-  function closeCheckoutOverlay() {
-    checkoutOverlay.classList.remove('open');
-    checkoutOverlay.setAttribute('aria-hidden', 'true');
-  }
-
-  function getItemsSubtotalValue() {
-    return cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-  }
-
-  function getShippingValue() {
-    return parseFloat(shippingSelect.value || '0');
-  }
-
-  function getGrandTotalValue() {
-    return getItemsSubtotalValue() + getShippingValue();
-  }
-
-  function updateCartSummary() {
-    const count = cart.reduce((sum, item) => sum + item.qty, 0);
-    const subtotal = getItemsSubtotalValue();
-
-    cartCount.textContent = count;
-    cartSummary.textContent = `${count} item${count === 1 ? '' : 's'} — ${euro(subtotal)}`;
-    itemsSubtotal.textContent = euro(subtotal);
-    shippingTotal.textContent = euro(getShippingValue());
-    grandTotal.textContent = euro(getGrandTotalValue());
-  }
-
-  function renderCartItems() {
-    if (!cart.length) {
-      checkoutItems.innerHTML = `<div class="empty-cart">Your cart is empty.</div>`;
-      updateCartSummary();
-      return;
-    }
-
-    checkoutItems.innerHTML = cart.map((item, index) => `
-      <div class="cart-item">
-        <div class="cart-item-main">
-          <div class="cart-item-name">${item.name}</div>
-          <div class="cart-item-meta">Size ${item.size} / Qty ${item.qty}</div>
-        </div>
-        <div class="cart-item-price">${euro(item.price * item.qty)}</div>
-        <button class="cart-item-remove" type="button" data-remove-index="${index}">Remove</button>
-      </div>
-    `).join('');
-
-    checkoutItems.querySelectorAll('[data-remove-index]').forEach((button) => {
-      button.addEventListener('click', () => {
-        const idx = Number(button.getAttribute('data-remove-index'));
-        cart.splice(idx, 1);
-        renderCartItems();
-      });
-    });
-
-    updateCartSummary();
-  }
-
-  function addToCart(button) {
-    const name = button.dataset.productName;
-    const price = parseFloat(button.dataset.productPrice);
-    const sizeTarget = document.getElementById(button.dataset.sizeTarget);
-    const qtyTarget = document.getElementById(button.dataset.qtyTarget);
-
-    const size = sizeTarget.value;
-    const qty = parseInt(qtyTarget.value, 10);
-
-    const existing = cart.find(item => item.name === name && item.size === size);
-
-    if (existing) {
-      existing.qty += qty;
-    } else {
-      cart.push({ name, price, size, qty });
-    }
-
-    renderCartItems();
-  }
-
-  pieces.forEach((piece) => {
-    piece.addEventListener('click', (event) => {
-      if (event.target.closest('.product-controls')) return;
-      event.preventDefault();
-      lightboxImage.src = piece.getAttribute('href');
-      lightboxImage.alt = piece.getAttribute('data-lightbox');
-      lightbox.classList.add('open');
-      lightbox.setAttribute('aria-hidden', 'false');
-    });
-  });
-
-  addToCartButtons.forEach((button) => {
-    button.addEventListener('click', (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-      addToCart(button);
-    });
-  });
-
-  lightbox.addEventListener('click', (event) => {
-    if (event.target === lightbox || event.target === lightboxClose) {
-      closeLightbox();
-    }
-  });
 
   if (contactTrigger) {
     contactTrigger.addEventListener('click', showContactPop);
@@ -1949,27 +1191,6 @@
 
   if (withdrawalLink) {
     withdrawalLink.addEventListener('click', (event) => {
-      event.preventDefault();
-      openModal(withdrawalModal);
-    });
-  }
-
-  if (termsInlineLink) {
-    termsInlineLink.addEventListener('click', (event) => {
-      event.preventDefault();
-      openModal(termsModal);
-    });
-  }
-
-  if (privacyInlineLink) {
-    privacyInlineLink.addEventListener('click', (event) => {
-      event.preventDefault();
-      openModal(privacyModal);
-    });
-  }
-
-  if (withdrawalInlineLink) {
-    withdrawalInlineLink.addEventListener('click', (event) => {
       event.preventDefault();
       openModal(withdrawalModal);
     });
@@ -2015,127 +1236,13 @@
     });
   }
 
-  openCheckout.addEventListener('click', () => {
-    renderCartItems();
-    openCheckoutOverlay();
-  });
-
-  checkoutClose.addEventListener('click', closeCheckoutOverlay);
-
-  checkoutOverlay.addEventListener('click', (event) => {
-    if (event.target === checkoutOverlay) {
-      closeCheckoutOverlay();
-    }
-  });
-
-  shippingSelect.addEventListener('change', updateCartSummary);
-
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
       closeLightbox();
       hideContactPop();
       closeAllLegalModals();
-      closeCheckoutOverlay();
     }
   });
-
-  renderCartItems();
-
-  if (window.paypal) {
-    paypal.Buttons({
-      style: {
-        layout: 'vertical',
-        shape: 'rect',
-        label: 'paypal',
-        height: 34
-      },
-
-      onInit: function(data, actions) {
-        actions.disable();
-
-        function syncState() {
-          if (cart.length > 0 && legalChecksAccepted()) {
-            actions.enable();
-            paypalWarn.classList.remove('show');
-          } else {
-            actions.disable();
-          }
-        }
-
-        [termsCheck, privacyCheck, withdrawalCheck].forEach((el) => {
-          el.addEventListener('change', syncState);
-        });
-
-        shippingSelect.addEventListener('change', syncState);
-        openCheckout.addEventListener('click', syncState);
-
-        const observer = new MutationObserver(syncState);
-        observer.observe(checkoutItems, { childList: true, subtree: true });
-
-        syncState();
-      },
-
-      onClick: function() {
-        if (!cart.length || !legalChecksAccepted()) {
-          paypalWarn.classList.add('show');
-          return;
-        }
-        paypalWarn.classList.remove('show');
-      },
-
-      createOrder: function(data, actions) {
-        const shippingName = shippingSelect.options[shippingSelect.selectedIndex].dataset.name;
-        const shippingValue = getShippingValue().toFixed(2);
-        const itemsSubtotalValue = getItemsSubtotalValue().toFixed(2);
-        const totalValue = getGrandTotalValue().toFixed(2);
-
-        return actions.order.create({
-          application_context: {
-            shipping_preference: 'GET_FROM_FILE'
-          },
-          purchase_units: [{
-            description: `HANGMEN Cart / ${shippingName}`,
-            amount: {
-              currency_code: 'EUR',
-              value: totalValue,
-              breakdown: {
-                item_total: {
-                  currency_code: 'EUR',
-                  value: itemsSubtotalValue
-                },
-                shipping: {
-                  currency_code: 'EUR',
-                  value: shippingValue
-                }
-              }
-            }
-          }]
-        });
-      },
-
-      onApprove: function(data, actions) {
-        return actions.order.capture().then(function(details) {
-          const buyerName =
-            details?.payer?.name?.given_name ||
-            details?.payer?.name?.name ||
-            'buyer';
-
-          alert('Payment successful. Thank you, ' + buyerName + '.');
-          cart.length = 0;
-          renderCartItems();
-          closeCheckoutOverlay();
-          termsCheck.checked = false;
-          privacyCheck.checked = false;
-          withdrawalCheck.checked = false;
-        });
-      },
-
-      onError: function(err) {
-        console.error('PayPal error:', err);
-        alert('The payment could not be started. Please try again.');
-      }
-    }).render('#paypal-button-container');
-  }
 </script>
 </body>
 </html>
