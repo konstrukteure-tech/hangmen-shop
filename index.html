@@ -93,12 +93,8 @@
     }
 
     .hero {
-      min-height: calc(100vh - 74px);
-      display: flex;
-      align-items: center;
-      padding: 48px 0 46px;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
+  display: none;
+}
 
     .hero-grid {
       display: grid;
@@ -448,21 +444,18 @@
     }
 
 .bottom-area {
-  padding: 8px 0 18px;
+  padding: 10px 0 18px;
 }
 
-.bottom-grid {
-  display: grid;
-  grid-template-columns: 1fr 320px;
-  gap: 14px;
-  align-items: stretch;
-}
-
-.bottom-card {
+.bottom-bar {
   border-radius: var(--radius);
   border: 1px solid rgba(255,255,255,0.06);
   background: rgba(16,16,16,0.88);
   padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
   min-height: 0;
 }
 
@@ -823,13 +816,15 @@
       display: block;
     }
 
-    .paypal-wrap {
-      margin-top: 12px;
-    }
+   .paypal-wrap {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
 
-    #paypal-button-container {
-      min-height: 34px;
-    }
+#paypal-button-container {
+  min-height: 42px;
+}
 
     .footer {
       display: none;
@@ -909,12 +904,15 @@
       font-size: 1.25rem;
       cursor: pointer;
     }
-.bottom-grid {
-  grid-template-columns: 1fr;
+.bottom-bar {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
 }
 
 .bottom-right {
   justify-content: flex-start;
+  width: 100%;
 }
     @media (max-width: 1160px) {
       .hero-grid {
@@ -1119,7 +1117,11 @@
       .lightbox {
         padding: 14px;
       }
-
+.withdrawal-btn {
+  background: rgba(186,117,40,0.16);
+  border-color: rgba(186,117,40,0.38);
+  color: #d8b184;
+}
       .lightbox img {
         max-width: 96vw;
         max-height: 84vh;
@@ -1239,9 +1241,9 @@
       </div>
     </section>
 
-    <section class="bottom-area" id="contact">
-  <div class="wrap bottom-grid">
-    <div class="bottom-card">
+   <section class="bottom-area" id="contact">
+  <div class="wrap">
+    <div class="bottom-bar">
       <div class="bottom-left">
         <span>© HANGMEN&nbsp;|&nbsp;</span>
         <a href="#" id="imprintLink">Imprint</a>
@@ -1252,9 +1254,7 @@
         <span>&nbsp;|&nbsp;</span>
         <a href="#" id="withdrawalLink">Withdrawal</a>
       </div>
-    </div>
 
-    <div class="bottom-card">
       <div class="bottom-right">
         <button class="overlay-open-btn" id="openSelectionOverlay" type="button">Product Choice / Checkout</button>
       </div>
@@ -1484,14 +1484,10 @@
             <div class="empty-cart">Your cart is empty.</div>
           </div>
 
-          <div class="checkout-field" style="margin-top:12px;">
-            <label class="checkout-label" for="shippingSelect">Shipping</label>
-            <select class="checkout-select" id="shippingSelect">
-              <option value="0.00" data-name="Germany flat">Germany flat — €0</option>
-              <option value="12.00" data-name="Europe flat">Europe flat — €12</option>
-              <option value="25.00" data-name="Worldwide flat">Worldwide flat — €25</option>
-            </select>
-          </div>
+         <div class="checkout-field" style="margin-top:12px;">
+  <label class="checkout-label">Withdrawal</label>
+  <a href="#" id="withdrawalInlineLinkTop" class="overlay-open-btn withdrawal-btn" style="width:fit-content;">Open withdrawal policy</a>
+</div>
 
           <div class="totals">
             <div class="total-row">
@@ -1542,7 +1538,7 @@
     </div>
   </div>
 
-  <script src="https://www.paypal.com/sdk/js?client-id=DEINE_CLIENT_ID&currency=EUR"></script>
+  <script src="https://www.paypal.com/sdk/js?client-id=AXD8cHhLEslSBAlvGm7eXnMKb60kCcNfyDBsmqQ4Le5GrWxMdh0YgT_UrYM8gxUHkSY20Gs2tfZ6nWHF&currency=EUR"></script>
 
   <script>
     const cart = [];
