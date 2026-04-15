@@ -616,6 +616,41 @@
   font-size: 1.25rem;
   cursor: pointer;
 }
+    .overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.86);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.overlay.open {
+  display: flex;
+}
+
+.overlay-inner {
+  width: min(1200px, 92vw);
+  max-height: 88vh;
+  background: #0f0f0f;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 24px;
+  position: relative;
+  overflow: auto;
+}
+
+.overlay-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: transparent;
+  border: 0;
+  color: #eae3dc;
+  font-size: 28px;
+  cursor: pointer;
+}
     @media (max-width: 1160px) {
       .hero-grid {
         grid-template-columns: 1fr;
@@ -1309,7 +1344,92 @@
       hideContactPop();
       closeAllLegalModals();
     }
+    const overlay = document.getElementById('selectionOverlay');
+const openOverlayBtn = document.getElementById('openSelectionOverlay');
+const closeOverlayBtn = document.getElementById('overlayClose');
+
+function openSelectionOverlay() {
+  if (!overlay) return;
+  overlay.classList.add('open');
+  overlay.setAttribute('aria-hidden', 'false');
+}
+
+function closeSelectionOverlay() {
+  if (!overlay) return;
+  overlay.classList.remove('open');
+  overlay.setAttribute('aria-hidden', 'true');
+}
+
+if (openOverlayBtn) {
+  openOverlayBtn.addEventListener('click', openSelectionOverlay);
+}
+
+if (closeOverlayBtn) {
+  closeOverlayBtn.addEventListener('click', closeSelectionOverlay);
+}
+
+if (overlay) {
+  overlay.addEventListener('click', (event) => {
+    if (event.target === overlay) {
+      closeSelectionOverlay();
+    }
+  });
+}
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    closeSelectionOverlay();
+  }
+});
   });
 </script>
+    <div class="overlay" id="selectionOverlay" aria-hidden="true">
+  <div class="overlay-inner">
+
+    <button class="overlay-close" id="overlayClose">×</button>
+
+    <div class="overlay-grid">
+
+      <!-- LEFT: PRODUCTS -->
+      <div class="overlay-left">
+        <h3 class="overlay-title">Product Choice</h3>
+
+        <div class="product-list">
+
+          <div class="product-item">
+            <div class="product-name">MISSED APPOINTMENT</div>
+            <div class="product-price">€59</div>
+          </div>
+
+          <div class="product-item">
+            <div class="product-name">A(ngst)FD</div>
+            <div class="product-price">€89</div>
+          </div>
+
+          <div class="product-item">
+            <div class="product-name">Merz — Back</div>
+            <div class="product-price">€59</div>
+          </div>
+
+          <div class="product-item">
+            <div class="product-name">YOU NEVER WALK ALONE</div>
+            <div class="product-price">€59</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- RIGHT: CHECKOUT -->
+      <div class="overlay-right">
+        <h3 class="overlay-title">Checkout</h3>
+
+        <div class="cart-placeholder">
+          No items yet.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
 </body>
 </html>
