@@ -560,7 +560,74 @@
       font-size: 1.25rem;
       cursor: pointer;
     }
+/* + Button */
+.add-trigger {
+  position: absolute;
+  bottom: 18px;
+  right: 18px;
+  z-index: 6;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(20,20,20,0.85);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #bfb7ae;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+}
 
+.add-trigger:hover {
+  border-color: rgba(255,255,255,0.25);
+  color: #fff;
+}
+
+/* Mini Overlay */
+.card-overlay {
+  position: absolute;
+  bottom: 54px;
+  right: 18px;
+  z-index: 7;
+  width: 200px;
+  padding: 10px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(10,10,10,0.92);
+  backdrop-filter: blur(10px);
+  display: none;
+}
+
+.card-overlay.open {
+  display: grid;
+  gap: 8px;
+}
+
+/* Controls */
+.overlay-row {
+  display: grid;
+  grid-template-columns: 1fr 60px;
+  gap: 6px;
+}
+
+.overlay-select,
+.overlay-button {
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.05);
+  color: var(--text);
+  font-size: 0.8rem;
+  padding: 0 8px;
+}
+
+.overlay-button {
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 700;
+}
     @media (max-width: 1160px) {
       .hero-grid {
         grid-template-columns: 1fr;
@@ -837,6 +904,26 @@
               <div class="meta-chip">Limited Drop</div>
               <div class="meta-chip">Made to Last</div>
             </div>
+           <div class="add-trigger">+</div>
+
+<div class="card-overlay">
+  <div class="overlay-row">
+    <select class="overlay-select size">
+      <option>S</option>
+      <option selected>M</option>
+      <option>L</option>
+      <option>XL</option>
+    </select>
+
+    <select class="overlay-select qty">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+    </select>
+  </div>
+
+  <button class="overlay-button add">Add</button>
+</div>
           </a>
 
  <a class="piece alice-piece alice-front fog-silent-light" href="Alice.png" data-lightbox="Alice Front" aria-label="Open Alice Front">
@@ -859,6 +946,26 @@
     <div class="meta-chip">Limited Drop</div>
     <div class="meta-chip">Made to Last</div>
   </div>
+   <div class="add-trigger">+</div>
+
+<div class="card-overlay">
+  <div class="overlay-row">
+    <select class="overlay-select size">
+      <option>S</option>
+      <option selected>M</option>
+      <option>L</option>
+      <option>XL</option>
+    </select>
+
+    <select class="overlay-select qty">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+    </select>
+  </div>
+
+  <button class="overlay-button add">Add</button>
+</div>
 </a>
 
           <a class="piece merz-piece merz-back fog-silent" href="merz_back.png" data-lightbox="Merz Back" aria-label="Open Merz Back">
@@ -877,6 +984,26 @@
               <div class="meta-chip">Limited Drop</div>
               <div class="meta-chip">Made to Last</div>
             </div>
+            <div class="add-trigger">+</div>
+
+<div class="card-overlay">
+  <div class="overlay-row">
+    <select class="overlay-select size">
+      <option>S</option>
+      <option selected>M</option>
+      <option>L</option>
+      <option>XL</option>
+    </select>
+
+    <select class="overlay-select qty">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+    </select>
+  </div>
+
+  <button class="overlay-button add">Add</button>
+</div>
           </a>
 
           <a class="piece piece-wide rough-signal-soft" href="maduro_you_never_walk_alone.png" data-lightbox="You Never Walk Alone" aria-label="Open You Never Walk Alone">
@@ -894,6 +1021,26 @@
               <div class="meta-chip">Limited Drop</div>
               <div class="meta-chip">Made to Last</div>
             </div>
+           <div class="add-trigger">+</div>
+
+<div class="card-overlay">
+  <div class="overlay-row">
+    <select class="overlay-select size">
+      <option>S</option>
+      <option selected>M</option>
+      <option>L</option>
+      <option>XL</option>
+    </select>
+
+    <select class="overlay-select qty">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+    </select>
+  </div>
+
+  <button class="overlay-button add">Add</button>
+</div> 
           </a>
         </div>
       </div>
@@ -1243,6 +1390,50 @@
       closeAllLegalModals();
     }
   });
+  const cart = [];
+
+document.querySelectorAll('.piece').forEach((card) => {
+  const trigger = card.querySelector('.add-trigger');
+  const overlay = card.querySelector('.card-overlay');
+  const addBtn = overlay.querySelector('.add');
+  const size = overlay.querySelector('.size');
+  const qty = overlay.querySelector('.qty');
+
+  const name = card.querySelector('h3')?.innerText || 'Item';
+  const priceText = card.querySelector('.piece-price')?.innerText || '€0';
+  const price = parseFloat(priceText.replace('€',''));
+
+  // OPEN overlay
+  trigger.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    document.querySelectorAll('.card-overlay').forEach(o => o.classList.remove('open'));
+    overlay.classList.add('open');
+  });
+
+  // ADD to cart
+  addBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    cart.push({
+      name,
+      size: size.value,
+      qty: parseInt(qty.value),
+      price
+    });
+
+    overlay.classList.remove('open');
+
+    console.log('Cart:', cart);
+  });
+
+  // prevent lightbox when clicking overlay
+  overlay.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
+});
 </script>
 </body>
 </html>
