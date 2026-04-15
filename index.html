@@ -846,6 +846,55 @@
 }
 
 }
+    .cart-popup {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.4);
+  z-index: 999;
+}
+
+.cart-popup.hidden {
+  display: none;
+}
+
+.cart-box {
+  width: 260px;
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(15,15,15,0.95);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  display: grid;
+  gap: 10px;
+}
+
+.cart-title {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.cart-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.cart-box select,
+.cart-box button {
+  height: 32px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.05);
+  color: white;
+}
+
+#cartAdd {
+  font-weight: 700;
+  cursor: pointer;
+}
   </style>
 </head>
 <body>
@@ -1046,18 +1095,20 @@
       </div>
     </section>
 
-<section class="contact" id="contact">
-  <div class="wrap">
-    <div class="panel">
-      <h3>Contact</h3>
-      <p><a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a></p>
-
-      <p class="small-note">
-        Each design is limited to 30 pieces. Once sold out, the piece is closed. No restock.
-      </p>
-
-    </div>
+<div class="bottom-bar">
+  <div class="bottom-left">
+    © HANGMEN |
+    <a href="#">Imprint</a> |
+    <a href="#">Privacy</a> |
+    <a href="#">Terms</a> |
+    <a href="#">Withdrawal</a>
   </div>
+
+  <div class="bottom-right">
+    <div id="cartInfo">Cart 0 — €0</div>
+    <button id="checkoutBtn">Checkout</button>
+  </div>
+</div>
 </section>
   </main>
 
@@ -1145,6 +1196,7 @@
       <p class="small-note">
         You have the right to request information about your stored personal data, as well as correction or deletion where applicable.
       </p>
+      
 
       <p class="small-note">
         For privacy-related inquiries, please contact:<br>
@@ -1434,6 +1486,75 @@ document.querySelectorAll('.piece').forEach((card) => {
     e.stopPropagation();
   });
 });
+  let currentItem = null;
+const cart = [];
+
+const popup = document.getElementById('cartPopup');
+const itemName = document.getElementById('cartItemName');
+const sizeSel = document.getElementById('cartSize');
+const qtySel = document.getElementById('cartQty');
+const addBtn = document.getElementById('cartAdd');
+
+document.querySelectorAll('.piece').forEach(card => {
+  const trigger = card.querySelector('.add-trigger');
+
+  const name = card.querySelector('h3')?.innerText || 'Item';
+  const priceText = card.querySelector('.piece-price')?.innerText || '€0';
+  const price = parseFloat(priceText.replace('€',''));
+
+  trigger.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    currentItem = { name, price };
+    itemName.innerText = name;
+
+    popup.classList.remove('hidden');
+  });
+});
+
+// ADD
+addBtn.addEventListener('click', () => {
+  cart.push({
+    name: currentItem.name,
+    size: sizeSel.value,
+    qty: parseInt(qtySel.value),
+    price: currentItem.price
+  });
+
+  console.log('Cart:', cart);
+
+  popup.classList.add('hidden');
+});
+
+// CLOSE on background
+popup.addEventListener('click', (e) => {
+  if (e.target === popup) {
+    popup.classList.add('hidden');
+  }
+});
 </script>
+  <div id="cartPopup" class="cart-popup hidden">
+  <div class="cart-box">
+    <div class="cart-title" id="cartItemName">Item</div>
+
+    <div class="cart-row">
+      <select id="cartSize">
+        <option>S</option>
+        <option selected>M</option>
+        <option>L</option>
+        <option>XL</option>
+      </select>
+
+      <select id="cartQty">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+      </select>
+    </div>
+
+    <button id="cartAdd">Add</button>
+  </div>
+</div>
 </body>
 </html>
