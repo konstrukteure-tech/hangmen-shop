@@ -520,7 +520,11 @@
       background: rgba(0,0,0,0.76);
       z-index: 180;
     }
-
+#withdrawalModal {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+}
     .selection-overlay.open {
       display: flex;
     }
@@ -842,7 +846,7 @@
       justify-content: center;
       padding: 28px;
       background: rgba(0,0,0,0.88);
-      z-index: 120;
+      z-index: 1000;
       cursor: zoom-out;
     }
 
@@ -1328,7 +1332,7 @@
     </div>
   </div>
 
-  <div class="selection-overlay" id="selectionOverlay" aria-hidden="true">
+  <div class="selection-overlay" id="selection" aria-hidden="true">
     <div class="selection-card">
       <div class="selection-head">
         <div>
@@ -1490,7 +1494,7 @@
 
          <div class="checkout-field" style="margin-top:12px;">
   <label class="checkout-label">Withdrawal</label>
-  <a href="#" id="withdrawalInlineLinkTop" class="overlay-open-btn withdrawal-btn" style="width:fit-content;">Open withdrawal policy</a>
+  <a href="#" id="withdrawalInlineLinkTop" class="-open-btn withdrawal-btn" style="width:fit-content;">Open withdrawal policy</a>
 </div>
 
           <div class="totals">
@@ -1955,6 +1959,35 @@ if (withdrawalInlineLinkTop) {
         }
       }).render('#paypal-button-container');
     }
+    if (window.paypal) {
+  paypal.Buttons({
+    style: {
+      layout: 'vertical',
+      shape: 'rect',
+      label: 'paypal'
+    },
+
+    createOrder: function(data, actions) {
+      let total = document.getElementById('grandTotal').textContent.replace('€','').trim();
+      if (!total || total === '0.00') total = '1.00';
+
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            value: total
+          }
+        }]
+      });
+    },
+
+    onApprove: function(data, actions) {
+      return actions.order.capture().then(function(details) {
+        alert('Payment successful');
+      });
+    }
+
+  }).render('#paypal-button-container');
+}
   </script>
 </body>
 </html>
