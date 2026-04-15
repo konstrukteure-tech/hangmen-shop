@@ -1388,45 +1388,135 @@ document.addEventListener('keydown', (event) => {
 
     <button class="overlay-close" id="overlayClose">×</button>
 
-    <div class="overlay-grid">
+<div class="overlay-grid">
 
-      <!-- LEFT: PRODUCTS -->
-      <div class="overlay-left">
-        <h3 class="overlay-title">Product Choice</h3>
+  <!-- LEFT -->
+  <div class="overlay-left">
+    <h3 class="overlay-title">Product Choice</h3>
 
-        <div class="product-list">
+    <div class="product-list">
 
-          <div class="product-item">
-            <div class="product-name">MISSED APPOINTMENT</div>
-            <div class="product-price">€59</div>
+      <div class="product-card">
+        <div class="product-thumb">
+          <img src="ayatollah_missed_appointment.png">
+        </div>
+        <div class="product-body">
+          <div class="product-name">MISSED APPOINTMENT</div>
+          <div class="product-price">€59</div>
+
+          <div class="product-controls">
+            <select class="product-select">
+              <option>S</option>
+              <option selected>M</option>
+              <option>L</option>
+              <option>XL</option>
+            </select>
+
+            <select class="product-select">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+            </select>
+
+            <button class="product-add-btn" type="button">Add</button>
           </div>
-
-          <div class="product-item">
-            <div class="product-name">A(ngst)FD</div>
-            <div class="product-price">€89</div>
-          </div>
-
-          <div class="product-item">
-            <div class="product-name">Merz — Back</div>
-            <div class="product-price">€59</div>
-          </div>
-
-          <div class="product-item">
-            <div class="product-name">YOU NEVER WALK ALONE</div>
-            <div class="product-price">€59</div>
-          </div>
-
         </div>
       </div>
 
-      <!-- RIGHT: CHECKOUT -->
-      <div class="overlay-right">
-        <h3 class="overlay-title">Checkout</h3>
+      <div class="product-card">
+        <div class="product-thumb">
+          <img src="Alice.png">
+        </div>
+        <div class="product-body">
+          <div class="product-name">A(ngst)FD</div>
+          <div class="product-price">€89</div>
 
-        <div class="cart-placeholder">
-          No items yet.
+          <div class="product-controls">
+            <select class="product-select">
+              <option>S</option>
+              <option selected>M</option>
+              <option>L</option>
+              <option>XL</option>
+            </select>
+
+            <select class="product-select">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+            </select>
+
+            <button class="product-add-btn" type="button">Add</button>
+          </div>
         </div>
       </div>
+
+      <div class="product-card">
+        <div class="product-thumb">
+          <img src="merz_back.png">
+        </div>
+        <div class="product-body">
+          <div class="product-name">Merz — Back</div>
+          <div class="product-price">€59</div>
+
+          <div class="product-controls">
+            <select class="product-select">
+              <option>S</option>
+              <option selected>M</option>
+              <option>L</option>
+              <option>XL</option>
+            </select>
+
+            <select class="product-select">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+            </select>
+
+            <button class="product-add-btn" type="button">Add</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-thumb">
+          <img src="maduro_you_never_walk_alone.png">
+        </div>
+        <div class="product-body">
+          <div class="product-name">YOU NEVER WALK ALONE</div>
+          <div class="product-price">€59</div>
+
+          <div class="product-controls">
+            <select class="product-select">
+              <option>S</option>
+              <option selected>M</option>
+              <option>L</option>
+              <option>XL</option>
+            </select>
+
+            <select class="product-select">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+            </select>
+
+            <button class="product-add-btn" type="button">Add</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="overlay-right">
+    <h3 class="overlay-title">Checkout</h3>
+
+    <div class="checkout-box">
+      <div class="cart-placeholder">No items yet.</div>
+    </div>
+  </div>
+
+</div>
 
     </div>
   </div>
