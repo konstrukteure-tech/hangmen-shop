@@ -1585,6 +1585,7 @@
     const termsInlineLink = document.getElementById('termsInlineLink');
     const privacyInlineLink = document.getElementById('privacyInlineLink');
     const withdrawalInlineLink = document.getElementById('withdrawalInlineLink');
+    const withdrawalInlineLinkTop = document.getElementById('withdrawalInlineLinkTop');
 
     function euro(value) {
       return `€${Number(value).toFixed(2)}`;
@@ -1791,7 +1792,12 @@
         openModal(withdrawalModal);
       });
     }
-
+if (withdrawalInlineLinkTop) {
+  withdrawalInlineLinkTop.addEventListener('click', (event) => {
+    event.preventDefault();
+    openModal(withdrawalModal);
+  });
+}
     if (imprintClose) {
       imprintClose.addEventListener('click', () => closeModal(imprintModal));
     }
