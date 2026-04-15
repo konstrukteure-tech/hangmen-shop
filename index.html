@@ -13,17 +13,13 @@
       --soft: #bfb7ae;
       --max: 1540px;
       --radius: 24px;
-      --line: rgba(255,255,255,0.08);
-      --panel: rgba(16,16,16,0.96);
-      --panel-soft: rgba(255,255,255,0.05);
     }
 
     * { box-sizing: border-box; }
-
     html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 43px;
-    }
+  scroll-behavior: smooth;
+  scroll-padding-top: 43px;
+}
 
     body {
       margin: 0;
@@ -83,27 +79,24 @@
     .nav a:hover,
     .nav a:focus-visible,
     .email-link:hover,
-    .email-link:focus-visible,
-    .bottom-left a:hover,
-    .bottom-left a:focus-visible,
-    .checkout-checkline a:hover,
-    .checkout-checkline a:focus-visible {
+    .email-link:focus-visible {
       color: var(--text);
       outline: none;
     }
 
-.hero {
-  min-height: auto;
-  display: block;
-  padding: 24px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-}
+    .hero {
+      min-height: calc(100vh - 74px);
+      display: flex;
+      align-items: center;
+      padding: 48px 0 46px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
 
     .hero-grid {
       display: grid;
       grid-template-columns: 1fr 420px;
       gap: 28px;
-     align-items: start;
+      align-items: center;
       width: 100%;
     }
 
@@ -188,24 +181,24 @@
     }
 
     .drop {
-  padding: 18px 0 20px;
+      padding: 34px 0 46px;
+    }
+
+   .drop-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 18px;
+  padding-top: 8px;
 }
 
-    .drop-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 16px;
-      margin-bottom: 18px;
-      padding-top: 8px;
-    }
-
-    .section-title {
-      margin: 0;
-      font-size: 2rem;
-      line-height: 1.12;
-      letter-spacing: -0.03em;
-    }
+.section-title {
+  margin: 0;
+  font-size: 2rem;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+}
 
     .section-note {
       color: var(--muted);
@@ -264,22 +257,22 @@
       opacity: 0.9;
     }
 
-    .piece-image.contain {
-      object-fit: contain;
-      padding: 8px;
-      background: rgba(0,0,0,0.02);
-      transform: scale(1.08);
-    }
+   .piece-image.contain {
+  object-fit: contain;
+  padding: 8px;
+  background: rgba(0,0,0,0.02);
+  transform: scale(1.08);
+}
 
-    .alice-front .piece-image {
-      transform: scale(1.08) translateX(108px);
-    }
+.alice-front .piece-image {
+  transform: scale(1.08) translateX(108px);
+}
 
-    .small-note {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-top: 10px;
-    }
+.small-note {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 10px;
+}
 
     .piece-info {
       position: absolute;
@@ -403,19 +396,29 @@
       padding-right: 14px;
       padding-left: 18px;
     }
+.alice-piece .piece-info {
+  inset: auto 0 auto 0;
+  top: 0;
+  bottom: auto;
+  background: linear-gradient(90deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.48) 38%, rgba(0,0,0,0.08) 62%, rgba(0,0,0,0) 100%);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 58%;
+}
 
-    .alice-piece .piece-info {
-      inset: auto 0 auto 0;
-      top: 0;
-      bottom: auto;
-      background: linear-gradient(90deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.48) 38%, rgba(0,0,0,0.08) 62%, rgba(0,0,0,0) 100%);
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      max-width: 58%;
-    }
+  <div class="piece-visual">
+    <img class="piece-image contain" src="Alice.png" alt="Alice front design" />
+  </div>
 
+  <div class="piece-meta">
+    <div class="meta-chip">Heavy Cotton</div>
+    <div class="meta-chip">Clean Print</div>
+    <div class="meta-chip">Limited Drop</div>
+    <div class="meta-chip">Made to Last</div>
+  </div>
+</a>
     .merz-piece .piece-visual {
       position: relative;
       overflow: hidden;
@@ -446,395 +449,35 @@
       opacity: 0.9;
     }
 
-.bottom-area {
-  padding: 10px 0 18px;
-}
-
-.bottom-bar {
-  border-radius: var(--radius);
-  border: 1px solid rgba(255,255,255,0.06);
-  background: rgba(16,16,16,0.88);
-  padding: 14px 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  min-height: 0;
-}
-
-.bottom-left {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0;
-  font-size: 0.82rem;
-  color: var(--muted);
-}
-
-.bottom-left a {
-  color: var(--muted);
-}
-
-.bottom-right {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.overlay-open-btn {
-  height: 32px;
-  padding: 0 14px;
-  border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.08);
-  background: rgba(255,255,255,0.06);
-  color: var(--text);
-  font-size: 0.78rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-    .overlay-open-btn {
-      height: 32px;
-      padding: 0 14px;
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.06);
-      color: var(--text);
-      font-size: 0.78rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
+    .contact {
+      padding: 10px 0 42px;
     }
 
-    .selection-overlay {
-      position: fixed;
-      inset: 0;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 22px;
-      background: rgba(0,0,0,0.76);
-      z-index: 180;
-    }
-#withdrawalModal {
-  position: fixed;
-  inset: 0;
-  z-index: 999;
-}
-    .selection-overlay.open {
-      display: flex;
+    .panel {
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(16,16,16,0.88);
+      padding: 18px 20px;
     }
 
-    .selection-card {
-      width: min(1040px, 100%);
-      max-height: 88vh;
-      overflow: auto;
-      border-radius: 24px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: var(--panel);
-      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
-      padding: 18px;
+    .panel h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
     }
 
-    .selection-head {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 14px;
-      margin-bottom: 14px;
-    }
-
-    .selection-title {
+    .panel p {
       margin: 0;
-      font-size: 1.05rem;
-    }
-
-    .selection-sub {
-      color: var(--muted);
-      font-size: 0.84rem;
-      margin-top: 4px;
-    }
-
-    .selection-close {
-      border: 0;
-      background: transparent;
-      color: var(--text);
-      font-size: 1.8rem;
-      line-height: 1;
-      cursor: pointer;
-    }
-
-    .selection-grid {
-      display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 14px;
-    }
-
-    .selection-box {
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 18px;
-      background: rgba(255,255,255,0.03);
-      padding: 12px;
-    }
-
-    .selection-box h4 {
-      margin: 0 0 10px;
-      font-size: 0.86rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
       color: var(--muted);
     }
 
-    .choice-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
+    .email-link {
+      color: var(--soft);
     }
-
-    .choice-card {
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 16px;
-      background: rgba(0,0,0,0.16);
-      overflow: hidden;
-      display: grid;
-      gap: 0;
-    }
-
-    .choice-thumb {
-      aspect-ratio: 1 / 1;
-      background: #111;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      overflow: hidden;
-    }
-
-    .choice-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      padding: 10px;
-    }
-
-    .choice-body {
-      padding: 10px;
-      display: grid;
-      gap: 8px;
-    }
-
-    .choice-name {
-      font-size: 0.82rem;
-      color: var(--text);
-      min-height: 2.2em;
-    }
-
-    .choice-price {
-      font-size: 0.76rem;
-      color: var(--muted);
-    }
-
-    .choice-row {
-      display: grid;
-      grid-template-columns: 1fr 72px 1fr;
-      gap: 6px;
-    }
-
-    .choice-field {
-      display: grid;
-      gap: 4px;
-    }
-
-    .choice-label {
-      font-size: 0.62rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .choice-select,
-    .choice-add-btn {
-      width: 100%;
-      height: 32px;
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: var(--panel-soft);
-      color: var(--text);
-      padding: 0 8px;
-      font-size: 0.8rem;
-      outline: none;
-    }
-
-    .choice-add-btn {
-      cursor: pointer;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    .choice-select:focus,
-    .choice-add-btn:focus-visible,
-    .overlay-open-btn:focus-visible {
-      border-color: rgba(217,210,202,0.24);
-      outline: none;
-    }
-
-    .cart-items {
-      display: grid;
-      gap: 8px;
-    }
-
-    .cart-item {
-      display: grid;
-      grid-template-columns: 1fr auto auto;
-      gap: 8px;
-      align-items: center;
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 14px;
-      background: rgba(0,0,0,0.18);
-      padding: 8px 10px;
-    }
-
-    .cart-item-main {
-      display: grid;
-      gap: 2px;
-    }
-
-    .cart-item-name {
-      color: var(--text);
-      font-size: 0.86rem;
-    }
-
-    .cart-item-meta {
-      color: var(--muted);
-      font-size: 0.74rem;
-    }
-
-    .cart-item-price {
-      color: var(--text);
-      font-size: 0.8rem;
-      white-space: nowrap;
-    }
-
-    .cart-item-remove {
-      border: 0;
-      background: transparent;
-      color: var(--muted);
-      cursor: pointer;
-      font-size: 0.8rem;
-    }
-
-    .empty-cart {
-      color: var(--muted);
-      font-size: 0.82rem;
-    }
-
-    .checkout-field {
-      display: grid;
-      gap: 4px;
-      margin-bottom: 10px;
-    }
-
-    .checkout-label {
-      font-size: 0.68rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .checkout-select {
-      width: 100%;
-      height: 34px;
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: var(--panel-soft);
-      color: var(--text);
-      padding: 0 10px;
-      font-size: 0.84rem;
-      outline: none;
-    }
-
-    .checkout-select:focus {
-      border-color: rgba(217,210,202,0.24);
-    }
-
-    .totals {
-      display: grid;
-      gap: 6px;
-      margin-top: 10px;
-    }
-
-    .total-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      font-size: 0.82rem;
-      color: var(--muted);
-    }
-
-    .total-row.total-final {
-      color: var(--text);
-      font-weight: 700;
-      padding-top: 6px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .checkout-checks {
-      display: grid;
-      gap: 6px;
-      margin-top: 12px;
-    }
-
-    .checkout-checkline {
-      display: flex;
-      gap: 8px;
-      align-items: flex-start;
-      font-size: 0.75rem;
-      color: var(--muted);
-      line-height: 1.2;
-    }
-
-    .checkout-checkline input {
-      width: auto;
-      margin-top: 2px;
-      accent-color: #d9d2ca;
-    }
-
-    .checkout-checkline a {
-      color: var(--muted);
-      text-decoration: underline;
-    }
-
-    .checkout-warn {
-      display: none;
-      font-size: 0.74rem;
-      color: #ffb0b0;
-      background: rgba(214,40,40,.12);
-      border: 1px solid rgba(214,40,40,.28);
-      border-radius: 10px;
-      padding: 7px 9px;
-      margin-top: 10px;
-    }
-
-    .checkout-warn.show {
-      display: block;
-    }
-
-   .paypal-wrap {
-  margin-top: 12px;
-  padding-top: 10px;
-  border-top: 1px solid rgba(255,255,255,0.08);
-}
-
-#paypal-button-container {
-  min-height: 42px;
-}
 
     .footer {
-      display: none;
+      padding: 0 0 28px;
+      color: var(--muted);
+      font-size: 0.88rem;
     }
 
     .lightbox {
@@ -845,14 +488,20 @@
       justify-content: center;
       padding: 28px;
       background: rgba(0,0,0,0.88);
-      z-index: 1000;
+      z-index: 120;
       cursor: zoom-out;
     }
 
-    .lightbox.open {
-      display: flex;
-    }
-
+   .lightbox.open {
+  display: flex;
+}
+    
+#imprintModal:target,
+#privacyModal:target,
+#termsModal:target,
+#withdrawalModal:target {
+  display: flex;
+}
     .lightbox img {
       max-width: min(92vw, 1300px);
       max-height: 88vh;
@@ -911,16 +560,7 @@
       font-size: 1.25rem;
       cursor: pointer;
     }
-.bottom-bar {
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-}
 
-.bottom-right {
-  justify-content: flex-start;
-  width: 100%;
-}
     @media (max-width: 1160px) {
       .hero-grid {
         grid-template-columns: 1fr;
@@ -950,193 +590,199 @@
         margin-left: 0;
         margin-right: 0;
       }
+
     }
 
-    @media (max-width: 760px) {
-      .wrap {
-        width: min(calc(100% - 24px), var(--max));
-      }
+   @media (max-width: 760px) {
+  .wrap {
+    width: min(calc(100% - 24px), var(--max));
+  }
 
-      .topbar-inner,
-      .drop-head {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+  .topbar-inner,
+  .drop-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-      .nav {
-        gap: 14px;
-        flex-wrap: wrap;
-      }
+  .nav {
+    gap: 14px;
+    flex-wrap: wrap;
+  }
 
-      .hero {
-        min-height: auto;
-        padding: 80px 0 28px;
-      }
+  .hero {
+    min-height: auto;
+    padding: 80px 0 28px;
+  }
 
-      .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
-        align-items: start;
-      }
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    align-items: start;
+  }
 
-      .hero-copy-block {
-        align-items: flex-start;
-      }
+  .hero-copy-block {
+    align-items: flex-start;
+  }
 
-      .eyebrow,
-      h1,
-      .hero-copy,
-      .stamp {
-        text-align: left;
-      }
+  .eyebrow,
+  h1,
+  .hero-copy,
+  .stamp {
+    text-align: left;
+  }
 
-      h1 {
-        font-size: clamp(2.6rem, 13vw, 4.2rem);
-        line-height: 0.96;
-        letter-spacing: 0.08em;
-        white-space: normal;
-      }
+  h1 {
+    font-size: clamp(2.6rem, 13vw, 4.2rem);
+    line-height: 0.96;
+    letter-spacing: 0.08em;
+    white-space: normal;
+  }
 
-      .hero-copy {
-        margin: 12px 0 0;
-        max-width: 22ch;
-        font-size: 0.96rem;
-      }
+  .hero-copy {
+    margin: 12px 0 0;
+    max-width: 22ch;
+    font-size: 0.96rem;
+  }
 
-      .stamp {
-        margin-top: 14px;
-        font-size: 0.74rem;
-        letter-spacing: 0.1em;
-      }
+  .stamp {
+    margin-top: 14px;
+    font-size: 0.74rem;
+    letter-spacing: 0.1em;
+  }
 
-      .hero-panel {
-        min-height: auto;
-        padding: 18px;
-      }
+  .hero-panel {
+    min-height: auto;
+    padding: 18px;
+  }
 
-      .hero-panel .title {
-        font-size: 1.75rem;
-        line-height: 1;
-      }
+  .hero-panel .title {
+    font-size: 1.75rem;
+    line-height: 1;
+  }
 
-      .hero-panel .sub {
-        max-width: none;
-        font-size: 0.95rem;
-      }
+  .hero-panel .sub {
+    max-width: none;
+    font-size: 0.95rem;
+  }
 
-      .drop {
-        padding: 22px 0 16px;
-      }
+  .drop {
+    padding: 22px 0 34px;
+  }
 
-      .gallery {
-        grid-template-columns: 1fr;
-        grid-auto-rows: auto;
-      }
+  .gallery {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
 
-      .piece,
-      .piece-large,
-      .piece-wide {
-        grid-column: span 1;
-        grid-row: span 1;
-        min-height: 420px;
-      }
+  .piece,
+  .piece-large,
+  .piece-wide {
+    grid-column: span 1;
+    grid-row: span 1;
+    min-height: 420px;
+  }
 
-      .piece-image.contain {
-        padding: 10px;
-        transform: scale(1.02);
-      }
+  .piece-image.contain {
+    padding: 10px;
+    transform: scale(1.02);
+  }
 
-      .merz-piece {
-        grid-template-columns: 1fr;
-      }
+  .merz-piece {
+    grid-template-columns: 1fr;
+  }
 
-      .merz-piece .piece-info {
-        position: absolute;
-        inset: auto 0 0 0;
-        background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.38) 62%, rgba(0,0,0,0.82) 100%);
-        padding: 18px;
-      }
+  .merz-piece .piece-info {
+    position: absolute;
+    inset: auto 0 0 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.38) 62%, rgba(0,0,0,0.82) 100%);
+    padding: 18px;
+  }
 
-      .merz-piece .piece-visual {
-        padding-right: 0;
-        justify-content: center;
-      }
+  .merz-piece .piece-visual {
+    padding-right: 0;
+    justify-content: center;
+  }
 
-      .merz-front .piece-image.contain,
-      .merz-back .piece-image.contain {
-        transform: scale(1.0);
-        object-position: center;
-        padding: 10px;
-      }
+  .merz-front .piece-image.contain,
+  .merz-back .piece-image.contain {
+    transform: scale(1.0);
+    object-position: center;
+    padding: 10px;
+  }
 
-      .alice-front .piece-image {
-        transform: scale(1.02) translateX(18px);
-      }
+  .alice-front .piece-image {
+    transform: scale(1.02) translateX(18px);
+  }
 
-      .piece-info h3 {
-        font-size: 1.2rem;
-      }
+  .piece-info h3 {
+    font-size: 1.2rem;
+  }
 
-      .piece-info p {
-        font-size: 0.92rem;
-        max-width: 24ch;
-      }
+  .piece-info p {
+    font-size: 0.92rem;
+    max-width: 24ch;
+  }
 
-      .piece-meta {
-        left: 14px;
-        bottom: 14px;
-        gap: 5px;
-      }
+  .piece-meta {
+    left: 14px;
+    bottom: 14px;
+    gap: 5px;
+  }
 
-      .meta-chip {
-        font-size: 0.68rem;
-        padding: 5px 8px;
-      }
+  .meta-chip {
+    font-size: 0.68rem;
+    padding: 5px 8px;
+  }
 
-      .bottom-bar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-      }
+  .panel {
+    padding: 16px 18px;
+  }
 
-      .bottom-right {
-        width: 100%;
-        justify-content: flex-start;
-      }
+  .contact-pop {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    max-width: none;
+    min-width: 0;
+  }
 
-      .selection-grid,
-      .choice-grid {
-        grid-template-columns: 1fr;
-      }
+  .lightbox {
+    padding: 14px;
+  }
 
-      .choice-row {
-        grid-template-columns: 1fr 72px 1fr;
-      }
-
-      .contact-pop {
-        left: 12px;
-        right: 12px;
-        bottom: 12px;
-        max-width: none;
-        min-width: 0;
-      }
-
-      .lightbox {
-        padding: 14px;
-      }
-.withdrawal-btn {
-  background: rgba(186,117,40,0.16);
-  border-color: rgba(186,117,40,0.38);
-  color: #d8b184;
+  .lightbox img {
+    max-width: 96vw;
+    max-height: 84vh;
+  }
+     .footer a {
+  color: var(--muted);
+  margin: 0 6px;
 }
-      .lightbox img {
-        max-width: 96vw;
-        max-height: 84vh;
-      }
-    }
+
+.footer a:hover {
+  color: var(--text);
+}
+   .footer-line {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.footer-links {
+  word-spacing: 8px;
+}
+
+.footer-links a {
+  color: var(--muted);
+  margin-left: 0;
+}
+
+}
   </style>
 </head>
 <body>
+    <div id="close"></div>
   <header class="topbar">
     <div class="wrap topbar-inner">
       <a class="brand" href="#top">H A N G M E N</a>
@@ -1161,7 +807,7 @@
           <div>
             <div class="label">Drop 01</div>
             <h2 class="title">Four pieces.<br>One line.</h2>
-            <div class="sub">Missed Appointment. A(ngst)FD. Merz — Back. You Never Walk Alone.</div>
+            <div class="sub">Missed Appointment. You Never Walk Alone. Liebe Leute, alles wird gut. Pssst,.....</div>
           </div>
         </aside>
       </div>
@@ -1175,7 +821,8 @@
         </div>
 
         <div class="gallery">
-          <a class="piece piece-large rough-signal-heavy" href="ayatollah_missed_appointment.png" data-lightbox="Missed Appointment" aria-label="Open Missed Appointment">
+         
+         <a class="piece piece-large rough-signal-heavy crane-piece" href="ayatollah_missed_appointment.png" data-lightbox="Missed Appointment" aria-label="Open Missed Appointment">
             <div class="piece-bg">Missed Appointment</div>
             <img class="piece-image contain" src="ayatollah_missed_appointment.png" alt="Missed Appointment T-shirt design" />
             <div class="piece-info" style="bottom: 42px;">
@@ -1192,23 +839,27 @@
             </div>
           </a>
 
-          <a class="piece alice-piece alice-front fog-silent-light" href="Alice.png" data-lightbox="Alice Front" aria-label="Open Alice Front">
-            <div class="piece-info" style="bottom: 42px;">
-              <div class="piece-line">Silent Pressure</div>
-              <h3>A(ngst)FD</h3>
-              <p>Front piece. Soft contrast. Observation layer. Quiet tension.</p>
-              <div class="piece-price">€89 Front only</div>
-            </div>
-            <div class="piece-visual">
-              <img class="piece-image contain" src="Alice.png" alt="Alice front design" />
-            </div>
-            <div class="piece-meta">
-              <div class="meta-chip">Heavy Cotton</div>
-              <div class="meta-chip">Clean Print</div>
-              <div class="meta-chip">Limited Drop</div>
-              <div class="meta-chip">Made to Last</div>
-            </div>
-          </a>
+ <a class="piece alice-piece alice-front fog-silent-light" href="Alice.png" data-lightbox="Alice Front" aria-label="Open Alice Front">
+  <div cl<div class="piece-info" style="bottom: 42px;">
+    <div class="piece-line">Silent Pressure</div>
+    <h3>A(ngst)FD</h3>
+   <p>
+  Front piece. Soft contrast. Ob-<br>
+  servation layer.<br>
+  Quiet tension.
+</p>
+    <div class="piece-price">€89 Front only</div>
+  </div>
+  <div class="piece-visual">
+    <img class="piece-image contain" src="Alice.png" alt="Alice front design" />
+  </div>
+  <div class="piece-meta">
+    <div class="meta-chip">Heavy Cotton</div>
+    <div class="meta-chip">Clean Print</div>
+    <div class="meta-chip">Limited Drop</div>
+    <div class="meta-chip">Made to Last</div>
+  </div>
+</a>
 
           <a class="piece merz-piece merz-back fog-silent" href="merz_back.png" data-lightbox="Merz Back" aria-label="Open Merz Back">
             <div class="piece-info">
@@ -1248,745 +899,350 @@
       </div>
     </section>
 
-   <section class="bottom-area" id="contact">
+<section class="contact" id="contact">
   <div class="wrap">
-    <div class="bottom-bar">
-      <div class="bottom-left">
-        <span>© HANGMEN&nbsp;|&nbsp;</span>
-        <a href="#" id="imprintLink">Imprint</a>
-        <span>&nbsp;|&nbsp;</span>
-        <a href="#" id="privacyLink">Privacy</a>
-        <span>&nbsp;|&nbsp;</span>
-        <a href="#" id="termsLink">Terms</a>
-        <span>&nbsp;|&nbsp;</span>
-        <a href="#" id="withdrawalLink">Withdrawal</a>
-      </div>
+    <div class="panel">
+      <h3>Contact</h3>
+      <p><a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a></p>
 
-      <div class="bottom-right">
-        <button class="overlay-open-btn" id="openSelectionOverlay" type="button">Product Choice / Checkout</button>
-      </div>
+      <p class="small-note">
+        Each design is limited to 30 pieces. Once sold out, the piece is closed. No restock.
+      </p>
+
     </div>
   </div>
 </section>
   </main>
 
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
-    <img id="lightboxImage" src="" alt="" />
+<footer class="footer">
+  <div class="wrap footer-line">
+<span>© HANGMEN</span>
+<span class="footer-links">
+  <a href="#" id="imprintLink">Imprint</a> |
+  <a href="#" id="privacyLink">Privacy</a> |
+  <a href="#" id="termsLink">Terms</a> |
+  <a href="#" id="withdrawalLink">Withdrawal</a>
+</span>
   </div>
+</footer>
 
-  <div class="contact-pop" id="contactPop" aria-hidden="true">
-    <button class="close-pop" id="contactPopClose" aria-label="Close">×</button>
-    <strong>Contact</strong>
-    <a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a>
-  </div>
-
-  <div class="lightbox" id="imprintModal" aria-hidden="true">
-    <div style="max-width:760px; width:100%; position:relative; background:rgba(16,16,16,0.98); border-radius:24px; border:1px solid rgba(255,255,255,0.08); padding:18px 20px;">
-      <button id="imprintClose" aria-label="Close" style="position:absolute; top:12px; right:12px; background:transparent; border:0; color:#e6dfd8; font-size:28px; cursor:pointer;">×</button>
-      <div style="padding-right:28px;">
-        <h3 style="margin-top:0;">Imprint</h3>
-        <p class="small-note">HANGMEN<br>Owner: Thorsten Tenzer</p>
-        <p class="small-note">Email:<br><a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a></p>
-        <p class="small-note">Responsible for content according to § 18 MStV:<br>Thorsten Tenzer<br>Töpferweg 81<br>23558 Lübeck<br>Germany</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="lightbox" id="privacyModal" aria-hidden="true">
-    <div style="max-width:760px; width:100%; position:relative; background:rgba(16,16,16,0.98); border-radius:24px; border:1px solid rgba(255,255,255,0.08); padding:18px 20px;">
-      <button id="privacyClose" aria-label="Close" style="position:absolute; top:12px; right:12px; background:transparent; border:0; color:#e6dfd8; font-size:28px; cursor:pointer;">×</button>
-      <div style="padding-right:28px;">
-        <h3 style="margin-top:0;">Privacy Policy</h3>
-        <p class="small-note">This website is operated by Thorsten Tenzer, Töpferweg 81, 23558 Lübeck, Germany.</p>
-        <p class="small-note">We do not actively collect personal data when you browse this website.</p>
-        <p class="small-note">When you contact us via email, your data may be processed for the purpose of handling your request.</p>
-        <p class="small-note">This website is hosted via GitHub Pages. Technical access data may be processed by the hosting provider for technical and security purposes.</p>
-        <p class="small-note">Payment processing is handled by PayPal only.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="lightbox" id="termsModal" aria-hidden="true">
-    <div style="max-width:760px; width:100%; position:relative; background:rgba(16,16,16,0.98); border-radius:24px; border:1px solid rgba(255,255,255,0.08); padding:18px 20px;">
-      <button id="termsClose" aria-label="Close" style="position:absolute; top:12px; right:12px; background:transparent; border:0; color:#e6dfd8; font-size:28px; cursor:pointer;">×</button>
-      <div style="padding-right:28px;">
-        <h3 style="margin-top:0;">Terms &amp; Conditions</h3>
-        <p class="small-note">All products are offered as limited edition pieces. Each design is limited to 30 units. Once sold out, the design is permanently closed. No restock.</p>
-        <p class="small-note">Production is carried out on a print-on-demand basis.</p>
-        <p class="small-note">Prices are stated in Euro (€). Additional shipping costs may apply during checkout.</p>
-        <p class="small-note">Payment is processed via PayPal only.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="lightbox" id="withdrawalModal" aria-hidden="true">
-    <div style="max-width:760px; width:100%; position:relative; background:rgba(16,16,16,0.98); border-radius:24px; border:1px solid rgba(255,255,255,0.08); padding:18px 20px;">
-      <button id="withdrawalClose" aria-label="Close" style="position:absolute; top:12px; right:12px; background:transparent; border:0; color:#e6dfd8; font-size:28px; cursor:pointer;">×</button>
-      <div style="padding-right:28px;">
-        <h3 style="margin-top:0;">Right of Withdrawal</h3>
-        <p class="small-note">You have the right to withdraw from this contract within 14 days without giving any reason.</p>
-        <p class="small-note">Please note: Since all products are produced individually on demand, a return may be excluded in cases where the product has been clearly customized or made specifically for the customer, unless there is a defect.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="selection-overlay" id="selection" aria-hidden="true">
-    <div class="selection-card">
-      <div class="selection-head">
-        <div>
-          <h3 class="selection-title">Product Choice / Checkout</h3>
-          <div class="selection-sub">Choose products on the left. Review and pay on the right.</div>
-        </div>
-        <button class="selection-close" id="selectionClose" type="button" aria-label="Close">×</button>
-      </div>
-
-      <div class="selection-grid">
-        <div class="selection-box">
-          <h4>Product Choice</h4>
-
-          <div class="choice-grid">
-            <div class="choice-card">
-              <div class="choice-thumb">
-                <img src="ayatollah_missed_appointment.png" alt="Missed Appointment preview">
-              </div>
-              <div class="choice-body">
-                <div class="choice-name">Missed Appointment</div>
-                <div class="choice-price">€59</div>
-                <div class="choice-row">
-                  <div class="choice-field">
-                    <label class="choice-label" for="size-missed">Size</label>
-                    <select class="choice-select" id="size-missed">
-                      <option value="S">S</option>
-                      <option value="M" selected>M</option>
-                      <option value="L">L</option>
-                      <option value="XL">XL</option>
-                      <option value="XXL">XXL</option>
-                    </select>
-                  </div>
-                  <div class="choice-field">
-                    <label class="choice-label" for="qty-missed">Qty</label>
-                    <select class="choice-select" id="qty-missed">
-                      <option value="1" selected>1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                    </select>
-                  </div>
-                  <div class="choice-field">
-                    <label class="choice-label" for="add-missed">Cart</label>
-                    <button class="choice-add-btn js-add" id="add-missed" type="button" data-name="Missed Appointment" data-price="59.00" data-size-id="size-missed" data-qty-id="qty-missed">Add</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="choice-card">
-              <div class="choice-thumb">
-                <img src="Alice.png" alt="A(ngst)FD preview">
-              </div>
-              <div class="choice-body">
-                <div class="choice-name">A(ngst)FD Front</div>
-                <div class="choice-price">€89</div>
-                <div class="choice-row">
-                  <div class="choice-field">
-                    <label class="choice-label" for="size-angst">Size</label>
-                    <select class="choice-select" id="size-angst">
-                      <option value="S">S</option>
-                      <option value="M" selected>M</option>
-                      <option value="L">L</option>
-                      <option value="XL">XL</option>
-                      <option value="XXL">XXL</option>
-                    </select>
-                  </div>
-                  <div class="choice-field">
-                    <label class="choice-label" for="qty-angst">Qty</label>
-                    <select class="choice-select" id="qty-angst">
-                      <option value="1" selected>1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                    </select>
-                  </div>
-                  <div class="choice-field">
-                    <label class="choice-label" for="add-angst">Cart</label>
-                    <button class="choice-add-btn js-add" id="add-angst" type="button" data-name="A(ngst)FD Front" data-price="89.00" data-size-id="size-angst" data-qty-id="qty-angst">Add</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="choice-card">
-              <div class="choice-thumb">
-                <img src="merz_back.png" alt="Merz preview">
-              </div>
-              <div class="choice-body">
-                <div class="choice-name">Merz — Back</div>
-                <div class="choice-price">€59</div>
-                <div class="choice-row">
-                  <div class="choice-field">
-                    <label class="choice-label" for="size-merz">Size</label>
-                    <select class="choice-select" id="size-merz">
-                      <option value="S">S</option>
-                      <option value="M" selected>M</option>
-                      <option value="L">L</option>
-                      <option value="XL">XL</option>
-                      <option value="XXL">XXL</option>
-                    </select>
-                  </div>
-                  <div class="choice-field">
-                    <label class="choice-label" for="qty-merz">Qty</label>
-                    <select class="choice-select" id="qty-merz">
-                      <option value="1" selected>1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                    </select>
-                  </div>
-                  <div class="choice-field">
-                    <label class="choice-label" for="add-merz">Cart</label>
-                    <button class="choice-add-btn js-add" id="add-merz" type="button" data-name="Merz — Back" data-price="59.00" data-size-id="size-merz" data-qty-id="qty-merz">Add</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="choice-card">
-              <div class="choice-thumb">
-                <img src="maduro_you_never_walk_alone.png" alt="You Never Walk Alone preview">
-              </div>
-              <div class="choice-body">
-                <div class="choice-name">You Never Walk Alone</div>
-                <div class="choice-price">€59</div>
-                <div class="choice-row">
-                  <div class="choice-field">
-                    <label class="choice-label" for="size-maduro">Size</label>
-                    <select class="choice-select" id="size-maduro">
-                      <option value="S">S</option>
-                      <option value="M" selected>M</option>
-                      <option value="L">L</option>
-                      <option value="XL">XL</option>
-                      <option value="XXL">XXL</option>
-                    </select>
-                  </div>
-                  <div class="choice-field">
-                    <label class="choice-label" for="qty-maduro">Qty</label>
-                    <select class="choice-select" id="qty-maduro">
-                      <option value="1" selected>1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                    </select>
-                  </div>
-                  <div class="choice-field">
-                    <label class="choice-label" for="add-maduro">Cart</label>
-                    <button class="choice-add-btn js-add" id="add-maduro" type="button" data-name="You Never Walk Alone" data-price="59.00" data-size-id="size-maduro" data-qty-id="qty-maduro">Add</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="selection-box">
-          <h4>Checkout</h4>
-
-          <div class="cart-items" id="checkoutItems">
-            <div class="empty-cart">Your cart is empty.</div>
-          </div>
-
-         <div class="checkout-field" style="margin-top:12px;">
-  <label class="checkout-label">Withdrawal</label>
-  <a href="#" id="withdrawalInlineLinkTop" class="-open-btn withdrawal-btn" style="width:fit-content;">Open withdrawal policy</a>
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+  <img id="lightboxImage" src="" alt="" />
 </div>
 
-          <div class="totals">
-            <div class="total-row">
-              <span>Items</span>
-              <span id="itemsSubtotal">€0.00</span>
-            </div>
-            <div class="total-row">
-              <span>Shipping</span>
-              <span id="shippingTotal">€0.00</span>
-            </div>
-            <div class="total-row total-final">
-              <span>Total</span>
-              <span id="grandTotal">€0.00</span>
-            </div>
-          </div>
-<div class="checkout-field" style="margin-top:12px;">
-  
-          <div class="checkout-checks">
-            <label class="checkout-checkline">
-              <input type="checkbox" id="termsCheck">
-              <span>I accept the <a href="#" id="termsInlineLink">terms</a>.</span>
-            </label>
+<div class="contact-pop" id="contactPop" aria-hidden="true">
+  <button class="close-pop" id="contactPopClose" aria-label="Close">×</button>
+  <strong>Contact</strong>
+  <a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a>
+</div>
 
-            <label class="checkout-checkline">
-              <input type="checkbox" id="privacyCheck">
-              <span>I have read the <a href="#" id="privacyInlineLink">privacy policy</a>.</span>
-            </label>
+<div class="lightbox" id="imprintModal" aria-hidden="true">
+  <div class="panel" style="max-width:760px; width:100%; position:relative; background:rgba(16,16,16,0.98);">
+    <button id="imprintClose" aria-label="Close" style="position:absolute; top:12px; right:12px; background:transparent; border:0; color:#e6dfd8; font-size:28px; cursor:pointer;">×</button>
+    <div style="padding-right:28px;">
+      <h3 style="margin-top:0;">Imprint</h3>
 
-            <label class="checkout-checkline">
-              <input type="checkbox" id="withdrawalCheck">
-              <span>I have read the <a href="#" id="withdrawalInlineLink">withdrawal policy</a>.</span>
-            </label>
-          </div>
+      <p class="small-note">
+        HANGMEN<br>
+        Owner: Thorsten Tenzer<br>
+        
+      </p>
 
-          <div class="checkout-warn" id="paypalWarn">
-            please accept the legal notices before starting checkout.
-          </div>
+      <p class="small-note">
+        Email:<br>
+        <a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a>
+      </p>
 
-          <div class="paypal-wrap">
-            <div id="paypal-button-container"></div>
-          </div>
-        </div>
-      </div>
+      <p class="small-note">
+        Responsible for content according to § 18 MStV:<br>
+        Thorsten Tenzer<br>
+        Töpferweg 81<br>
+        23558 Lübeck<br>
+        Germany
+      </p>
+
+      <p class="small-note">
+        This imprint also applies to all online presences of this project.
+      </p>
     </div>
   </div>
+</div>
 
-  <script src="https://www.paypal.com/sdk/js?client-id=AXD8cHhLEslSBAlvGm7eXnMKb60kCcNfyDBsmqQ4Le5GrWxMdh0YgT_UrYM8gxUHkSY20Gs2tfZ6nWHF&currency=EUR"></script>
+<div class="lightbox" id="privacyModal" aria-hidden="true">
+  <div class="panel" style="max-width:760px; width:100%; position:relative; background:rgba(16,16,16,0.98);">
+    <button id="privacyClose" aria-label="Close" style="position:absolute; top:12px; right:12px; background:transparent; border:0; color:#e6dfd8; font-size:28px; cursor:pointer;">×</button>
+    <div style="padding-right:28px;">
+      <h3 style="margin-top:0;">Privacy Policy</h3>
 
-  <script>
-    const cart = [];
+      <p class="small-note">
+        This website is operated by Thorsten Tenzer, Töpferweg 81, 23558 Lübeck, Germany.
+      </p>
 
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImage = document.getElementById('lightboxImage');
-    const lightboxClose = document.getElementById('lightboxClose');
-    const pieces = document.querySelectorAll('[data-lightbox]');
+      <p class="small-note">
+        We do not actively collect personal data when you browse this website.
+      </p>
 
-    const contactTrigger = document.getElementById('contactTrigger');
-    const contactPop = document.getElementById('contactPop');
-    const contactPopClose = document.getElementById('contactPopClose');
+      <p class="small-note">
+        When you contact us via email, your data, such as your name, email address, and message content, may be processed for the purpose of handling your request.
+      </p>
 
-    const imprintLink = document.getElementById('imprintLink');
-    const privacyLink = document.getElementById('privacyLink');
-    const termsLink = document.getElementById('termsLink');
-    const withdrawalLink = document.getElementById('withdrawalLink');
+      <p class="small-note">
+        This website is hosted via GitHub Pages. Technical access data, such as IP address, browser information, and access time, may be processed by the hosting provider for technical and security purposes.
+      </p>
 
-    const imprintModal = document.getElementById('imprintModal');
-    const privacyModal = document.getElementById('privacyModal');
-    const termsModal = document.getElementById('termsModal');
-    const withdrawalModal = document.getElementById('withdrawalModal');
+      <p class="small-note">
+        We do not use tracking tools, cookies, or analytics services.
+      </p>
 
-    const imprintClose = document.getElementById('imprintClose');
-    const privacyClose = document.getElementById('privacyClose');
-    const termsClose = document.getElementById('termsClose');
-    const withdrawalClose = document.getElementById('withdrawalClose');
+      <p class="small-note">
+        You have the right to request information about your stored personal data, as well as correction or deletion where applicable.
+      </p>
 
-    const openSelectionOverlay = document.getElementById('openSelectionOverlay');
-    const selectionOverlay = document.getElementById('selectionOverlay');
-    const selectionClose = document.getElementById('selectionClose');
+      <p class="small-note">
+        For privacy-related inquiries, please contact:<br>
+        <a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a>
+      </p>
+    </div>
+  </div>
+</div>
 
-    const checkoutItems = document.getElementById('checkoutItems');
-    const shippingSelect = document.getElementById('shippingSelect');
-    const itemsSubtotal = document.getElementById('itemsSubtotal');
-    const shippingTotal = document.getElementById('shippingTotal');
-    const grandTotal = document.getElementById('grandTotal');
+<div class="lightbox" id="termsModal" aria-hidden="true">
+  <div class="panel" style="max-width:760px; width:100%; position:relative; background:rgba(16,16,16,0.98);">
+    <button id="termsClose" aria-label="Close" style="position:absolute; top:12px; right:12px; background:transparent; border:0; color:#e6dfd8; font-size:28px; cursor:pointer;">×</button>
+    <div style="padding-right:28px;">
+      <h3 style="margin-top:0;">Terms &amp; Conditions</h3>
 
-    const termsCheck = document.getElementById('termsCheck');
-    const privacyCheck = document.getElementById('privacyCheck');
-    const withdrawalCheck = document.getElementById('withdrawalCheck');
-    const paypalWarn = document.getElementById('paypalWarn');
+      <p class="small-note">
+        The following terms apply to all orders placed via this website.
+      </p>
 
-    const termsInlineLink = document.getElementById('termsInlineLink');
-    const privacyInlineLink = document.getElementById('privacyInlineLink');
-    const withdrawalInlineLink = document.getElementById('withdrawalInlineLink');
-    const withdrawalInlineLinkTop = document.getElementById('withdrawalInlineLinkTop');
+      <p class="small-note">
+        All products are offered as limited edition pieces. Each design is limited to 30 units. Once sold out, the design is permanently closed. No restock.
+      </p>
 
-    function euro(value) {
-      return `€${Number(value).toFixed(2)}`;
-    }
+      <p class="small-note">
+        Production is carried out on a print-on-demand basis. This means that each item is produced individually after an order has been placed.
+      </p>
 
-    function closeLightbox() {
-      lightbox.classList.remove('open');
-      lightbox.setAttribute('aria-hidden', 'true');
-      lightboxImage.src = '';
-      lightboxImage.alt = '';
-    }
+      <p class="small-note">
+        Due to this production process, delivery times may vary and can be longer than standard retail delivery times.
+      </p>
 
-    function openModal(modal) {
-      if (!modal) return;
-      modal.classList.add('open');
-      modal.setAttribute('aria-hidden', 'false');
-    }
+      <p class="small-note">
+        Minor variations in color, print placement, and material may occur due to the production process. Such deviations do not constitute a defect.
+      </p>
 
-    function closeModal(modal) {
-      if (!modal) return;
-      modal.classList.remove('open');
-      modal.setAttribute('aria-hidden', 'true');
-    }
+      <p class="small-note">
+        The presentation of products on this website does not constitute a legally binding offer but an invitation to place an order.
+      </p>
 
-    function closeAllLegalModals() {
-      closeModal(imprintModal);
-      closeModal(privacyModal);
-      closeModal(termsModal);
-      closeModal(withdrawalModal);
-    }
+      <p class="small-note">
+        Prices are stated in Euro (€). Additional costs such as shipping may apply and will be indicated during the ordering process.
+      </p>
 
-    function showContactPop(event) {
-      if (event) event.preventDefault();
-      contactPop.classList.add('show');
-      contactPop.setAttribute('aria-hidden', 'false');
-    }
+      <p class="small-note">
+        German law applies. Place of jurisdiction is Lübeck, Germany.
+      </p>
+    </div>
+  </div>
+</div>
 
-    function hideContactPop() {
-      contactPop.classList.remove('show');
-      contactPop.setAttribute('aria-hidden', 'true');
-    }
+<div class="lightbox" id="withdrawalModal" aria-hidden="true">
+  <div class="panel" style="max-width:760px; width:100%; position:relative; background:rgba(16,16,16,0.98);">
+    <button id="withdrawalClose" aria-label="Close" style="position:absolute; top:12px; right:12px; background:transparent; border:0; color:#e6dfd8; font-size:28px; cursor:pointer;">×</button>
+    <div style="padding-right:28px;">
+      <h3 style="margin-top:0;">Right of Withdrawal</h3>
 
-    function openSelection() {
-      selectionOverlay.classList.add('open');
-      selectionOverlay.setAttribute('aria-hidden', 'false');
-    }
+      <p class="small-note">
+        You have the right to withdraw from this contract within 14 days without giving any reason.
+      </p>
 
-    function closeSelection() {
-      selectionOverlay.classList.remove('open');
-      selectionOverlay.setAttribute('aria-hidden', 'true');
-    }
+      <p class="small-note">
+        The withdrawal period is 14 days from the day on which you or a third party named by you takes possession of the goods.
+      </p>
 
-    function legalChecksAccepted() {
-      return termsCheck.checked && privacyCheck.checked && withdrawalCheck.checked;
-    }
+      <p class="small-note">
+        To exercise your right of withdrawal, you must inform us by email:<br>
+        <a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a>
+      </p>
 
-    function getItemsSubtotalValue() {
-      return cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-    }
+      <p class="small-note">
+        To meet the withdrawal deadline, it is sufficient for you to send your communication before the withdrawal period has expired.
+      </p>
 
-    function getShippingValue() {
-      return parseFloat(shippingSelect.value || '0');
-    }
+      <p class="small-note">
+        Please note: Since all products are produced individually on demand, a return may be excluded in cases where the product has been clearly customized or made specifically for the customer, unless there is a defect.
+      </p>
 
-    function getGrandTotalValue() {
-      return getItemsSubtotalValue() + getShippingValue();
-    }
+      <p class="small-note">
+        In case of defective or damaged products, you are entitled to replacement or refund in accordance with statutory provisions.
+      </p>
+    </div>
+  </div>
+</div>
 
-    function updateTotals() {
-      itemsSubtotal.textContent = euro(getItemsSubtotalValue());
-      shippingTotal.textContent = euro(getShippingValue());
-      grandTotal.textContent = euro(getGrandTotalValue());
-    }
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImage = document.getElementById('lightboxImage');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const pieces = document.querySelectorAll('[data-lightbox]');
 
-    function renderCartItems() {
-      if (!cart.length) {
-        checkoutItems.innerHTML = `<div class="empty-cart">Your cart is empty.</div>`;
-        updateTotals();
-        return;
-      }
+  const contactTrigger = document.getElementById('contactTrigger');
+  const contactPop = document.getElementById('contactPop');
+  const contactPopClose = document.getElementById('contactPopClose');
 
-      checkoutItems.innerHTML = cart.map((item, index) => `
-        <div class="cart-item">
-          <div class="cart-item-main">
-            <div class="cart-item-name">${item.name}</div>
-            <div class="cart-item-meta">Size ${item.size} / Qty ${item.qty}</div>
-          </div>
-          <div class="cart-item-price">${euro(item.price * item.qty)}</div>
-          <button class="cart-item-remove" type="button" data-remove-index="${index}">Remove</button>
-        </div>
-      `).join('');
+  const imprintLink = document.getElementById('imprintLink');
+  const privacyLink = document.getElementById('privacyLink');
+  const termsLink = document.getElementById('termsLink');
+  const withdrawalLink = document.getElementById('withdrawalLink');
 
-      checkoutItems.querySelectorAll('[data-remove-index]').forEach((button) => {
-        button.addEventListener('click', () => {
-          const idx = Number(button.getAttribute('data-remove-index'));
-          cart.splice(idx, 1);
-          renderCartItems();
-        });
-      });
+  const imprintModal = document.getElementById('imprintModal');
+  const privacyModal = document.getElementById('privacyModal');
+  const termsModal = document.getElementById('termsModal');
+  const withdrawalModal = document.getElementById('withdrawalModal');
 
-      updateTotals();
-    }
+  const imprintClose = document.getElementById('imprintClose');
+  const privacyClose = document.getElementById('privacyClose');
+  const termsClose = document.getElementById('termsClose');
+  const withdrawalClose = document.getElementById('withdrawalClose');
 
-    function addToCart(name, price, sizeId, qtyId) {
-      const sizeEl = document.getElementById(sizeId);
-      const qtyEl = document.getElementById(qtyId);
-
-      const size = sizeEl.value;
-      const qty = parseInt(qtyEl.value, 10);
-
-      const existing = cart.find(item => item.name === name && item.size === size);
-
-      if (existing) {
-        existing.qty += qty;
-      } else {
-        cart.push({ name, price, size, qty });
-      }
-
-      sizeEl.value = 'M';
-      qtyEl.value = '1';
-      renderCartItems();
-    }
-
-    pieces.forEach((piece) => {
-      piece.addEventListener('click', (event) => {
-        event.preventDefault();
-        lightboxImage.src = piece.getAttribute('href');
-        lightboxImage.alt = piece.getAttribute('data-lightbox');
-        lightbox.classList.add('open');
-        lightbox.setAttribute('aria-hidden', 'false');
-      });
+  pieces.forEach((piece) => {
+    piece.addEventListener('click', (event) => {
+      event.preventDefault();
+      lightboxImage.src = piece.getAttribute('href');
+      lightboxImage.alt = piece.getAttribute('data-lightbox');
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
     });
-
-    document.querySelectorAll('.js-add').forEach((button) => {
-      button.addEventListener('click', () => {
-        addToCart(
-          button.dataset.name,
-          parseFloat(button.dataset.price),
-          button.dataset.sizeId,
-          button.dataset.qtyId
-        );
-      });
-    });
-
-    lightbox.addEventListener('click', (event) => {
-      if (event.target === lightbox || event.target === lightboxClose) {
-        closeLightbox();
-      }
-    });
-
-    if (contactTrigger) {
-      contactTrigger.addEventListener('click', showContactPop);
-    }
-
-    if (contactPopClose) {
-      contactPopClose.addEventListener('click', hideContactPop);
-    }
-
-    if (imprintLink) {
-      imprintLink.addEventListener('click', (event) => {
-        event.preventDefault();
-        openModal(imprintModal);
-      });
-    }
-
-    if (privacyLink) {
-      privacyLink.addEventListener('click', (event) => {
-        event.preventDefault();
-        openModal(privacyModal);
-      });
-    }
-
-    if (termsLink) {
-      termsLink.addEventListener('click', (event) => {
-        event.preventDefault();
-        openModal(termsModal);
-      });
-    }
-
-    if (withdrawalLink) {
-      withdrawalLink.addEventListener('click', (event) => {
-        event.preventDefault();
-        openModal(withdrawalModal);
-      });
-    }
-
-    if (termsInlineLink) {
-      termsInlineLink.addEventListener('click', (event) => {
-        event.preventDefault();
-        openModal(termsModal);
-      });
-    }
-
-    if (privacyInlineLink) {
-      privacyInlineLink.addEventListener('click', (event) => {
-        event.preventDefault();
-        openModal(privacyModal);
-      });
-    }
-
-    if (withdrawalInlineLink) {
-      withdrawalInlineLink.addEventListener('click', (event) => {
-        event.preventDefault();
-        openModal(withdrawalModal);
-      });
-    }
-if (withdrawalInlineLinkTop) {
-  withdrawalInlineLinkTop.addEventListener('click', (event) => {
-    event.preventDefault();
-    openModal(withdrawalModal);
   });
-}
-    if (imprintClose) {
-      imprintClose.addEventListener('click', () => closeModal(imprintModal));
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    lightboxImage.src = '';
+    lightboxImage.alt = '';
+  }
+
+  lightbox.addEventListener('click', (event) => {
+    if (event.target === lightbox || event.target === lightboxClose) {
+      closeLightbox();
     }
+  });
 
-    if (privacyClose) {
-      privacyClose.addEventListener('click', () => closeModal(privacyModal));
-    }
+  function showContactPop(event) {
+    if (event) event.preventDefault();
+    contactPop.classList.add('show');
+    contactPop.setAttribute('aria-hidden', 'false');
+  }
 
-    if (termsClose) {
-      termsClose.addEventListener('click', () => closeModal(termsModal));
-    }
+  function hideContactPop() {
+    contactPop.classList.remove('show');
+    contactPop.setAttribute('aria-hidden', 'true');
+  }
 
-    if (withdrawalClose) {
-      withdrawalClose.addEventListener('click', () => closeModal(withdrawalModal));
-    }
+  function openModal(modal) {
+    if (!modal) return;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+  }
 
-    if (imprintModal) {
-      imprintModal.addEventListener('click', (event) => {
-        if (event.target === imprintModal) closeModal(imprintModal);
-      });
-    }
+  function closeModal(modal) {
+    if (!modal) return;
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+  }
 
-    if (privacyModal) {
-      privacyModal.addEventListener('click', (event) => {
-        if (event.target === privacyModal) closeModal(privacyModal);
-      });
-    }
+  function closeAllLegalModals() {
+    closeModal(imprintModal);
+    closeModal(privacyModal);
+    closeModal(termsModal);
+    closeModal(withdrawalModal);
+  }
 
-    if (termsModal) {
-      termsModal.addEventListener('click', (event) => {
-        if (event.target === termsModal) closeModal(termsModal);
-      });
-    }
+  if (contactTrigger) {
+    contactTrigger.addEventListener('click', showContactPop);
+  }
 
-    if (withdrawalModal) {
-      withdrawalModal.addEventListener('click', (event) => {
-        if (event.target === withdrawalModal) closeModal(withdrawalModal);
-      });
-    }
+  if (contactPopClose) {
+    contactPopClose.addEventListener('click', hideContactPop);
+  }
 
-    openSelectionOverlay.addEventListener('click', openSelection);
-    selectionClose.addEventListener('click', closeSelection);
-
-    selectionOverlay.addEventListener('click', (event) => {
-      if (event.target === selectionOverlay) {
-        closeSelection();
-      }
+  if (imprintLink) {
+    imprintLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      openModal(imprintModal);
     });
+  }
 
-    shippingSelect.addEventListener('change', updateTotals);
-
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') {
-        closeLightbox();
-        hideContactPop();
-        closeAllLegalModals();
-        closeSelection();
-      }
+  if (privacyLink) {
+    privacyLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      openModal(privacyModal);
     });
+  }
 
-    renderCartItems();
+  if (termsLink) {
+    termsLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      openModal(termsModal);
+    });
+  }
 
-    if (window.paypal) {
-      paypal.Buttons({
-        style: {
-          layout: 'vertical',
-          shape: 'rect',
-          label: 'paypal',
-          height: 34
-        },
+  if (withdrawalLink) {
+    withdrawalLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      openModal(withdrawalModal);
+    });
+  }
 
-        onInit: function(data, actions) {
-          actions.disable();
+  if (imprintClose) {
+    imprintClose.addEventListener('click', () => closeModal(imprintModal));
+  }
 
-          function syncState() {
-            if (cart.length > 0 && legalChecksAccepted()) {
-              actions.enable();
-              paypalWarn.classList.remove('show');
-            } else {
-              actions.disable();
-            }
-          }
+  if (privacyClose) {
+    privacyClose.addEventListener('click', () => closeModal(privacyModal));
+  }
 
-          [termsCheck, privacyCheck, withdrawalCheck].forEach((el) => {
-            el.addEventListener('change', syncState);
-          });
+  if (termsClose) {
+    termsClose.addEventListener('click', () => closeModal(termsModal));
+  }
 
-          shippingSelect.addEventListener('change', syncState);
+  if (withdrawalClose) {
+    withdrawalClose.addEventListener('click', () => closeModal(withdrawalModal));
+  }
 
-          const observer = new MutationObserver(syncState);
-          observer.observe(checkoutItems, { childList: true, subtree: true });
+  if (imprintModal) {
+    imprintModal.addEventListener('click', (event) => {
+      if (event.target === imprintModal) closeModal(imprintModal);
+    });
+  }
 
-          syncState();
-        },
+  if (privacyModal) {
+    privacyModal.addEventListener('click', (event) => {
+      if (event.target === privacyModal) closeModal(privacyModal);
+    });
+  }
 
-        onClick: function() {
-          if (!cart.length || !legalChecksAccepted()) {
-            paypalWarn.classList.add('show');
-            return;
-          }
-          paypalWarn.classList.remove('show');
-        },
+  if (termsModal) {
+    termsModal.addEventListener('click', (event) => {
+      if (event.target === termsModal) closeModal(termsModal);
+    });
+  }
 
-        createOrder: function(data, actions) {
-          const shippingName = shippingSelect.options[shippingSelect.selectedIndex].dataset.name;
-          const shippingValue = getShippingValue().toFixed(2);
-          const itemsSubtotalValue = getItemsSubtotalValue().toFixed(2);
-          const totalValue = getGrandTotalValue().toFixed(2);
+  if (withdrawalModal) {
+    withdrawalModal.addEventListener('click', (event) => {
+      if (event.target === withdrawalModal) closeModal(withdrawalModal);
+    });
+  }
 
-          return actions.order.create({
-            application_context: {
-              shipping_preference: 'GET_FROM_FILE'
-            },
-            purchase_units: [{
-              description: `HANGMEN Cart / ${shippingName}`,
-              amount: {
-                currency_code: 'EUR',
-                value: totalValue,
-                breakdown: {
-                  item_total: {
-                    currency_code: 'EUR',
-                    value: itemsSubtotalValue
-                  },
-                  shipping: {
-                    currency_code: 'EUR',
-                    value: shippingValue
-                  }
-                }
-              }
-            }]
-          });
-        },
-
-        onApprove: function(data, actions) {
-          return actions.order.capture().then(function(details) {
-            const buyerName =
-              details?.payer?.name?.given_name ||
-              details?.payer?.name?.name ||
-              'buyer';
-
-            alert('Payment successful. Thank you, ' + buyerName + '.');
-            cart.length = 0;
-            renderCartItems();
-            closeSelection();
-            termsCheck.checked = false;
-            privacyCheck.checked = false;
-            withdrawalCheck.checked = false;
-            updateTotals();
-          });
-        },
-
-        onError: function(err) {
-          console.error('PayPal error:', err);
-          alert('The payment could not be started. Please try again.');
-        }
-      }).render('#paypal-button-container');
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeLightbox();
+      hideContactPop();
+      closeAllLegalModals();
     }
-    if (window.paypal) {
-  paypal.Buttons({
-    style: {
-      layout: 'vertical',
-      shape: 'rect',
-      label: 'paypal'
-    },
-
-    createOrder: function(data, actions) {
-      let total = document.getElementById('grandTotal').textContent.replace('€','').trim();
-      if (!total || total === '0.00') total = '1.00';
-
-      return actions.order.create({
-        purchase_units: [{
-          amount: {
-            value: total
-          }
-        }]
-      });
-    },
-
-    onApprove: function(data, actions) {
-      return actions.order.capture().then(function(details) {
-        alert('Payment successful');
-      });
-    }
-
-  }).render('#paypal-button-container');
-}
-  </script>
+  });
+</script>
 </body>
 </html>
