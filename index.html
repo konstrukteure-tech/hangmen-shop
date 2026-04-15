@@ -449,118 +449,99 @@
       opacity: 0.9;
     }
 
-    .contact {
-      padding: 10px 0 42px;
-    }
-
-    .panel {
-      border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,0.06);
-      background: rgba(16,16,16,0.88);
-      padding: 18px 20px;
-    }
-
-    .panel h3 {
-      margin: 0 0 8px;
-      font-size: 1rem;
-    }
-
-    .panel p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .email-link {
-      color: var(--soft);
-    }
-
-    .footer {
-      padding: 0 0 28px;
-      color: var(--muted);
-      font-size: 0.88rem;
-    }
-
-    .lightbox {
-      position: fixed;
-      inset: 0;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 28px;
-      background: rgba(0,0,0,0.88);
-      z-index: 120;
-      cursor: zoom-out;
-    }
-
-   .lightbox.open {
-  display: flex;
+   .contact {
+  padding: 10px 0 22px;
 }
-    
-#imprintModal:target,
-#privacyModal:target,
-#termsModal:target,
-#withdrawalModal:target {
-  display: flex;
+
+.panel {
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(16,16,16,0.88);
+  padding: 18px 20px;
 }
-    .lightbox img {
-      max-width: min(92vw, 1300px);
-      max-height: 88vh;
-      width: auto;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
-      background: #111;
-    }
 
-    .lightbox-close {
-      position: absolute;
-      top: 18px;
-      right: 22px;
-      border: 0;
-      background: transparent;
-      color: #f0ebe4;
-      font-size: 2rem;
-      line-height: 1;
-      cursor: pointer;
-    }
+.panel h3 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+}
 
-    .contact-pop {
-      position: fixed;
-      right: 24px;
-      bottom: 24px;
-      z-index: 140;
-      min-width: 280px;
-      max-width: 360px;
-      padding: 16px 18px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(18,18,18,0.96);
-      box-shadow: 0 18px 44px rgba(0,0,0,0.28);
-      color: var(--text);
-      display: none;
-    }
+.panel p {
+  margin: 0;
+  color: var(--muted);
+}
 
-    .contact-pop.show {
-      display: block;
-    }
+.email-link {
+  color: var(--soft);
+}
 
-    .contact-pop strong {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 0.95rem;
-    }
+.bottom-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 0;
+}
 
-    .contact-pop .close-pop {
-      position: absolute;
-      top: 8px;
-      right: 10px;
-      border: 0;
-      background: transparent;
-      color: var(--muted);
-      font-size: 1.25rem;
-      cursor: pointer;
-    }
+.bottom-panel-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  min-width: 0;
+}
 
+.bottom-note {
+  margin: 0;
+  max-width: 72ch;
+}
+
+.bottom-legal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+
+.bottom-legal a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.bottom-legal a:hover,
+.bottom-legal a:focus-visible {
+  color: var(--text);
+  outline: none;
+}
+
+.bottom-panel-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 0 0 auto;
+}
+
+.checkout-trigger {
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.checkout-trigger:hover,
+.checkout-trigger:focus-visible {
+  border-color: rgba(217,210,202,0.24);
+  outline: none;
+}
+
+.footer {
+  display: none;
+}
     @media (max-width: 1160px) {
       .hero-grid {
         grid-template-columns: 1fr;
@@ -596,6 +577,18 @@
    @media (max-width: 760px) {
   .wrap {
     width: min(calc(100% - 24px), var(--max));
+    }
+
+.bottom-panel {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.bottom-panel-right {
+  width: 100%;
+  justify-content: flex-start;
+
   }
 
   .topbar-inner,
@@ -901,31 +894,31 @@
 
 <section class="contact" id="contact">
   <div class="wrap">
-    <div class="panel">
-      <h3>Contact</h3>
-      <p><a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a></p>
+    <div class="panel bottom-panel">
+      <div class="bottom-panel-left">
+        <p class="small-note bottom-note">
+          Each design is limited to 30 pieces. Once sold out, the piece is closed. No restock.
+        </p>
 
-      <p class="small-note">
-        Each design is limited to 30 pieces. Once sold out, the piece is closed. No restock.
-      </p>
+        <div class="bottom-legal">
+          <a href="#" id="imprintLink">Imprint</a>
+          <span>|</span>
+          <a href="#" id="privacyLink">Privacy</a>
+          <span>|</span>
+          <a href="#" id="termsLink">Terms</a>
+          <span>|</span>
+          <a href="#" id="withdrawalLink">Withdrawal</a>
+        </div>
+      </div>
 
+      <div class="bottom-panel-right">
+        <button class="checkout-trigger" id="openSelectionOverlay" type="button">
+          Product Choice / Checkout
+        </button>
+      </div>
     </div>
   </div>
 </section>
-  </main>
-
-<footer class="footer">
-  <div class="wrap footer-line">
-<span>© HANGMEN</span>
-<span class="footer-links">
-  <a href="#" id="imprintLink">Imprint</a> |
-  <a href="#" id="privacyLink">Privacy</a> |
-  <a href="#" id="termsLink">Terms</a> |
-  <a href="#" id="withdrawalLink">Withdrawal</a>
-</span>
-  </div>
-</footer>
-
 <div class="lightbox" id="lightbox" aria-hidden="true">
   <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
   <img id="lightboxImage" src="" alt="" />
