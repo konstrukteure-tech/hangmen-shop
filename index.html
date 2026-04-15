@@ -447,172 +447,180 @@
       max-width: 58%;
     }
 
-    .contact {
-      padding: 10px 0 42px;
-    }
+   .contact {
+  padding: 8px 0 20px;
+}
 
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      align-items: start;
-    }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  align-items: stretch;
+}
 
-    .panel,
-    .purchase-panel {
-      border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,0.06);
-      background: rgba(16,16,16,0.88);
-      padding: 18px 20px;
-    }
+.panel,
+.purchase-panel {
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(16,16,16,0.88);
+  padding: 14px 16px;
+  min-height: 0;
+}
 
-    .panel h3,
-    .purchase-panel h3 {
-      margin: 0 0 8px;
-      font-size: 1rem;
-    }
+.panel h3,
+.purchase-panel h3 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+}
 
-    .panel p,
-    .purchase-panel p {
-      margin: 0;
-      color: var(--muted);
-    }
+.panel p,
+.purchase-panel p {
+  margin: 0;
+  color: var(--muted);
+}
 
-    .email-link {
-      color: var(--soft);
-    }
+.email-link {
+  color: var(--soft);
+}
 
-    .buy-top {
-      display: grid;
-      gap: 10px;
-    }
+.buy-top {
+  display: grid;
+  gap: 6px;
+}
 
-    .buy-field {
-      display: grid;
-      gap: 6px;
-    }
+.buy-field {
+  display: grid;
+  gap: 4px;
+}
 
-    .buy-label {
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
+.buy-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
 
-    .buy-select {
-      width: 100%;
-      height: 44px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.04);
-      color: var(--text);
-      padding: 0 14px;
-      font-size: 0.95rem;
-      outline: none;
-    }
+.buy-select {
+  width: 100%;
+  height: 38px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.04);
+  color: var(--text);
+  padding: 0 12px;
+  font-size: 0.9rem;
+  outline: none;
+}
 
-    .buy-select:focus {
-      border-color: rgba(217,210,202,0.28);
-    }
+.buy-select:focus {
+  border-color: rgba(217,210,202,0.28);
+}
 
-    .payNote {
-      font-size: 12px;
-      color: var(--text);
-      font-weight: 700;
-      margin: 2px 0 0;
-      text-transform: lowercase;
-    }
+.payNote {
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 700;
+  margin: 0;
+  text-transform: lowercase;
+}
 
-    .checks {
-      display: grid;
-      gap: 8px;
-      margin-top: 14px;
-      padding: 10px 12px;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
-      background: rgba(255,255,255,0.04);
-    }
+.checks {
+  display: grid;
+  gap: 4px;
+  margin-top: 8px;
+  padding: 8px 10px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.04);
+}
 
-    .checkline {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      font-size: 12px;
-      color: var(--muted);
-    }
+.checkline {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: 11px;
+  line-height: 1.2;
+  color: var(--muted);
+}
 
-    .checkline input {
-      width: auto;
-      margin-top: 2px;
-      accent-color: #d9d2ca;
-    }
+.checkline input {
+  width: auto;
+  margin-top: 1px;
+  accent-color: #d9d2ca;
+}
 
-    .checkline a {
-      text-decoration: underline;
-    }
+.checkline a {
+  text-decoration: underline;
+}
 
-    .warn {
-      font-size: 12px;
-      color: #ffb0b0;
-      background: rgba(214,40,40,.12);
-      border: 1px solid rgba(214,40,40,.28);
-      padding: 8px 10px;
-      border-radius: 14px;
-      display: none;
-      text-transform: lowercase;
-      margin-top: 10px;
-    }
+.warn {
+  font-size: 11px;
+  color: #ffb0b0;
+  background: rgba(214,40,40,.12);
+  border: 1px solid rgba(214,40,40,.28);
+  padding: 6px 8px;
+  border-radius: 12px;
+  display: none;
+  text-transform: lowercase;
+  margin-top: 6px;
+}
 
-    .warn.show {
-      display: block;
-    }
+.warn.show {
+  display: block;
+}
 
-    .paypalSlot {
-      height: 46px;
-      width: 100%;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 10px 22px rgba(0,0,0,.25);
-      background: var(--paypal-yellow);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      border: 1px solid rgba(0,0,0,.10);
-      margin-top: 12px;
-    }
+.paypalSlot {
+  height: 32px;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 22px rgba(0,0,0,.25);
+  background: var(--paypal-yellow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: 1px solid rgba(0,0,0,.10);
+  margin-top: 8px;
+}
 
-    .paypalSlot.isDisabled {
-      opacity: .55;
-      filter: grayscale(1);
-    }
+.paypalSlot.isDisabled {
+  opacity: .55;
+  filter: grayscale(1);
+}
 
-    #paypal-button-container {
-      width: 100%;
-      min-height: 46px;
-      display: block;
-    }
+#paypal-button-container {
+  width: 100%;
+  min-height: 36px;
+  display: block;
+}
 
-    .paypalFallback {
-      height: 46px;
-      width: 100%;
-      border: 0;
-      border-radius: 14px;
-      background: var(--paypal-yellow);
-      color: var(--paypal-text);
-      font-weight: 950;
-      text-transform: lowercase;
-      cursor: not-allowed;
-      display: none;
-    }
+.paypalFallback {
+  height: 36px;
+  width: 100%;
+  border: 0;
+  border-radius: 12px;
+  background: var(--paypal-yellow);
+  color: var(--paypal-text);
+  font-weight: 950;
+  text-transform: lowercase;
+  cursor: not-allowed;
+  display: none;
+}
 
-    .buy-mini-note {
-      margin-top: 10px;
-      font-size: 12px;
-      color: var(--muted);
-      text-transform: lowercase;
-    }
+.buy-mini-note {
+  margin-top: 6px;
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: lowercase;
+}
 
+.footer {
+  padding: 0 0 18px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+    
     .footer {
       padding: 0 0 28px;
       color: var(--muted);
@@ -1024,69 +1032,67 @@
       </div>
     </section>
 
-    <section class="contact" id="contact">
-      <div class="wrap">
-        <div class="contact-grid">
-          <div class="panel">
-            <h3>Contact</h3>
-            <p><a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a></p>
-            <p class="small-note">
-              Each design is limited to 30 pieces. Once sold out, the piece is closed. No restock.
-            </p>
+   <section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="panel">
+        <h3>Contact</h3>
+        <p><a class="email-link" href="mailto:contact@hangmen.shop">contact@hangmen.shop</a></p>
+        <p class="small-note">
+          Each design is limited to 30 pieces. Once sold out, the piece is closed. No restock.
+        </p>
+      </div>
+
+      <div class="purchase-panel">
+        <h3>Buy</h3>
+
+        <div class="buy-top">
+          <div class="buy-field">
+            <label class="buy-label" for="productSelect">Select piece</label>
+            <select class="buy-select" id="productSelect" aria-label="Select product">
+              <option value="89.00" data-name="A(ngst)FD Front">A(ngst)FD Front — €89</option>
+              <option value="59.00" data-name="Missed Appointment">Missed Appointment — €59</option>
+              <option value="59.00" data-name="Merz — Back">Merz — Back — €59</option>
+              <option value="59.00" data-name="You Never Walk Alone">You Never Walk Alone — €59</option>
+            </select>
           </div>
 
-          <div class="purchase-panel">
-            <h3>Buy</h3>
+          <p class="payNote" id="payNote">current item: a(ngst)fd front — €89</p>
+        </div>
 
-            <div class="buy-top">
-              <div class="buy-field">
-                <label class="buy-label" for="productSelect">Select piece</label>
-                <select class="buy-select" id="productSelect" aria-label="Select product">
-                  <option value="89.00" data-name="A(ngst)FD Front">A(ngst)FD Front — €89</option>
-                  <option value="59.00" data-name="Missed Appointment">Missed Appointment — €59</option>
-                  <option value="59.00" data-name="Merz — Back">Merz — Back — €59</option>
-                  <option value="59.00" data-name="You Never Walk Alone">You Never Walk Alone — €59</option>
-                </select>
-              </div>
+        <div class="checks">
+          <label class="checkline">
+            <input type="checkbox" id="termsCheck">
+            <span>I accept the <a href="#" id="termsInlineLink">terms</a>.</span>
+          </label>
 
-              <p class="payNote" id="payNote">current item: A(ngst)FD Front — €89</p>
-            </div>
+          <label class="checkline">
+            <input type="checkbox" id="privacyCheck">
+            <span>I have read the <a href="#" id="privacyInlineLink">privacy policy</a>.</span>
+          </label>
 
-            <div class="checks">
-              <label class="checkline">
-                <input type="checkbox" id="termsCheck">
-                <span>I accept the <a href="#" id="termsInlineLink">terms</a>.</span>
-              </label>
+          <label class="checkline">
+            <input type="checkbox" id="withdrawalCheck">
+            <span>I have read the <a href="#" id="withdrawalInlineLink">withdrawal policy</a>.</span>
+          </label>
+        </div>
 
-              <label class="checkline">
-                <input type="checkbox" id="privacyCheck">
-                <span>I have read the <a href="#" id="privacyInlineLink">privacy policy</a>.</span>
-              </label>
+        <div class="warn" id="paypalWarn">
+          please accept the legal notices before starting checkout.
+        </div>
 
-              <label class="checkline">
-                <input type="checkbox" id="withdrawalCheck">
-                <span>I have read the <a href="#" id="withdrawalInlineLink">withdrawal policy</a>.</span>
-              </label>
-            </div>
+        <div class="paypalSlot" id="paypalSlot">
+          <div id="paypal-button-container"></div>
+          <button class="paypalFallback" type="button" aria-hidden="true" tabindex="-1">paypal</button>
+        </div>
 
-            <div class="warn" id="paypalWarn">
-              please accept the legal notices before starting checkout.
-            </div>
-
-            <div class="paypalSlot" id="paypalSlot">
-              <div id="paypal-button-container"></div>
-              <button class="paypalFallback" type="button" aria-hidden="true" tabindex="-1">paypal</button>
-            </div>
-
-            <div class="buy-mini-note">
-              secure checkout via PayPal. shipping address is taken from buyer checkout.
-            </div>
-          </div>
+        <div class="buy-mini-note">
+          secure checkout via paypal.
         </div>
       </div>
-    </section>
-  </main>
-
+    </div>
+  </div>
+</section>
   <footer class="footer">
     <div class="wrap footer-line">
       <span>© HANGMEN</span>
@@ -1485,7 +1491,7 @@
           layout: 'vertical',
           shape: 'rect',
           label: 'paypal',
-          height: 46
+          height: 32
         },
 
         onInit: function(data, actions) {
@@ -1551,6 +1557,25 @@
         }
       }).render('#paypal-button-container');
     }
+    const productSelect = document.getElementById('productSelect');
+const payNote = document.getElementById('payNote');
+
+const PRODUCTS = {
+  "A(ngst)FD Front": "89.00",
+  "Missed Appointment": "59.00",
+  "Merz — Back": "59.00",
+  "You Never Walk Alone": "59.00"
+};
+
+function updatePayNote() {
+  const selected = productSelect.options[productSelect.selectedIndex];
+  const name = selected.dataset.name.toLowerCase();
+  const price = selected.value;
+  payNote.textContent = `current item: ${name} — €${price}`;
+}
+
+productSelect.addEventListener('change', updatePayNote);
+updatePayNote();
   </script>
 </body>
 </html>
