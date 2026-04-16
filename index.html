@@ -856,7 +856,23 @@
       font-size: 0.84rem;
       cursor: pointer;
     }
+.paypal-reset-btn {
+  width: 100%;
+  height: 34px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.04);
+  color: var(--text);
+  font-size: 0.82rem;
+  cursor: pointer;
+}
 
+.paypal-reset-btn:hover,
+.paypal-reset-btn:focus-visible {
+  border-color: rgba(217,210,202,0.24);
+  outline: none;
+}
     @media (max-width: 1160px) {
       .hero-grid {
         grid-template-columns: 1fr;
@@ -1489,10 +1505,11 @@ div[data-testid="render-container"] {
               </div>
             </div>
 
-            <div class="paypal-wrap">
-              <div id="paypal-button-container"></div>
-              <button id="paypal-placeholder" class="paypal-placeholder" type="button">PayPal Checkout</button>
-            </div>
+         <div class="paypal-wrap">
+  <button id="paypalResetBtn" class="paypal-reset-btn" type="button" hidden>Close card form</button>
+  <div id="paypal-button-container"></div>
+  <button id="paypal-placeholder" class="paypal-placeholder" type="button">PayPal Checkout</button>
+</div>
           </div>
         </div>
       </div>
@@ -1538,6 +1555,8 @@ div[data-testid="render-container"] {
     const cartTotalEl = document.getElementById('cart-total');
     const addButtons = document.querySelectorAll('.product-add-btn');
     const paypalPlaceholder = document.getElementById('paypal-placeholder');
+    const paypalResetBtn = document.getElementById('paypalResetBtn');
+const paypalContainer = document.getElementById('paypal-button-container');
 
     pieces.forEach((piece) => {
       piece.addEventListener('click', (event) => {
@@ -1775,7 +1794,13 @@ div[data-testid="render-container"] {
     if (shippingSelectEl) {
       shippingSelectEl.addEventListener('change', updateCartTotal);
     }
-
+function resetPayPalButtons() {
+  if (!paypalContainer) return;
+  paypalContainer.innerHTML = '';
+  paypalContainer.dataset.rendered = '';
+  if (paypalResetBtn) paypalResetBtn.hidden = true;
+  initPayPalButtons();
+}
     function initPayPalButtons() {
       if (!window.paypal) return;
 
@@ -1787,7 +1812,9 @@ div[data-testid="render-container"] {
       if (paypalPlaceholder) {
         paypalPlaceholder.style.display = 'none';
       }
-
+if (paypalResetBtn) {
+  paypalResetBtn.hidden = false;
+}
   paypal.Buttons({
   style: {
     layout: 'vertical',
@@ -1832,7 +1859,9 @@ div[data-testid="render-container"] {
         }
       });
     }
-
+if (paypalResetBtn) {
+  paypalResetBtn.addEventListener('click', resetPayPalButtons);
+}
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') {
         closeLightbox();
