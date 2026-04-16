@@ -1706,30 +1706,55 @@ document.addEventListener('keydown', (event) => {
   </div>
 
   <!-- RIGHT -->
-  <div class="overlay-right">
-    <h3 class="overlay-title">Checkout</h3>
+ <!-- RIGHT -->
+<div class="overlay-right">
+  <h3 class="overlay-title">Checkout</h3>
 
-   <div class="checkout-box">
-  <div id="cartItems" class="cart-items">
-    <div class="cart-placeholder">No items yet.</div>
-  </div>
-     <div class="cart-summary">
-  <div class="cart-line">
-    <span>Shipping</span>
-    <span id="shipping-cost">€6.90</span>
-  </div>
+  <div class="checkout-box">
+    <div id="cartItems" class="cart-items">
+      <div class="cart-placeholder">No items yet.</div>
+    </div>
 
-  <div class="cart-line total">
-    <span>Total</span>
-    <span id="cart-total">€0</span>
+    <div class="checkout-summary">
+      <div class="summary-line">
+        <span>Items subtotal</span>
+        <span id="itemsSubtotal">€0</span>
+      </div>
+
+      <div class="summary-line">
+        <span>Shipping</span>
+        <select id="shippingSelect" class="shipping-select">
+          <option value="6.9" selected>Germany — €6.90</option>
+          <option value="15">Europe — €15.00</option>
+          <option value="25">Worldwide — €25.00</option>
+        </select>
+      </div>
+
+      <div class="summary-line">
+        <span>Shipping cost</span>
+        <span id="shipping-cost">€0</span>
+      </div>
+
+      <div class="summary-line total">
+        <span>Total</span>
+        <span id="cart-total">€0</span>
+      </div>
+    </div>
+
+    <div class="checkout-legal">
+      <a href="#" id="overlayTermsLink">Terms</a>
+      <span>|</span>
+      <a href="#" id="overlayPrivacyLink">Privacy</a>
+      <span>|</span>
+      <a href="#" id="overlayWithdrawalLink">Withdrawal</a>
+    </div>
+
+    <div class="paypal-wrap">
+      <div id="paypal-button-container"></div>
+      <button id="paypal-placeholder" class="paypal-placeholder" type="button">PayPal Checkout</button>
+    </div>
   </div>
 </div>
-
-  <div class="checkout-summary">
-    <div class="summary-line">
-      <span>Items subtotal</span>
-      <span id="itemsSubtotal">€0</span>
-    </div>
   </div>
 </div>
   </div>
