@@ -749,6 +749,57 @@
   color: var(--muted);
   font-size: 0.9rem;
 } 
+    .cart-items {
+  display: grid;
+  gap: 10px;
+}
+
+.cart-item {
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.03);
+  padding: 10px 12px;
+}
+
+.cart-item-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.cart-item-name {
+  font-size: 0.86rem;
+  color: var(--text);
+}
+
+.cart-item-remove {
+  background: transparent;
+  border: 0;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.76rem;
+}
+
+.cart-item-meta {
+  margin-top: 4px;
+  font-size: 0.76rem;
+  color: var(--muted);
+}
+
+.checkout-summary {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 0.84rem;
+  color: var(--text);
+}
     @media (max-width: 1160px) {
       .hero-grid {
         grid-template-columns: 1fr;
@@ -1513,20 +1564,24 @@ document.addEventListener('keydown', (event) => {
           <div class="product-price">€59</div>
 
           <div class="product-controls">
-            <select class="product-select">
+            <select class="product-select" id="size-missed">
               <option>S</option>
               <option selected>M</option>
               <option>L</option>
               <option>XL</option>
             </select>
 
-            <select class="product-select">
+            <select class="product-select qty-select" id="qty-missed">
               <option>1</option>
               <option>2</option>
               <option>3</option>
             </select>
 
-            <button class="product-add-btn" type="button">Add</button>
+           <button class="product-add-btn" type="button"
+  data-name="MISSED APPOINTMENT"
+  data-price="59"
+  data-size-id="size-missed"
+  data-qty-id="qty-missed">Add</button>
           </div>
         </div>
       </div>
@@ -1547,13 +1602,23 @@ document.addEventListener('keydown', (event) => {
               <option>XL</option>
             </select>
 
-            <select class="product-select">
+           <select class="product-select" id="size-angst">
               <option>1</option>
               <option>2</option>
               <option>3</option>
             </select>
 
-            <button class="product-add-btn" type="button">Add</button>
+<select class="product-select qty-select" id="qty-angst">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+            </select>
+            
+           <button class="product-add-btn" type="button"
+  data-name="A(ngst)FD"
+  data-price="89"
+  data-size-id="size-angst"
+  data-qty-id="qty-angst">Add</button>
           </div>
         </div>
       </div>
@@ -1574,13 +1639,23 @@ document.addEventListener('keydown', (event) => {
               <option>XL</option>
             </select>
 
-            <select class="product-select">
+            <select class="product-select" id="size-merz">
               <option>1</option>
               <option>2</option>
               <option>3</option>
             </select>
 
-            <button class="product-add-btn" type="button">Add</button>
+             <select class="product-select qty-select" id="qty-merz">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+            </select>
+
+            <button class="product-add-btn" type="button"
+  data-name="Merz — Back"
+  data-price="59"
+  data-size-id="size-merz"
+  data-qty-id="qty-merz">Add</button>
           </div>
         </div>
       </div>
@@ -1601,13 +1676,23 @@ document.addEventListener('keydown', (event) => {
               <option>XL</option>
             </select>
 
-            <select class="product-select">
+            <select class="product-select" id="size-maduro">
               <option>1</option>
               <option>2</option>
               <option>3</option>
             </select>
 
-            <button class="product-add-btn" type="button">Add</button>
+             <select class="product-select qty-select" id="qty-maduro">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+            </select>
+
+           <button class="product-add-btn" type="button"
+  data-name="YOU NEVER WALK ALONE"
+  data-price="59"
+  data-size-id="size-maduro"
+  data-qty-id="qty-maduro">Add</button>
           </div>
         </div>
       </div>
@@ -1619,9 +1704,18 @@ document.addEventListener('keydown', (event) => {
   <div class="overlay-right">
     <h3 class="overlay-title">Checkout</h3>
 
-    <div class="checkout-box">
-      <div class="cart-placeholder">No items yet.</div>
+   <div class="checkout-box">
+  <div id="cartItems" class="cart-items">
+    <div class="cart-placeholder">No items yet.</div>
+  </div>
+
+  <div class="checkout-summary">
+    <div class="summary-line">
+      <span>Items subtotal</span>
+      <span id="itemsSubtotal">€0</span>
     </div>
+  </div>
+</div>
   </div>
 
 </div>
@@ -1667,6 +1761,78 @@ document.addEventListener('keydown', (event) => {
       closeSelectionOverlay();
     }
   });
-</script>  
+</script> 
+   <script>
+  const cart = [];
+  const cartItemsEl = document.getElementById('cartItems');
+  const itemsSubtotalEl = document.getElementById('itemsSubtotal');
+  const addButtons = document.querySelectorAll('.product-add-btn');
+
+  function euro(value) {
+    return '€' + value.toFixed(2).replace('.00', '');
+  }
+
+  function renderCart() {
+    if (!cartItemsEl) return;
+
+    if (cart.length === 0) {
+      cartItemsEl.innerHTML = '<div class="cart-placeholder">No items yet.</div>';
+      if (itemsSubtotalEl) itemsSubtotalEl.textContent = '€0';
+      return;
+    }
+
+    cartItemsEl.innerHTML = cart.map((item, index) => `
+      <div class="cart-item">
+        <div class="cart-item-top">
+          <div class="cart-item-name">${item.name}</div>
+          <button class="cart-item-remove" type="button" data-remove-index="${index}">Remove</button>
+        </div>
+        <div class="cart-item-meta">
+          Size: ${item.size} · Qty: ${item.qty} · ${euro(item.price * item.qty)}
+        </div>
+      </div>
+    `).join('');
+
+    const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+    if (itemsSubtotalEl) itemsSubtotalEl.textContent = euro(subtotal);
+
+    document.querySelectorAll('.cart-item-remove').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const index = Number(btn.getAttribute('data-remove-index'));
+        cart.splice(index, 1);
+        renderCart();
+      });
+    });
+  }
+
+  addButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const name = button.getAttribute('data-name');
+      const price = Number(button.getAttribute('data-price'));
+      const sizeId = button.getAttribute('data-size-id');
+      const qtyId = button.getAttribute('data-qty-id');
+
+      const sizeEl = document.getElementById(sizeId);
+      const qtyEl = document.getElementById(qtyId);
+
+      if (!sizeEl || !qtyEl) return;
+
+      const size = sizeEl.value;
+      const qty = Number(qtyEl.value);
+
+      const existing = cart.find(item => item.name === name && item.size === size);
+
+      if (existing) {
+        existing.qty += qty;
+      } else {
+        cart.push({ name, price, size, qty });
+      }
+
+      renderCart();
+    });
+  });
+
+  renderCart();
+</script> 
 </body>
 </html>
