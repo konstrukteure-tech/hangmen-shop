@@ -1420,7 +1420,25 @@
     closeModal(termsModal);
     closeModal(withdrawalModal);
   }
+.cart-summary {
+  margin-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 12px;
+}
 
+.cart-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #aaa;
+  margin-top: 6px;
+}
+
+.cart-line.total {
+  font-size: 16px;
+  color: #fff;
+  font-weight: 600;
+}
   if (contactTrigger) {
     contactTrigger.addEventListener('click', showContactPop);
   }
@@ -1594,32 +1612,27 @@ document.addEventListener('keydown', (event) => {
           <div class="product-name">A(ngst)FD</div>
           <div class="product-price">€89</div>
 
-          <div class="product-controls">
-            <select class="product-select">
-              <option>S</option>
-              <option selected>M</option>
-              <option>L</option>
-              <option>XL</option>
-            </select>
+<div class="product-controls">
+  <select class="product-select" id="size-angst">
+    <option>S</option>
+    <option selected>M</option>
+    <option>L</option>
+    <option>XL</option>
+  </select>
 
-           <select class="product-select" id="size-angst">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-            </select>
+  <select class="product-select qty-select" id="qty-angst">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+  </select>
 
-<select class="product-select qty-select" id="qty-angst">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-            </select>
+  <button class="product-add-btn" type="button"
+    data-name="A(ngst)FD"
+    data-price="89"
+    data-size-id="size-angst"
+    data-qty-id="qty-angst">Add</button>
+</div>
             
-           <button class="product-add-btn" type="button"
-  data-name="A(ngst)FD"
-  data-price="89"
-  data-size-id="size-angst"
-  data-qty-id="qty-angst">Add</button>
-          </div>
         </div>
       </div>
 
@@ -1631,32 +1644,28 @@ document.addEventListener('keydown', (event) => {
           <div class="product-name">Merz — Back</div>
           <div class="product-price">€59</div>
 
-          <div class="product-controls">
-            <select class="product-select">
-              <option>S</option>
-              <option selected>M</option>
-              <option>L</option>
-              <option>XL</option>
-            </select>
+         <div class="product-controls">
+  <select class="product-select" id="size-merz">
+    <option>S</option>
+    <option selected>M</option>
+    <option>L</option>
+    <option>XL</option>
+  </select>
 
-            <select class="product-select" id="size-merz">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-            </select>
+  <select class="product-select qty-select" id="qty-merz">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+  </select>
 
-             <select class="product-select qty-select" id="qty-merz">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-            </select>
+  <button class="product-add-btn" type="button"
+    data-name="Merz — Back"
+    data-price="59"
+    data-size-id="size-merz"
+    data-qty-id="qty-merz">Add</button>
+</div>
 
-            <button class="product-add-btn" type="button"
-  data-name="Merz — Back"
-  data-price="59"
-  data-size-id="size-merz"
-  data-qty-id="qty-merz">Add</button>
-          </div>
+
         </div>
       </div>
 
@@ -1668,32 +1677,28 @@ document.addEventListener('keydown', (event) => {
           <div class="product-name">YOU NEVER WALK ALONE</div>
           <div class="product-price">€59</div>
 
-          <div class="product-controls">
-            <select class="product-select">
-              <option>S</option>
-              <option selected>M</option>
-              <option>L</option>
-              <option>XL</option>
-            </select>
+         <div class="product-controls">
+  <select class="product-select" id="size-maduro">
+    <option>S</option>
+    <option selected>M</option>
+    <option>L</option>
+    <option>XL</option>
+  </select>
 
-            <select class="product-select" id="size-maduro">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-            </select>
+  <select class="product-select qty-select" id="qty-maduro">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+  </select>
 
-             <select class="product-select qty-select" id="qty-maduro">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-            </select>
+  <button class="product-add-btn" type="button"
+    data-name="YOU NEVER WALK ALONE"
+    data-price="59"
+    data-size-id="size-maduro"
+    data-qty-id="qty-maduro">Add</button>
+</div>
 
-           <button class="product-add-btn" type="button"
-  data-name="YOU NEVER WALK ALONE"
-  data-price="59"
-  data-size-id="size-maduro"
-  data-qty-id="qty-maduro">Add</button>
-          </div>
+
         </div>
       </div>
 
@@ -1708,6 +1713,17 @@ document.addEventListener('keydown', (event) => {
   <div id="cartItems" class="cart-items">
     <div class="cart-placeholder">No items yet.</div>
   </div>
+     <div class="cart-summary">
+  <div class="cart-line">
+    <span>Shipping</span>
+    <span id="shipping-cost">€6.90</span>
+  </div>
+
+  <div class="cart-line total">
+    <span>Total</span>
+    <span id="cart-total">€0</span>
+  </div>
+</div>
 
   <div class="checkout-summary">
     <div class="summary-line">
@@ -1771,15 +1787,30 @@ document.addEventListener('keydown', (event) => {
   function euro(value) {
     return '€' + value.toFixed(2).replace('.00', '');
   }
+function updateCartTotal() {
+  let subtotal = 0;
+
+  cart.forEach(item => {
+    subtotal += item.price * item.qty;
+  });
+
+  const shipping = cart.length > 0 ? 6.9 : 0;
+  const total = subtotal + shipping;
+
+  const totalEl = document.getElementById('cart-total');
+  if (totalEl) {
+    totalEl.textContent = "€" + total.toFixed(2);
+  }
+}
 
   function renderCart() {
     if (!cartItemsEl) return;
 
     if (cart.length === 0) {
-      cartItemsEl.innerHTML = '<div class="cart-placeholder">No items yet.</div>';
-      if (itemsSubtotalEl) itemsSubtotalEl.textContent = '€0';
-      return;
-    }
+  cartItemsEl.innerHTML = `<div class="cart-placeholder">No items yet.</div>`;
+  updateCartTotal();
+  return;
+}
 
     cartItemsEl.innerHTML = cart.map((item, index) => `
       <div class="cart-item">
@@ -1793,8 +1824,7 @@ document.addEventListener('keydown', (event) => {
       </div>
     `).join('');
 
-    const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
-    if (itemsSubtotalEl) itemsSubtotalEl.textContent = euro(subtotal);
+    updateCartTotal();
 
     document.querySelectorAll('.cart-item-remove').forEach((btn) => {
       btn.addEventListener('click', () => {
