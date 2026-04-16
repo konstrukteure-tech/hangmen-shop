@@ -1072,6 +1072,17 @@
         max-width: 96vw;
         max-height: 84vh;
       }
+     iframe[src*="paypal"],
+div[data-testid="render-container"] {
+  z-index: 300 !important;
+}
+
+[data-testid="close-sdk-fullpage-modal"],
+.paypal-checkout-sandbox-close,
+.pps-modal__close {
+  z-index: 99999 !important;
+  pointer-events: auto !important;
+} 
     }
   </style>
 </head>
@@ -1777,13 +1788,20 @@
         paypalPlaceholder.style.display = 'none';
       }
 
-      paypal.Buttons({
-        style: {
-          layout: 'vertical',
-          shape: 'rect',
-          label: 'paypal',
-          height: 38
-        },
+  paypal.Buttons({
+  style: {
+    layout: 'vertical',
+    shape: 'rect',
+    label: 'paypal',
+    height: 38
+  },
+  onClick: function() {
+    const closeBtn = document.querySelector('[data-testid="close-sdk-fullpage-modal"], .paypal-checkout-sandbox-close, .pps-modal__close, .close');
+    if (closeBtn) {
+      closeBtn.style.zIndex = '9999';
+      closeBtn.style.pointerEvents = 'auto';
+    }
+  },
         createOrder: function(data, actions) {
           const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
           const shipping = cart.length > 0 && shippingSelectEl ? Number(shippingSelectEl.value) : 0;
