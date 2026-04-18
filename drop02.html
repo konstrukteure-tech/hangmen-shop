@@ -46,23 +46,28 @@ a.brand:visited {
 }
 
 .topbar-inner {
-  min-height: 74px;
-  display: flex;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-start;
   justify-content: space-between;
+  gap: 12px;
 }
 
 .brand {
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 0.42em;
-  text-transform: uppercase;
+  font-size: 0.82rem;
+  letter-spacing: 0.28em;
+  white-space: nowrap;
+  flex: 0 0 auto;
 }
 
 .nav {
-  display: flex;
-  gap: 24px;
-  color: var(--muted);
+  gap: 12px;
+  flex-wrap: nowrap;
+  font-size: 0.82rem;
+  flex: 0 1 auto;
+}
+
+.nav a {
+  white-space: nowrap;
 }
 
 .nav a {
