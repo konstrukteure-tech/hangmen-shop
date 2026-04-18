@@ -80,24 +80,18 @@ a.brand:visited {
   align-items: center;
   justify-content: center;
 }
-a.brand {
-  color: #d9d2ca !important;
-}
- a.brand,
-a.brand:hover,
-a.brand:focus,
-a.brand:visited {
-  color: #d9d2ca !important;
-} 
+
 .center {
   text-align: center;
 }
 
 .eyebrow {
   color: var(--muted);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
+  text-transform: uppercase;
   letter-spacing: 0.14em;
   margin-bottom: 14px;
+  text-align: center;
 }
 
 h1 {
@@ -112,13 +106,24 @@ h1 {
   font-size: 1rem;
 }
 
-.back {
+.back,
+.back:hover,
+.back:focus,
+.back:visited {
   margin-top: 30px;
   display: inline-block;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
   padding: 10px 16px;
   border-radius: 10px;
   color: var(--text);
+  text-decoration: none;
+  font-size: 0.82rem;
+  background: rgba(255,255,255,0.04);
+}
+
+.back:hover {
+  border-color: rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.08);
 }
 </style>
 </head>
@@ -137,7 +142,7 @@ h1 {
 
 <section class="hero">
   <div class="center">
-    <div class="eyebrow">Limited pieces / no restock</div>
+   <div class="eyebrow">LIMITED PIECES / NO RESTOCK</div>
     <h1>DROP 02</h1>
     <div class="sub">COMING.</div>
     <a class="back" href="index.html">Back</a>
