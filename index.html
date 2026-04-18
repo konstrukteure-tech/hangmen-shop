@@ -954,11 +954,11 @@ h1 {
       }
 
       h1 {
-        font-size: clamp(2.6rem, 13vw, 4.2rem);
-        line-height: 0.96;
-        letter-spacing: 0.08em;
-        white-space: normal;
-      }
+  font-size: clamp(2.2rem, 10vw, 3.4rem);
+  line-height: 0.98;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
 
       .hero-copy {
         margin: 12px 0 0;
@@ -995,13 +995,13 @@ h1 {
         grid-auto-rows: auto;
       }
 
-      .piece,
-      .piece-large,
-      .piece-wide {
-        grid-column: span 1;
-        grid-row: span 1;
-        min-height: 420px;
-      }
+     .piece,
+.piece-large,
+.piece-wide {
+  grid-column: span 1;
+  grid-row: span 1;
+  min-height: 340px;
+}
 
       .piece-image.contain {
         padding: 10px;
@@ -1035,14 +1035,23 @@ h1 {
         transform: scale(1.02) translateX(18px);
       }
 
-      .piece-info h3 {
-        font-size: 1.2rem;
-      }
+.piece-info {
+  padding: 14px;
+}
 
-      .piece-info p {
-        font-size: 0.92rem;
-        max-width: 24ch;
-      }
+.piece-info h3 {
+  font-size: 1rem;
+  line-height: 1.02;
+}
+
+.piece-info p {
+  font-size: 0.82rem;
+  max-width: 20ch;
+}
+
+.piece-price {
+  font-size: 0.82rem;
+}
 
       .piece-meta {
         left: 14px;
