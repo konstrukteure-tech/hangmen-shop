@@ -908,7 +908,26 @@ h1 {
       .product-controls {
         grid-template-columns: 1fr 72px 88px;
       }
+.alice-piece .piece-info,
+.merz-piece .piece-info {
+  position: relative;
+  inset: auto;
+  top: auto;
+  bottom: auto;
+  background: none;
+  max-width: none;
+  height: auto;
+  display: block;
+  padding: 16px 16px 18px;
+}
 
+.alice-front .piece-image,
+.merz-front .piece-image.contain,
+.merz-back .piece-image.contain {
+  transform: none;
+  object-position: center;
+  padding: 0;
+}
       .bottom-panel {
         flex-direction: column;
         align-items: flex-start;
