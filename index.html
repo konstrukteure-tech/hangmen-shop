@@ -913,10 +913,11 @@ h1 {
   }
 
   .topbar-inner,
-  .drop-head {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+.drop-head {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
 
   .nav {
     gap: 14px;
@@ -1149,7 +1150,7 @@ h1 {
     <div class="wrap topbar-inner">
       <a class="brand" href="#top">H A N G M E N</a>
  <nav class="nav" aria-label="Main navigation">
-  <a href="#drop01">Drop 01</a>
+  <a href="#drop<a href="#drop01" onclick="document.getElementById('drop01').scrollIntoView({behavior:'smooth'}); return false;">Drop 01</a>01">Drop 01</a>
   <a href="drop02.html">Drop 02</a>
   <a href="#contact" id="contactTrigger">Contact</a>
 </nav>
