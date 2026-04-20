@@ -833,7 +833,39 @@
       padding-top: 18px;
       border-top: 1px solid rgba(255,255,255,0.08);
     }
+.checkout-consent {
+  margin-bottom: 14px;
+  padding: 10px 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.03);
+}
 
+.consent-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.35;
+  cursor: pointer;
+}
+
+.consent-line input[type="checkbox"] {
+  margin: 2px 0 0;
+  flex: 0 0 auto;
+}
+
+.consent-line a {
+  color: var(--soft);
+  text-decoration: none;
+}
+
+.consent-line a:hover,
+.consent-line a:focus-visible {
+  color: var(--text);
+  outline: none;
+}
     #paypal-button-container {
       min-height: 40px;
     }
@@ -1662,9 +1694,16 @@ German law applies. Place of jurisdiction is Lübeck, Germany, where legally per
             </div>
 
             <div class="paypal-wrap">
-              <div id="paypal-button-container"></div>
-              <button id="paypal-placeholder" class="paypal-placeholder" type="button">PayPal Checkout</button>
-            </div>
+  <div class="checkout-consent">
+    <label class="consent-line">
+      <input type="checkbox" id="acceptTerms">
+      <span>I accept the <a href="#" id="termsInlineLink">Terms &amp; Conditions</a>.</span>
+    </label>
+  </div>
+
+  <div id="paypal-button-container"></div>
+  <button id="paypal-placeholder" class="paypal-placeholder" type="button">PayPal Checkout</button>
+</div>
           </div>
         </div>
       </div>
@@ -1687,6 +1726,8 @@ German law applies. Place of jurisdiction is Lübeck, Germany, where legally per
     const privacyLink = document.getElementById('privacyLink');
     const termsLink = document.getElementById('termsLink');
     const withdrawalButton = document.getElementById('withdrawalButton');
+    const termsInlineLink = document.getElementById('termsInlineLink');
+const acceptTermsCheckbox = document.getElementById('acceptTerms');
 
     const imprintModal = document.getElementById('imprintModal');
     const privacyModal = document.getElementById('privacyModal');
@@ -1792,7 +1833,12 @@ German law applies. Place of jurisdiction is Lübeck, Germany, where legally per
         openModal(termsModal);
       });
     }
-
+if (termsInlineLink) {
+  termsInlineLink.addEventListener('click', (event) => {
+    event.preventDefault();
+    openModal(termsModal);
+  });
+}
     if (withdrawalButton) {
       withdrawalButton.addEventListener('click', () => {
         openModal(withdrawalModal);
@@ -1951,14 +1997,16 @@ German law applies. Place of jurisdiction is Lübeck, Germany, where legally per
     function initPayPalButtons() {
       if (!window.paypal) return;
 
-      const container = document.getElementById('paypal-button-container');
-      if (!container || container.dataset.rendered === 'true') return;
+     const container = document.getElementById('paypal-button-container');
+if (!container || container.dataset.rendered === 'true') return;
 
-      container.dataset.rendered = 'true';
+if (!acceptTermsCheckbox || !acceptTermsCheckbox.checked) return;
 
-      if (paypalPlaceholder) {
-        paypalPlaceholder.style.display = 'none';
-      }
+container.dataset.rendered = 'true';
+
+if (paypalPlaceholder) {
+  paypalPlaceholder.style.display = 'none';
+}
 
   paypal.Buttons({
   style: {
@@ -1997,13 +2045,18 @@ German law applies. Place of jurisdiction is Lübeck, Germany, where legally per
       }).render('#paypal-button-container');
     }
 
-    if (paypalPlaceholder) {
-      paypalPlaceholder.addEventListener('click', () => {
-        if (window.paypal) {
-          initPayPalButtons();
-        }
-      });
+if (paypalPlaceholder) {
+  paypalPlaceholder.addEventListener('click', () => {
+    if (!acceptTermsCheckbox || !acceptTermsCheckbox.checked) {
+      alert('Please accept the Terms & Conditions before checkout.');
+      return;
     }
+
+    if (window.paypal) {
+      initPayPalButtons();
+    }
+  });
+}
 
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') {
